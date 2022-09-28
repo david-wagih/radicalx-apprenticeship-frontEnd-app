@@ -7,7 +7,7 @@ const LogIn: FC = () => {
         <InputField
             type="text"
             //NOTE just example of using tailwind css
-            className="form-control border border-red-500"
+            className="form-control border border-red-600"
             name="email"
             value=""
             placeholder="Email"

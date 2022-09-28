@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer basep{
+    body{
+        font-family: 'Space Grotesk', sans-serif;
+    }
+}
