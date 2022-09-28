@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import InputField from '../../components/InputField';
+import InputField from '../../components/InputField/InputField';
 
 const LogIn: FC = () => {
     const [email, setEmail] = useState('');
