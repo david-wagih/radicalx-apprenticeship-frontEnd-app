@@ -15,11 +15,13 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.4.1",
-        "react-uuid": "^1.0.3"
+        "react-uuid": "^1.0.3",
+        "validator": "^13.7.0"
     },
     "devDependencies": {
         "@types/react": "^18.0.17",
         "@types/react-dom": "^18.0.6",
+        "@types/validator": "^13.7.7",
         "@typescript-eslint/eslint-plugin": "^5.38.1",
         "@typescript-eslint/parser": "^5.38.1",
         "@vitejs/plugin-react": "^2.1.0",

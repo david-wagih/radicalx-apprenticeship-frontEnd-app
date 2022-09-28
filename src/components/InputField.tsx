@@ -9,7 +9,7 @@ const key = uuid();
 interface InputProps {
     type: string;
     className: string;
-    value: string;
+    defaultValue: string;
     name: string;
     placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,7 +21,7 @@ const InputField: FC<InputProps> = ({
     type,
     className,
     name,
-    value,
+    defaultValue,
     placeholder,
     onChange
 }) => {
@@ -35,7 +35,7 @@ const InputField: FC<InputProps> = ({
                 type={type}
                 className={className}
                 name={name}
-                value={value}
+                defaultValue={defaultValue}
                 placeholder={placeholder}
                 key={key}
                 required
