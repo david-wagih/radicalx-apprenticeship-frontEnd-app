@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import validator from 'validator';
 
-import InputField from '../../components/InputField';
+import InputField from '../../components/InputField/InputField';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
