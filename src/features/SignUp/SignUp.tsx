@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { render } from 'react-dom';
 import validator from 'validator';
 
 import InputField from '../../components/InputField';
