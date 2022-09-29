@@ -9,7 +9,7 @@ interface CircleAndTextProps {
 }
 
 const CircleAndText: FC<CircleAndTextProps> = ({ text, checked, name }) => {
-    const marginRight = name === 'one' ? 'mr-24' : 'mr-0';
+    const marginRight = name === 'One' ? 'mr-24' : 'mr-0';
     return (
         <div
             className={`${name}-circle-text

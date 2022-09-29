@@ -11,8 +11,7 @@ const Text: FC<TextProps> = ({ text, checked, name }) => {
     return (
         <div
             className={`${name}-text
-    order-1 flex h-6  w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 ${color}
-    `}
+    order-1 flex h-6  w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 ${color}    `}
             key={`${name}-text`}
         >
             {text}
