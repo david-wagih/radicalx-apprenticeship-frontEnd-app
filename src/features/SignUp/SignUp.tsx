@@ -2,6 +2,9 @@ import { FC, useState } from 'react';
 import validator from 'validator';
 
 import InputField from '../../components/InputField/InputField';
+import NonRequiredInput from '../../components/NonRequiredInputField/NonRequiredInputField';
+
+import { validateEmail } from './Controller';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
@@ -9,9 +12,8 @@ const SignUp: FC = () => {
         password: ''
     });
 
-    const [message, setMessage] = useState('');
-
-    const [errorMessage, setErrorMessage] = useState('');
+    const [emailErrormessage, setEmailMessage] = useState('');
+    const [passwordErrorMessage, setPasswordMessage] = useState('');
 
     const validate = (value: any) => {
         if (
@@ -23,21 +25,21 @@ const SignUp: FC = () => {
                 minSymbols: 1
             })
         ) {
-            setErrorMessage('Is Strong Password');
+            // setErrorMessage('Is Strong Password');
         } else {
-            setErrorMessage('Is Not Strong Password');
+            // setErrorMessage('Is Not Strong Password');
         }
     };
 
-    const validateEmail = (e: any) => {
-        const email = e.target.value;
+    // const validateEmail = (e: any) => {
+    //     const email = e.target.value;
 
-        if (validator.isEmail(email)) {
-            setMessage('');
-        } else {
-            setMessage('Please, enter valid Email!');
-        }
-    };
+    //     if (validator.isEmail(email)) {
+    //         setMessage('');
+    //     } else {
+    //         setMessage('Please, enter valid Email!');
+    //     }
+    // };
 
     // const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const changeHandler = (e: any) => {
@@ -60,36 +62,53 @@ const SignUp: FC = () => {
                     src="src/assets/Images/RadicalX logo.png"
                     className="top-[77px] left-[1034px] w-[200px] h-[40px] fixed"
                 />
-                <form className="top-[363px] left-[954px] fixed flex-auto space-y-4">
+                <form className="top-[300px] left-[954px] fixed flex-auto space-y-4">
                     <p className="text-xl font-medium tracking-[.4px] leading-[24px]">
                         Sign Up
                     </p>
-
+                    <NonRequiredInput
+                        type="text"
+                        //NOTE just example of using tailwind css
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/profileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
+                        name="name"
+                        defaultValue=""
+                        placeholder="Name"
+                        onChange={e => e}
+                    />
+                    <NonRequiredInput
+                        type="number"
+                        //NOTE just example of using tailwind css
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/mobileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
+                        name="phone"
+                        defaultValue=""
+                        placeholder="PhoneNumber"
+                        onChange={e => e}
+                    />
                     <InputField
                         type="text"
                         //NOTE just example of using tailwind css
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#CECECE] border-2 border-[#CECECE] "
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/sms.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="email"
                         defaultValue=""
                         placeholder="Email"
                         onChange={e => validateEmail(e)}
                     />
                     <br />
-                    <span style={{ fontWeight: 'bold', color: 'red' }}>
+                    {/* <span style={{ fontWeight: 'bold', color: 'red' }}>
                         {' '}
                         {message}
                         <br />
-                    </span>
+                    </span> */}
                     <InputField
                         type="text"
                         //NOTE just example of using tailwind css
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#CECECE] border-2 border-[#CECECE] "
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/lock.svg')] bg-[center_left_-12.5rem] bg-no-repeat  pl-10"
                         name="password"
                         defaultValue=""
                         placeholder="Password"
                         onChange={e => validate(e.target.value)}
                     />
-                    {errorMessage === '' ? null : (
+                    {/* {errorMessage === '' ? null : (
                         <span
                             style={{
                                 fontWeight: 'bold',
@@ -98,7 +117,7 @@ const SignUp: FC = () => {
                         >
                             {errorMessage}
                         </span>
-                    )}
+                    )} */}
                     <button
                         name="signUp"
                         className="w-[360px] h-[48px] rounded-2xl  bg-rdx-purple text-[#FFFFFF] border-2 border-[#CECECE] "
