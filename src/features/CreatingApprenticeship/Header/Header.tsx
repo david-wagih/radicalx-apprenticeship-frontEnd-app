@@ -1,8 +1,10 @@
 import { FC } from 'react';
 
-import BackIcon from './BackIcon/BackIcon';
-import PublishApprenticeshipButton from './PublishApprenticeshipButton/PublishApprenticeshipButton';
-import Title from './Title/Title';
+import CreateButton from '../../../components/CreateButton/CreateButton';
+import PublishButton from '../../../components/PublishButton/PublishButton';
+
+import BackIcon from '../../../components/BackIcon/BackIcon';
+import Title from '../../../components/Title/Title';
 
 BackIcon;
 const Header: FC = () => {
@@ -14,7 +16,7 @@ const Header: FC = () => {
         >
             <BackIcon />
             <Title />
-            <PublishApprenticeshipButton />
+            <PublishButton color="" />
         </div>
     );
 };
