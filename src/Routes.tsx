@@ -5,8 +5,7 @@ import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingAp
 import LogIn from './features/LogIn/LogIn';
 import SignUp from './features/SignUp/SignUp';
 
-interface RoutesProps {}
-const RoutesComponent: FC<RoutesProps> = () => {
+const RoutesComponent: FC = () => {
     return (
         <BrowserRouter>
             <Routes>
