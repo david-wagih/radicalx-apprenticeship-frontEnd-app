@@ -1,16 +1,23 @@
 import { FC, useState } from 'react';
 
-const UploadLogo: FC = () => {
+const LogoAndTitle: FC = () => {
     const [file, setFile] = useState<File | null>(null);
+
     const clickUploadLogo = () => {
-        const click = document.getElementById('#uploadLogo')?.click();
+        document.getElementById('#uploadLogo')?.click();
     };
+
     const handleUploadingLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         setFile(file || null);
     };
+
     return (
-        <>
+        <div
+            className="logo-title flex flex-row items-center p-0 h-20 flex-none order-1 self-stretch flex-grow-0
+        gap-[24px] isolate width-[ 722px]
+        "
+        >
             <input
                 id="#uploadLogo"
                 type="file"
@@ -35,7 +42,7 @@ const UploadLogo: FC = () => {
                     viewBox="0 0 28 28"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="flex flex-row items-start p-1 absolute w-6 h-6 bg-blue-600 flex-none order-2 flex-grow-0 z-[2] rounded-[10px] top-[61px] left-[61px] gap-[10px]"
+                    className="flex flex-row items-start p-1 absolute w-6 h-6 bg-blue-600 flex-none order-2 flex-grow-0 z-[2] rounded-[10px] top-[125px] left-[90px] gap-[10px]"
                 >
                     <rect width="28" height="28" rx="10" fill="#2153FF" />
                     <path
@@ -50,8 +57,13 @@ const UploadLogo: FC = () => {
                     />
                 </svg>
             </div>
-        </>
+            <input
+                type="text"
+                className="title h-6 not-italic on font-normal text-2xl leading-6 flex items-center text-gray-900 flex-none order-1 flex-grow-0
+            w-[480px] z-[1] border-none outline-none"
+            />
+        </div>
     );
 };
 
-export default UploadLogo;
+export default LogoAndTitle;

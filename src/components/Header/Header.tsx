@@ -1,10 +1,9 @@
 import { FC } from 'react';
 
-import CreateButton from '../../../components/CreateButton/CreateButton';
-import PublishButton from '../../../components/PublishButton/PublishButton';
-
-import BackIcon from '../../../components/BackIcon/BackIcon';
-import Title from '../../../components/Title/Title';
+import BackIcon from '../BackIcon/BackIcon';
+import CreateButton from '../CreateButton/CreateButton';
+import PublishButton from '../PublishButton/PublishButton';
+import Title from '../Title/Title';
 
 BackIcon;
 const Header: FC = () => {

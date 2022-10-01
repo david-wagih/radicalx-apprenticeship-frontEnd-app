@@ -1,18 +1,24 @@
-import { FC } from 'react';
+import { Children, FC } from 'react';
 
 import CardHeader from './CardHeader/CardHeader';
-import UploadLogo from './UploadLogo/UploadLogo';
-
-const FormCard: FC = () => {
+interface formCardProps {
+    header: string;
+    key: string;
+    children: JSX.Element;
+}
+const FormCard: FC<formCardProps> = (
+    props: React.PropsWithChildren<formCardProps>
+) => {
     return (
         <div
             className="form-card box-border flex flex-col items-start p-6 h-fit bg-white flex-none order-none flex-grow-0
-        gap-[16px] width-[770px] border-[1px]  border-[#793EF5] border-solid rounded-[24px]
+        gap-[16px] w-full border-[1px]  border-[#793EF5] border-solid rounded-[24px]
         z-[7]
         "
+            key={props.key}
         >
-            <CardHeader text="Company Logo & Apprenticeship Title" />
-            <UploadLogo />
+            <CardHeader header={props.header} />
+            {props.children}
         </div>
     );
 };
