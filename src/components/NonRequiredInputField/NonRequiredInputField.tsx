@@ -6,7 +6,7 @@ import uuid from 'react-uuid';
 //an interface is bound to implement all its members.
 
 const key = uuid();
-interface InputProps {
+interface NonRequiredInputProps {
     type: string;
     className: string;
     defaultValue: string;
@@ -17,7 +17,7 @@ interface InputProps {
 //NOTE :FC means that our component is a FunctionComponent
 
 //NOTE: <InputsProps> means that our component will receive props of type InputProps
-const InputField: FC<InputProps> = ({
+const InputField: FC<NonRequiredInputProps> = ({
     type,
     className,
     name,

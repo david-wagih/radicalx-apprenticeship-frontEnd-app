@@ -25,16 +25,23 @@ const SignUp: FC = () => {
         setPasswordShown(!passwordShown);
     };
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.currentTarget.name === 'email') {
+            validateEmail(e.target.value, setEmailErrorMessage);
+        }
+        if (e.currentTarget.name === 'password') {
+            validatePassword(e.target.value, setPasswordErrorMessage);
+        }
         setForm({
             ...form,
             [e.currentTarget.name]: e.currentTarget.value
         });
-        console.log(form);
+        console.log('change', form);
     };
 
     const handleSubmit = () => {
-        console.log(form);
+        console.log('submit', form);
     };
+
     return (
         <>
             <div className="h-screen w-1/2 pos fixed z-[1] top-0 overflow-hidden left-0 bg-rdx-purple"></div>
@@ -44,79 +51,111 @@ const SignUp: FC = () => {
                     src="src/assets/Images/RadicalX logo.png"
                     className="top-[77px] left-[1034px] w-[200px] h-[40px] fixed"
                 />
-                <form className="top-[300px] left-[954px] fixed flex-auto space-y-4">
+                <form
+                    className="top-[300px] left-[954px] fixed flex-auto space-y-4"
+                    onSubmit={handleSubmit}
+                >
                     <p className="text-xl font-medium tracking-[.4px] leading-[24px]">
                         Sign Up
                     </p>
-                    <NonRequiredInput
-                        type="text"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/profileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
-                        name="name"
-                        defaultValue=""
-                        placeholder="Name"
-                        onChange={e => e}
-                    />
-                    <NonRequiredInput
-                        type="number"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/mobileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
-                        name="phoneNumber"
-                        defaultValue=""
-                        placeholder="PhoneNumber"
-                        onChange={e => e}
-                    />
-                    <InputField
-                        type="text"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/sms.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
-                        name="email"
-                        defaultValue=""
-                        placeholder="Email"
-                        onChange={e =>
-                            validateEmail(e.target.value, setEmailErrorMessage)
-                        }
-                    />
+                    <div className="flex  w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE] pl-5">
+                        <img
+                            alt="ProfileIcon"
+                            src="src/assets/Images/profileIcon.svg"
+                            className="flex-none w-[18px] h-[22px] translate-y-2.5 "
+                        ></img>
+                        <NonRequiredInput
+                            type="text"
+                            className="w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-none outline-none pl-1"
+                            name="name"
+                            defaultValue=""
+                            placeholder="Name"
+                            onChange={changeHandler}
+                        />
+                    </div>
+                    <div className="flex  w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE] pl-5">
+                        <img
+                            alt="ProfileIcon"
+                            src="src/assets/Images/mobileIcon.svg"
+                            className="flex-none w-[18px] h-[22px] translate-y-2.5 "
+                        ></img>
+                        <NonRequiredInput
+                            type="number"
+                            className="w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-none outline-none pl-1"
+                            name="phoneNumber"
+                            defaultValue=""
+                            placeholder="PhoneNumber"
+                            onChange={changeHandler}
+                        />
+                    </div>
+                    <div className="flex  w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE] pl-5">
+                        <img
+                            alt="MailIcon"
+                            src="src/assets/Images/sms.svg"
+                            className="flex-none w-[18px] h-[22px] translate-y-2.5 "
+                        ></img>
+                        <InputField
+                            type="text"
+                            className="w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-none outline-none pl-1"
+                            name="email"
+                            defaultValue=""
+                            placeholder="Email"
+                            // onChange={e =>
+                            //     validateEmail(e.target.value, setEmailErrorMessage)
+                            // }
+                            onChange={changeHandler}
+                        />
+                    </div>
                     {emailErrormessage && (
-                        <span
-                            style={{
-                                fontWeight: 'bold',
-                                color: 'red'
-                            }}
-                        >
-                            {emailErrormessage}
-                        </span>
+                        <div className="flex w-[360px] h-[40px] rounded-2xl bg-[#FDEDED] text-[#5F2120] items-center self-center py-2 pl-5	">
+                            <img
+                                alt="AlertIcon"
+                                src="src/assets/Images/alertIconRed.svg"
+                                className="flex-none w-[18px] h-[22px]  "
+                            ></img>
+                            <span className="pl-1">{emailErrormessage}</span>
+                        </div>
                     )}
-                    <div className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE]">
+                    <div className="flex w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE] pl-5">
+                        <img
+                            alt="lockIcon"
+                            src="src/assets/Images/passLock.svg"
+                            className="flex-none w-[18px] h-[22px] translate-y-2.5 "
+                        ></img>
                         <InputField
                             type={passwordShown ? 'text' : 'password'}
-                            className=" w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/lock.svg')] bg-[center_left_-12.5rem] bg-no-repeat  pl-10"
+                            className="w-[280px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-none outline-none pl-1"
                             name="password"
                             defaultValue=""
                             placeholder="Password"
-                            onChange={e =>
-                                validatePassword(
-                                    e.target.value,
-                                    setPasswordErrorMessage
-                                )
-                            }
+                            // onChange={e =>
+                            //     validatePassword(
+                            //         e.target.value,
+                            //         setPasswordErrorMessage
+                            //     )
+                            // }
+                            onChange={changeHandler}
                         />
                         <button onClick={togglePassword}>
                             <img
                                 alt="show Password"
                                 src="src/assets/Images/visible.svg"
-                                className="relative  pl-5 translate-y-0.5"
+                                className="relative  pl-2 translate-y-0.5"
                             ></img>
                         </button>
                     </div>
                     {passwordErrorMessage && (
-                        <span
-                            style={{
-                                fontWeight: 'bold',
-                                color: 'red'
-                            }}
-                        >
-                            {passwordErrorMessage}
-                        </span>
+                        <div className="flex w-[360px] h-[40px] rounded-2xl bg-[#FDEDED] text-[#5F2120] items-center self-center py-2 pl-5	">
+                            <img
+                                alt="AlertIcon"
+                                src="src/assets/Images/alertIconRed.svg"
+                                className="flex-none w-[18px] h-[22px]  "
+                            ></img>
+                            <span className="pl-1">{passwordErrorMessage}</span>
+                        </div>
                     )}
                     <button
+                        type="submit"
                         name="signUp"
                         className="w-[360px] h-[48px] rounded-2xl  bg-rdx-purple text-[#FFFFFF] border-2 border-[#CECECE] "
                     >
