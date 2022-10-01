@@ -1,12 +1,32 @@
 import validator from 'validator';
 
-export const validateEmail = (email: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('validate', email);
-    if (validator.isEmail(email.toString())) {
-        return '';
-    } else {
-        return 'Please, enter valid Email!';
+//FIXME we need to set the error message when the user hits the submit button not with every click
+export const validatePassword = (
+    value: string,
+    setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
+) => {
+    setPasswordErrorMessage('');
+    if (
+        !validator.isStrongPassword(value, {
+            minLength: 8,
+            minLowercase: 1,
+            minUppercase: 1,
+            minNumbers: 1,
+            minSymbols: 1
+        })
+    ) {
+        setPasswordErrorMessage('Is Not Strong Password');
     }
 };
 
-//export const validatePassword = (password: string) => {};
+export const validateEmail = (
+    value: string,
+    setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>
+) => {
+    setEmailErrorMessage('');
+    const email = value;
+
+    if (!validator.isEmail(email)) {
+        setEmailErrorMessage('Please, enter valid Email!');
+    }
+};
