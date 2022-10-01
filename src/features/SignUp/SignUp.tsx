@@ -4,7 +4,7 @@ import validator from 'validator';
 import InputField from '../../components/InputField/InputField';
 import NonRequiredInput from '../../components/NonRequiredInputField/NonRequiredInputField';
 
-import { validateEmail } from './Controller';
+import { validateEmail, validatePassword } from './Controller';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
@@ -14,35 +14,16 @@ const SignUp: FC = () => {
         password: ''
     });
 
-    const [emailErrormessage, setEmailMessage] = useState('');
-    const [passwordErrorMessage, setPasswordMessage] = useState('');
+    const [emailErrormessage, setEmailErrorMessage] = useState('');
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+    const [passwordShown, setPasswordShown] = useState(false);
 
-    const validate = (value: any) => {
-        if (
-            validator.isStrongPassword(value, {
-                minLength: 8,
-                minLowercase: 1,
-                minUppercase: 1,
-                minNumbers: 1,
-                minSymbols: 1
-            })
-        ) {
-            // setErrorMessage('Is Strong Password');
-        } else {
-            // setErrorMessage('Is Not Strong Password');
-        }
+    // Password toggle handler
+    const togglePassword = () => {
+        // When the handler is invoked
+        // inverse the boolean state of passwordShown
+        setPasswordShown(!passwordShown);
     };
-
-    // const validateEmail = (e: any) => {
-    //     const email = e.target.value;
-
-    //     if (validator.isEmail(email)) {
-    //         setMessage('');
-    //     } else {
-    //         setMessage('Please, enter valid Email!');
-    //     }
-    // };
-
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({
             ...form,
@@ -69,7 +50,7 @@ const SignUp: FC = () => {
                     </p>
                     <NonRequiredInput
                         type="text"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/profileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/profileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="name"
                         defaultValue=""
                         placeholder="Name"
@@ -77,7 +58,7 @@ const SignUp: FC = () => {
                     />
                     <NonRequiredInput
                         type="number"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/mobileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/mobileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="phoneNumber"
                         defaultValue=""
                         placeholder="PhoneNumber"
@@ -85,36 +66,56 @@ const SignUp: FC = () => {
                     />
                     <InputField
                         type="text"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/sms.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
+                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/sms.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="email"
                         defaultValue=""
                         placeholder="Email"
-                        onChange={e => validateEmail(e)}
+                        onChange={e =>
+                            validateEmail(e.target.value, setEmailErrorMessage)
+                        }
                     />
-                    <br />
-                    {/* <span style={{ fontWeight: 'bold', color: 'red' }}>
-                        {' '}
-                        {message}
-                        <br />
-                    </span> */}
-                    <InputField
-                        type="text"
-                        className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/lock.svg')] bg-[center_left_-12.5rem] bg-no-repeat  pl-10"
-                        name="password"
-                        defaultValue=""
-                        placeholder="Password"
-                        onChange={e => validate(e.target.value)}
-                    />
-                    {/* {errorMessage === '' ? null : (
+                    {emailErrormessage && (
                         <span
                             style={{
                                 fontWeight: 'bold',
                                 color: 'red'
                             }}
                         >
-                            {errorMessage}
+                            {emailErrormessage}
                         </span>
-                    )} */}
+                    )}
+                    <div className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE]">
+                        <InputField
+                            type={passwordShown ? 'text' : 'password'}
+                            className=" w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/lock.svg')] bg-[center_left_-12.5rem] bg-no-repeat  pl-10"
+                            name="password"
+                            defaultValue=""
+                            placeholder="Password"
+                            onChange={e =>
+                                validatePassword(
+                                    e.target.value,
+                                    setPasswordErrorMessage
+                                )
+                            }
+                        />
+                        <button onClick={togglePassword}>
+                            <img
+                                alt="show Password"
+                                src="src/assets/Images/visible.svg"
+                                className="relative  pl-5 translate-y-0.5"
+                            ></img>
+                        </button>
+                    </div>
+                    {passwordErrorMessage && (
+                        <span
+                            style={{
+                                fontWeight: 'bold',
+                                color: 'red'
+                            }}
+                        >
+                            {passwordErrorMessage}
+                        </span>
+                    )}
                     <button
                         name="signUp"
                         className="w-[360px] h-[48px] rounded-2xl  bg-rdx-purple text-[#FFFFFF] border-2 border-[#CECECE] "
