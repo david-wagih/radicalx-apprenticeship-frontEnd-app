@@ -8,6 +8,8 @@ import { validateEmail } from './Controller';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
+        name: '',
+        phoneNumber: '',
         email: '',
         password: ''
     });
@@ -41,8 +43,7 @@ const SignUp: FC = () => {
     //     }
     // };
 
-    // const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const changeHandler = (e: any) => {
+    const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({
             ...form,
             [e.currentTarget.name]: e.currentTarget.value
@@ -68,7 +69,6 @@ const SignUp: FC = () => {
                     </p>
                     <NonRequiredInput
                         type="text"
-                        //NOTE just example of using tailwind css
                         className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/profileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="name"
                         defaultValue=""
@@ -77,16 +77,14 @@ const SignUp: FC = () => {
                     />
                     <NonRequiredInput
                         type="number"
-                        //NOTE just example of using tailwind css
                         className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/mobileIcon.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
-                        name="phone"
+                        name="phoneNumber"
                         defaultValue=""
                         placeholder="PhoneNumber"
                         onChange={e => e}
                     />
                     <InputField
                         type="text"
-                        //NOTE just example of using tailwind css
                         className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-0 border-[#CECECE] bg-[url('./assets/Images/sms.svg')] bg-[center_left_1rem] bg-no-repeat  pl-10"
                         name="email"
                         defaultValue=""
@@ -101,7 +99,6 @@ const SignUp: FC = () => {
                     </span> */}
                     <InputField
                         type="text"
-                        //NOTE just example of using tailwind css
                         className="w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-2 border-[#CECECE] bg-[url('./assets/Images/lock.svg')] bg-[center_left_-12.5rem] bg-no-repeat  pl-10"
                         name="password"
                         defaultValue=""
@@ -121,7 +118,6 @@ const SignUp: FC = () => {
                     <button
                         name="signUp"
                         className="w-[360px] h-[48px] rounded-2xl  bg-rdx-purple text-[#FFFFFF] border-2 border-[#CECECE] "
-                        onClick={handleSubmit}
                     >
                         {' '}
                         Sign up{' '}
