@@ -1,6 +1,9 @@
 import { FC, useState } from 'react';
 
-const LogoAndTitle: FC = () => {
+interface LogoAndTitleProps {
+    dispatch: (action: { type: string; payload: string | File | null }) => void;
+}
+const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
     const [file, setFile] = useState<File | null>(null);
 
     const clickUploadLogo = () => {
@@ -10,6 +13,7 @@ const LogoAndTitle: FC = () => {
     const handleUploadingLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         setFile(file || null);
+        dispatch({ type: 'ApprenticeshipLogo', payload: file || null });
     };
 
     return (
@@ -61,6 +65,12 @@ const LogoAndTitle: FC = () => {
                 type="text"
                 className="title h-6 not-italic on font-normal text-2xl leading-6 flex items-center text-gray-900 flex-none order-1 flex-grow-0
             w-[480px] z-[1] border-none outline-none"
+                onChange={e =>
+                    dispatch({
+                        type: 'ApprenticeshipTitle',
+                        payload: e.target.value
+                    })
+                }
             />
         </div>
     );

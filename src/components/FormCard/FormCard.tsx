@@ -3,7 +3,7 @@ import { Children, FC } from 'react';
 import CardHeader from './CardHeader/CardHeader';
 interface formCardProps {
     header: string;
-    key: string;
+    myKey: string;
     children: JSX.Element;
 }
 const FormCard: FC<formCardProps> = (
@@ -15,7 +15,7 @@ const FormCard: FC<formCardProps> = (
         gap-[16px] w-full border-[1px]  border-[#793EF5] border-solid rounded-[24px]
         z-[7]
         "
-            key={props.key}
+            key={props.myKey}
         >
             <CardHeader header={props.header} />
             {props.children}

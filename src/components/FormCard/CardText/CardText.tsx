@@ -1,6 +1,12 @@
 import { FC } from 'react';
-
-const CardText: FC = () => {
+interface cardTextProps {
+    type: string;
+    dispatch: (action: {
+        type: string;
+        payload: string | File | string;
+    }) => void;
+}
+const CardText: FC<cardTextProps> = ({ dispatch, type }) => {
     return (
         <div
             className="text-wrapper
@@ -13,8 +19,13 @@ const CardText: FC = () => {
                 className="card-text
             w-full h-6 not-italic font-medium text-lg leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0
             opacity-70
-            
             "
+                onChange={e =>
+                    dispatch({
+                        type: type,
+                        payload: e.target.value
+                    })
+                }
             />
         </div>
     );
