@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import validator from 'validator';
 
 import InputField from '../../components/InputField/InputField';
 import NonRequiredInput from '../../components/NonRequiredInputField/NonRequiredInputField';
