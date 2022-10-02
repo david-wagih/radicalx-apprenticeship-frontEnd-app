@@ -80,7 +80,7 @@ const SignUp: FC = () => {
                             className="flex-none w-[18px] h-[22px] translate-y-2.5 "
                         ></img>
                         <NonRequiredInput
-                            type="number"
+                            type="phone"
                             className="w-[300px] h-[44px] rounded-2xl bg-[#F5F5F7] text-[#2F3031] border-none outline-none pl-1"
                             name="phoneNumber"
                             defaultValue=""
@@ -119,7 +119,7 @@ const SignUp: FC = () => {
                     <div className="flex w-[360px] h-[48px] rounded-2xl bg-[#F5F5F7] border-2 border-[#CECECE] pl-5">
                         <img
                             alt="lockIcon"
-                            src="src/assets/Images/passLock.svg"
+                            src="src/assets/Images/lockIcon.svg"
                             className="flex-none w-[18px] h-[22px] translate-y-2.5 "
                         ></img>
                         <InputField
@@ -136,7 +136,7 @@ const SignUp: FC = () => {
                             // }
                             onChange={changeHandler}
                         />
-                        <button onClick={togglePassword}>
+                        <button type="button" onClick={togglePassword}>
                             <img
                                 alt="show Password"
                                 src="src/assets/Images/visible.svg"
@@ -155,7 +155,6 @@ const SignUp: FC = () => {
                         </div>
                     )}
                     <button
-                        type="submit"
                         name="signUp"
                         className="w-[360px] h-[48px] rounded-2xl  bg-rdx-purple text-[#FFFFFF] border-2 border-[#CECECE] "
                     >
