@@ -7,53 +7,10 @@ import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
-export enum ActionType {
-    ApprenticeshipTitle = 'ApprenticeshipTitle',
-    ApprenticeshipLogo = 'ApprenticeshipLogo',
-    ApprenticeshipDescription = 'ApprenticeshipDescription',
-    CompanyDescription = 'CompanyDescription',
-    ApprenticeshipVideo = 'ApprenticeshipVideo'
-}
-
-interface State {
-    ApprenticeshipTitle: string;
-    ApprenticeshipLogo: File | null;
-    ApprenticeshipDescription: string;
-    CompanyDescription: string;
-    ApprenticeshipVideo: File | null;
-}
-
-function reducer(
-    state: State,
-    action: { type: string; payload: string | File | null }
-) {
-    switch (action.type) {
-        case ActionType.ApprenticeshipTitle:
-            return { ...state, ApprenticeshipTitle: action.payload as string };
-        case ActionType.ApprenticeshipLogo:
-            return { ...state, ApprenticeshipLogo: action.payload as File };
-        case ActionType.ApprenticeshipDescription:
-            return {
-                ...state,
-                ApprenticeshipDescription: action.payload as string
-            };
-        case ActionType.CompanyDescription:
-            return { ...state, CompanyDescription: action.payload as string };
-        case ActionType.ApprenticeshipVideo:
-            return { ...state, ApprenticeshipVideo: action.payload as File };
-    }
-}
+import { ActionType, initialState, reducer } from './Controller';
 
 const CreatingApprenticeship: FC = () => {
-    const initialState = {
-        ApprenticeshipTitle: '',
-        ApprenticeshipLogo: null,
-        ApprenticeshipDescription: '',
-        CompanyDescription: ''
-    };
     const [formState, dispatch] = useReducer(reducer, initialState);
-    const [ApprenticeshipVideo, setApprenticeshipVideo] = useState();
-    const [checked, setChecked] = useState([true, true, false, false, false]);
     const keys = [
         'logo-title',
         'company-description',
@@ -73,13 +30,8 @@ const CreatingApprenticeship: FC = () => {
             type={ActionType.ApprenticeshipDescription}
             dispatch={dispatch}
         />,
-        <VideoUpload
-            video={ApprenticeshipVideo}
-            setVideo={setApprenticeshipVideo}
-        />
+        <VideoUpload dispatch={dispatch} />
     ];
-    console.log(formState);
-    console.log(ApprenticeshipVideo);
     return (
         <div
             className="parent min-h-screen  bg-background-gray
@@ -87,7 +39,17 @@ const CreatingApprenticeship: FC = () => {
         "
         >
             <Header />
-            <ProgressBar checked={checked} />
+            <ProgressBar
+                checked={[
+                    formState.checked[0].reduce(
+                        (a: boolean, b: boolean) => a && b
+                    ),
+                    formState.checked[1],
+                    formState.checked[2],
+                    formState.checked[3],
+                    formState.checked[4]
+                ]}
+            />
             <div
                 className="cards
            flex flex-col items-start p-0 absolute gap-[20px] isolate w-[770px] h-[1697px] top-[218px] left-[371px]
