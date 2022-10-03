@@ -1,28 +1,18 @@
 let rememberMe: boolean
 
-export const handleIsChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(event.target.checked){
-        rememberMe = true
-    }
-    else{
-        rememberMe = false
-    }
+export const setRememberMe = (value: boolean) => {
+    rememberMe = value
 }
 
-//This method should be called after successful login
-export const setStoredVar = () => {
-    if(rememberMe){
-        localStorage.setItem('rememberFlag', JSON.stringify(true))
+export const setRememberCookies = (token: string) => {
+    const date = new Date()
+    date.setMonth(date.getMonth()+3)
+    if(rememberMe)
+    {
+        document.cookie = `token=${token}; expires=${date.toUTCString()}; path=/`
     }
 }
 
-export const getStoredVar = () => {
-    const rememberFlag = JSON.parse(localStorage.getItem('rememberFlag') || "false")
-    console.log(rememberFlag)
-    return rememberFlag
-}
-
-//This method should be called at logout
-export const removeStoredVar = () => {
-    localStorage.removeItem('rememberFlag')
+export const removeRememberCookies = () => {
+    document.cookie = `token=; expires=Sat, 20 Dec 1990 12:00:00 UTC; path=/`
 }
