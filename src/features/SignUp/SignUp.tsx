@@ -1,9 +1,8 @@
 import { FC, useState } from 'react';
 
 import InputField from '../../components/InputField/InputField';
-import NonRequiredInput from '../../components/NonRequiredInputField/NonRequiredInputField';
 
-import { validateEmail, validatePassword } from './Controller';
+import { handleSubmit, validateEmail, validatePassword } from './Controller';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
@@ -34,11 +33,6 @@ const SignUp: FC = () => {
             ...form,
             [e.currentTarget.name]: e.currentTarget.value
         });
-        console.log('change', form);
-    };
-
-    const handleSubmit = () => {
-        console.log('submit', form);
     };
 
     return (
@@ -52,7 +46,12 @@ const SignUp: FC = () => {
                 />
                 <form
                     className="fixed top-[300px] left-[954px] flex-auto space-y-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmit(
+                        form.email,
+                        form.password,
+                        setEmailErrorMessage,
+                        setPasswordErrorMessage
+                    )}
                 >
                     <p className="text-xl font-medium leading-[24px] tracking-[.4px]">
                         Sign Up
@@ -63,7 +62,7 @@ const SignUp: FC = () => {
                             src="src/assets/Images/profileIcon.svg"
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
-                        <NonRequiredInput
+                        <InputField
                             type="text"
                             className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="name"
@@ -78,7 +77,7 @@ const SignUp: FC = () => {
                             src="src/assets/Images/mobileIcon.svg"
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
-                        <NonRequiredInput
+                        <InputField
                             type="phone"
                             className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="phoneNumber"
@@ -99,9 +98,6 @@ const SignUp: FC = () => {
                             name="email"
                             defaultValue=""
                             placeholder="Email"
-                            // onChange={e =>
-                            //     validateEmail(e.target.value, setEmailErrorMessage)
-                            // }
                             onChange={changeHandler}
                         />
                     </div>
@@ -127,12 +123,6 @@ const SignUp: FC = () => {
                             name="password"
                             defaultValue=""
                             placeholder="Password"
-                            // onChange={e =>
-                            //     validatePassword(
-                            //         e.target.value,
-                            //         setPasswordErrorMessage
-                            //     )
-                            // }
                             onChange={changeHandler}
                         />
                         <button type="button" onClick={togglePassword}>

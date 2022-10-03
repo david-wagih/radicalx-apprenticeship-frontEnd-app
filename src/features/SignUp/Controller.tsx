@@ -1,12 +1,13 @@
 import validator from 'validator';
 
-//FIXME we need to set the error message when the user hits the submit button not with every click
 export const validatePassword = (
     value: string,
     setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
 ) => {
     setPasswordErrorMessage('');
-    if (
+    if (value == '') {
+        setPasswordErrorMessage('Password is required');
+    } else if (
         !validator.isStrongPassword(value, {
             minLength: 8,
             minLowercase: 1,
@@ -25,8 +26,22 @@ export const validateEmail = (
 ) => {
     setEmailErrorMessage('');
     const email = value;
-
-    if (!validator.isEmail(email)) {
+    if (email == '') {
+        setEmailErrorMessage('Email is required');
+    } else if (!validator.isEmail(email)) {
         setEmailErrorMessage('Please, enter valid Email!');
     }
+};
+
+export const handleSubmit = (
+    email: string,
+    password: string,
+    setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>,
+    setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
+) => {
+    return (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        validateEmail(email, setEmailErrorMessage);
+        validatePassword(password, setPasswordErrorMessage);
+    };
 };
