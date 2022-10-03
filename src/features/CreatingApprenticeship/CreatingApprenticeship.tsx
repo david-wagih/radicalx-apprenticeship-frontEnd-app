@@ -1,15 +1,70 @@
-import { FC, useState } from 'react';
+import { FC, useReducer, useState } from 'react';
 
+import CardText from '../../components/FormCard/CardText/CardText';
+import FormCard from '../../components/FormCard/FormCard';
+import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
+import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
+import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
-interface CreatingApprenticeshipProps {}
+import { ActionType, initialState, reducer } from './Controller';
 
-const CreatingApprenticeship: FC<CreatingApprenticeshipProps> = () => {
-    const [checked, setChecked] = useState([true, true, false, false, false]);
+const CreatingApprenticeship: FC = () => {
+    const [formState, dispatch] = useReducer(reducer, initialState);
+    const keys = [
+        'logo-title',
+        'company-description',
+        'apprenticeship-description',
+        'apprenticeship-video'
+    ];
+    const headers = [
+        'Logo & Title',
+        'Company Description',
+        'Apprenticeship Description',
+        'Introduce yourself, your company, and what you are building.'
+    ];
+    const children = [
+        <LogoAndTitle dispatch={dispatch} />,
+        <CardText type={ActionType.CompanyDescription} dispatch={dispatch} />,
+        <CardText
+            type={ActionType.ApprenticeshipDescription}
+            dispatch={dispatch}
+        />,
+        <VideoUpload dispatch={dispatch} />
+    ];
     return (
-        <>
-            <ProgressBar checked={checked} />
-        </>
+        <div
+            className="parent min-h-screen  bg-background-gray
+        relative w-[1512px] h-[1963px]
+        "
+        >
+            <Header />
+            <ProgressBar
+                checked={[
+                    formState.checked[0].reduce(
+                        (a: boolean, b: boolean) => a && b
+                    ),
+                    formState.checked[1],
+                    formState.checked[2],
+                    formState.checked[3],
+                    formState.checked[4]
+                ]}
+            />
+            <div
+                className="cards
+           flex flex-col items-start p-0 absolute gap-[20px] isolate w-[770px] h-[1697px] top-[218px] left-[371px]
+           "
+            >
+                {headers.map((header, index) => (
+                    <FormCard
+                        header={header}
+                        myKey={keys[index]}
+                        key={keys[index]}
+                        children={children[index]}
+                    />
+                ))}
+            </div>
+        </div>
     );
 };
 
