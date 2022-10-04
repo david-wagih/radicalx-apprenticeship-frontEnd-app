@@ -3,6 +3,8 @@ import { FC, useState } from 'react';
 
 import InputField from '../../components/InputField/InputField';
 
+import RememberMe from './RememberMe/RememberMe';
+
 const LogIn: FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

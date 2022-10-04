@@ -38,7 +38,6 @@ const InputField: FC<InputProps> = ({
                 defaultValue={defaultValue}
                 placeholder={placeholder}
                 key={key}
-                required
                 onChange={onChange}
             />
         </>
