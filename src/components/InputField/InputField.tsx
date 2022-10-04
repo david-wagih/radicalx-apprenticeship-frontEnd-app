@@ -28,7 +28,6 @@ const InputField: FC<InputProps> = ({
     //NOTE: The main purpose of keys is to help React
     // differentiate and distinguish elements from each other, increasing its
     // performance when diffing between the virtual and real DOM.
-
     return (
         <>
             <input

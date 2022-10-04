@@ -11,12 +11,11 @@ const RememberMe: FC = () => {
 
     return (
         <>
-            <p></p>
             <button
                 onClick={handleChecked}
                 id="rememberMeCheckBox"
                 className="
-            align-middle m-[5px]"
+            align-middle"
             >
                 {checked && (
                     <svg
@@ -70,7 +69,7 @@ const RememberMe: FC = () => {
             <label
                 htmlFor="rememberMeCheckBox"
                 className="
-            align-middle w-[114px] h-[24px] text-[#828282] font-medium text-base tracking-[0.4px]"
+            align-middle w-[114px] h-[24px] text-[#828282] font-medium text-base tracking-[0.4px] "
             >
                 Remember me
             </label>
