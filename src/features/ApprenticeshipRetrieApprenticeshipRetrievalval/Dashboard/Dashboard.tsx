@@ -1,4 +1,4 @@
-import { FC, React } from 'react';
+import { FC} from 'react';
 
 const DashBoard: FC = () => {
     return (
