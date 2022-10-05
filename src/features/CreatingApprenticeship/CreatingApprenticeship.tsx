@@ -11,6 +11,7 @@ import { ActionType, initialState, reducer } from './Controller';
 
 const CreatingApprenticeship: FC = () => {
     const [formState, dispatch] = useReducer(reducer, initialState);
+    console.log('formState.CompanyVideo', formState.CompanyVideo);
     const keys = [
         'logo-title',
         'company-description',
@@ -30,7 +31,10 @@ const CreatingApprenticeship: FC = () => {
             type={ActionType.ApprenticeshipDescription}
             dispatch={dispatch}
         />,
-        <VideoUpload dispatch={dispatch} />
+        <VideoUpload
+            dispatch={dispatch}
+            CompanyVideo={formState.CompanyVideo}
+        />
     ];
     return (
         <div
@@ -38,7 +42,11 @@ const CreatingApprenticeship: FC = () => {
         relative w-[1512px] h-[1963px]
         "
         >
-            <Header />
+            <Header
+                readyToPublish={formState.checked
+                    .flat()
+                    .reduce((a: boolean, b: boolean) => a && b)}
+            />
             <ProgressBar
                 checked={[
                     formState.checked[0].reduce(

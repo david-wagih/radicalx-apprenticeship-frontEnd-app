@@ -1,10 +1,10 @@
 import { FC } from 'react';
 interface PublishButtonProps {
-    color: string;
+    readyToPublish: boolean;
 }
-const PublishButton: FC<PublishButtonProps> = ({ color }) => {
-    const fillColor = color === 'gray' ? '#E2E6EB' : '#793EF5';
-    const strokeColor = color === 'gray' ? '#828282' : '#FFFFFF';
+const PublishButton: FC<PublishButtonProps> = ({ readyToPublish }) => {
+    const fillColor = readyToPublish ? '#793EF5' : '#E2E6EB';
+    const strokeColor = readyToPublish ? '#FFFFFF' : '#828282';
     return (
         <div
             className="publish-apprenticeship-button

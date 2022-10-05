@@ -1,21 +1,22 @@
 import { FC, useRef, useState } from 'react';
 
-import UploadedVideo from './UploadIcon/UploadedVideo';
+import UploadedVideo from './UploadedVideo/UploadedVideo';
 import UploadIcon from './UploadIcon/UploadIcon';
 
 interface VideoUploadProps {
     dispatch: (action: { type: string; payload: File | null }) => void;
+    CompanyVideo: File | null;
 }
-const VideoUpload: FC<VideoUploadProps> = ({ dispatch }) => {
-    const [video, setVideo] = useState<File | null>(null);
+const VideoUpload: FC<VideoUploadProps> = ({ dispatch, CompanyVideo }) => {
     const clickUploadVideo = () => {
         document.getElementById('uploadVideo')?.click();
     };
 
     const handleUploadingVideo = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0] || null;
-        setVideo(file);
-        dispatch({ type: 'CompanyVideo', payload: video });
+        dispatch({
+            type: 'CompanyVideo',
+            payload: e.target.files?.[0] || null
+        });
     };
     return (
         <div>
@@ -28,7 +29,12 @@ const VideoUpload: FC<VideoUploadProps> = ({ dispatch }) => {
                 onChange={handleUploadingVideo}
             />
             <UploadIcon clickUploadVideo={clickUploadVideo} />
-            {video !== null && <UploadedVideo />}
+            {CompanyVideo && (
+                <UploadedVideo
+                    fileName={CompanyVideo?.name.slice(0, 20)}
+                    dispatch={dispatch}
+                />
+            )}
         </div>
     );
 };

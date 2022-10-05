@@ -5,8 +5,11 @@ import CreateButton from '../CreateButton/CreateButton';
 import PublishButton from '../PublishButton/PublishButton';
 import Title from '../Title/Title';
 
-BackIcon;
-const Header: FC = () => {
+interface HeaderProps {
+    readyToPublish: boolean;
+}
+const Header: FC<HeaderProps> = ({ readyToPublish }) => {
+    console.log(readyToPublish);
     return (
         <div
             className="header 
@@ -15,7 +18,7 @@ const Header: FC = () => {
         >
             <BackIcon />
             <Title />
-            <PublishButton color="" />
+            <PublishButton readyToPublish={readyToPublish} />
         </div>
     );
 };
