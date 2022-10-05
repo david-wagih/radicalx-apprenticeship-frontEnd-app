@@ -73,7 +73,7 @@ const SignUp: FC = () => {
                     </div>
                     <div className="flex  h-[48px] w-[360px] rounded-2xl border-2 border-[#CECECE] bg-[#F5F5F7] pl-5">
                         <img
-                            alt="ProfileIcon"
+                            alt="mobileIcon"
                             src="src/assets/Images/mobileIcon.svg"
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>

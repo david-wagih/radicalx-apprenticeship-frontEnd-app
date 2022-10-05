@@ -15,13 +15,15 @@ const CreatingApprenticeship: FC = () => {
         'logo-title',
         'company-description',
         'apprenticeship-description',
-        'apprenticeship-video'
+        'apprenticeship-video',
+        'Team Admin'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
-        'Introduce yourself, your company, and what you are building.'
+        'Introduce yourself, your company, and what you are building.',
+        'Team Admin'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
@@ -34,8 +36,8 @@ const CreatingApprenticeship: FC = () => {
     ];
     return (
         <div
-            className="parent min-h-screen  bg-background-gray
-        relative w-[1512px] h-[1963px]
+            className="parent relative  h-[1963px]
+        min-h-screen w-[1512px] bg-background-gray
         "
         >
             <Header />
@@ -52,7 +54,7 @@ const CreatingApprenticeship: FC = () => {
             />
             <div
                 className="cards
-           flex flex-col items-start p-0 absolute gap-[20px] isolate w-[770px] h-[1697px] top-[218px] left-[371px]
+           absolute top-[218px] left-[371px] isolate flex h-[1697px] w-[770px] flex-col items-start gap-[20px] p-0
            "
             >
                 {headers.map((header, index) => (
