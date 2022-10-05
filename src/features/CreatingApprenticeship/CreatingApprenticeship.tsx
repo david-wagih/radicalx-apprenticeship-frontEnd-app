@@ -1,4 +1,4 @@
-import { FC, useReducer, useState } from 'react';
+import { FC, useReducer } from 'react';
 
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
@@ -39,7 +39,7 @@ const CreatingApprenticeship: FC = () => {
     return (
         <div
             className="parent min-h-screen  bg-background-gray
-        relative w-[1512px] h-[1963px]
+        relative w-[1512px] h-[1963px] 
         "
         >
             <Header

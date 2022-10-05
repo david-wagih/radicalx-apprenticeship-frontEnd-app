@@ -7,6 +7,7 @@ interface VideoUploadProps {
     dispatch: (action: { type: string; payload: File | null }) => void;
     CompanyVideo: File | null;
 }
+
 const VideoUpload: FC<VideoUploadProps> = ({ dispatch, CompanyVideo }) => {
     const clickUploadVideo = () => {
         document.getElementById('uploadVideo')?.click();
