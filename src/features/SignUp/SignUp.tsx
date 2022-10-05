@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
-import validator from 'validator';
 
 import InputField from '../../components/InputField/InputField';
+
+import { validateEmail, validatePassword } from './Controller';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
@@ -9,38 +10,11 @@ const SignUp: FC = () => {
         password: ''
     });
 
-    const [message, setMessage] = useState('');
+    const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
-    const [errorMessage, setErrorMessage] = useState('');
+    const [emailErrorMessage, setEmailErrorMessage] = useState('');
 
-    const validate = (value: any) => {
-        if (
-            validator.isStrongPassword(value, {
-                minLength: 8,
-                minLowercase: 1,
-                minUppercase: 1,
-                minNumbers: 1,
-                minSymbols: 1
-            })
-        ) {
-            setErrorMessage('Is Strong Password');
-        } else {
-            setErrorMessage('Is Not Strong Password');
-        }
-    };
-
-    const validateEmail = (e: any) => {
-        const email = e.target.value;
-
-        if (validator.isEmail(email)) {
-            setMessage('');
-        } else {
-            setMessage('Please, enter valid Email!');
-        }
-    };
-
-    // const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const changeHandler = (e: any) => {
+    const changeHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         setForm({
             ...form,
             [e.currentTarget.name]: e.currentTarget.value
@@ -53,6 +27,7 @@ const SignUp: FC = () => {
     };
     return (
         <>
+         
             <div className="h-screen w-1/2 pos fixed z-[1] top-0 overflow-hidden left-0 bg-rdx-purple"></div>
             <div className="h-screen w-1/2 pos fixed z-[1] top-0 overflow-hidden right-0 ">
                 <img
@@ -64,7 +39,6 @@ const SignUp: FC = () => {
                     <p className="text-xl font-medium tracking-[.4px] leading-[24px]">
                         Sign Up
                     </p>
-
                     <InputField
                         type="text"
                         //NOTE just example of using tailwind css
@@ -72,14 +46,20 @@ const SignUp: FC = () => {
                         name="email"
                         defaultValue=""
                         placeholder="Email"
-                        onChange={e => validateEmail(e)}
+                        onChange={e =>
+                            validateEmail(e.target.value, setEmailErrorMessage)
+                        }
                     />
-                    <br />
-                    <span style={{ fontWeight: 'bold', color: 'red' }}>
-                        {' '}
-                        {message}
-                        <br />
-                    </span>
+                    {emailErrorMessage && (
+                        <>
+                            <br />
+                            <span style={{ fontWeight: 'bold', color: 'red' }}>
+                                {' '}
+                                {emailErrorMessage}
+                                <br />
+                            </span>
+                        </>
+                    )}
                     <InputField
                         type="text"
                         //NOTE just example of using tailwind css
@@ -87,17 +67,22 @@ const SignUp: FC = () => {
                         name="password"
                         defaultValue=""
                         placeholder="Password"
-                        onChange={e => validate(e.target.value)}
+                        onChange={e =>
+                            validatePassword(
+                                e.target.value,
+                                setPasswordErrorMessage
+                            )
+                        }
                     />
-                    {errorMessage === '' ? null : (
-                        <span
-                            style={{
-                                fontWeight: 'bold',
-                                color: 'red'
-                            }}
-                        >
-                            {errorMessage}
-                        </span>
+                    {passwordErrorMessage && (
+                        <>
+                            <br />
+                            <span style={{ fontWeight: 'bold', color: 'red' }}>
+                                {' '}
+                                {passwordErrorMessage}
+                                <br />
+                            </span>
+                        </>
                     )}
                     <button
                         name="signUp"
