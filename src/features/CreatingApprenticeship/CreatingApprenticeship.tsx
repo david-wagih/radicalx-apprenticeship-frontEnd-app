@@ -6,6 +6,7 @@ import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import AddAdmin from '../../components/FormCard/AddAdmin/AddAdmin';
 
 import { ActionType, initialState, reducer } from './Controller';
 
@@ -32,7 +33,8 @@ const CreatingApprenticeship: FC = () => {
             type={ActionType.ApprenticeshipDescription}
             dispatch={dispatch}
         />,
-        <VideoUpload dispatch={dispatch} />
+        <VideoUpload dispatch={dispatch} />,
+        <AddAdmin></AddAdmin>
     ];
     return (
         <div
@@ -49,7 +51,8 @@ const CreatingApprenticeship: FC = () => {
                     formState.checked[1],
                     formState.checked[2],
                     formState.checked[3],
-                    formState.checked[4]
+                    formState.checked[4],
+                    formState.checked[5]
                 ]}
             />
             <div
