@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import uuid from 'react-uuid';
 
 import CreateButton from '../../../components/CreateButton/CreateButton';
 
@@ -29,6 +30,8 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
                         title={title}
                         paragraph={descriptions[index]}
                         tags={tags[index]}
+                        myKey={uuid()}
+                        key={index}
                     />
                 ))}
             </div>
