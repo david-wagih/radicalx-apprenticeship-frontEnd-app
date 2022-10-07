@@ -34,14 +34,13 @@ export const validateEmail = (
 };
 
 export const handleSubmit = (
+    e: React.FormEvent<HTMLFormElement>,
     email: string,
     password: string,
     setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>,
     setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
 ) => {
-    return (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        validateEmail(email, setEmailErrorMessage);
-        validatePassword(password, setPasswordErrorMessage);
-    };
+    e.preventDefault();
+    validateEmail(email, setEmailErrorMessage);
+    validatePassword(password, setPasswordErrorMessage);
 };

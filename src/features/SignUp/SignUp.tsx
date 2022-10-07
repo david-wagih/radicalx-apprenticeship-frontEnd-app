@@ -46,12 +46,15 @@ const SignUp: FC = () => {
                 />
                 <form
                     className="fixed top-[300px] left-[954px] flex-auto space-y-4"
-                    onSubmit={handleSubmit(
-                        form.email,
-                        form.password,
-                        setEmailErrorMessage,
-                        setPasswordErrorMessage
-                    )}
+                    onSubmit={e =>
+                        handleSubmit(
+                            e,
+                            form.email,
+                            form.password,
+                            setEmailErrorMessage,
+                            setPasswordErrorMessage
+                        )
+                    }
                 >
                     <p className="text-xl font-medium leading-[24px] tracking-[.4px]">
                         Sign Up
@@ -146,6 +149,7 @@ const SignUp: FC = () => {
                     <button
                         name="signUp"
                         className="h-[48px] w-[360px] rounded-2xl  border-2 border-[#CECECE] bg-rdx-purple text-[#FFFFFF] "
+                        type="submit"
                     >
                         {' '}
                         Sign up{' '}

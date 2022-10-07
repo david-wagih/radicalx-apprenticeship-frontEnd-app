@@ -10,12 +10,11 @@ const RememberMe: FC = () => {
     };
 
     return (
-        <>
+        <div className="remember-me flex gap-2">
             <button
                 onClick={handleChecked}
                 id="rememberMeCheckBox"
-                className="
-            align-middle"
+                className="align-middle"
             >
                 {checked && (
                     <svg
@@ -73,7 +72,7 @@ const RememberMe: FC = () => {
             >
                 Remember me
             </label>
-        </>
+        </div>
     );
 };
 
