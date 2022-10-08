@@ -1,12 +1,12 @@
 import { FC, useReducer, useState } from 'react';
 
+import AddAdmin from '../../components/FormCard/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import AddAdmin from '../../components/FormCard/AddAdmin/AddAdmin';
 
 import { ActionType, initialState, reducer } from './Controller';
 

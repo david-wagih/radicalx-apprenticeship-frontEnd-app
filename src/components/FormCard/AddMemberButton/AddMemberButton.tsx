@@ -1,9 +1,13 @@
-import { FC } from 'react';
-// interface PublishButtonProps {
-// }
-const AddMemberButton: FC = () => {
+import React, { FC } from 'react';
+interface AddMemberButtonProps {
+    handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const AddMemberButton: FC<AddMemberButtonProps> = (
+    props: AddMemberButtonProps
+) => {
     return (
-        <div className="flex h-[28px] w-[151px] translate-x-3/4 -translate-y-10 place-content-center items-center rounded-lg border-2 border-dashed border-rdx-purple py-1	">
+        <div className="flex h-[28px] w-[151px] translate-x-3/4 -translate-y-10 place-content-center items-center rounded-lg border-2 border-dashed border-rdx-purple py-1">
             <svg
                 width="16"
                 height="16"
@@ -26,7 +30,10 @@ const AddMemberButton: FC = () => {
                 />
             </svg>
 
-            <button className="relative border-none pl-1  text-xs text-rdx-purple">
+            <button
+                onClick={event => props.handleClick(event)}
+                className="relative border-none pl-1  text-xs text-rdx-purple"
+            >
                 Add Team Member
             </button>
         </div>

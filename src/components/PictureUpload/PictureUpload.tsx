@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 
-interface LogoAndTitleProps {
+interface PicProps {
     dispatch: (action: { type: string; payload: string | File | null }) => void;
 }
-const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
+const PictureUpload: FC<PicProps> = ({ dispatch }) => {
     const [file, setFile] = useState<File | null>(null);
 
     const clickUploadLogo = () => {
@@ -61,19 +61,8 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
                     />
                 </svg>
             </div>
-            <input
-                type="text"
-                className="title on z-[1] order-1 flex h-6 w-[480px] flex-none flex-grow-0 items-center border-none text-2xl font-normal
-            not-italic leading-6 text-gray-900 outline-none"
-                onChange={e =>
-                    dispatch({
-                        type: 'ApprenticeshipTitle',
-                        payload: e.target.value
-                    })
-                }
-            />
         </div>
     );
 };
 
-export default LogoAndTitle;
+export default PictureUpload;
