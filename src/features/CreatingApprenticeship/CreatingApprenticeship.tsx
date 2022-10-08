@@ -6,6 +6,7 @@ import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
 import { ActionType, initialState, reducer } from './Controller';
 
@@ -16,13 +17,15 @@ const CreatingApprenticeship: FC = () => {
         'logo-title',
         'company-description',
         'apprenticeship-description',
-        'apprenticeship-video'
+        'apprenticeship-video',
+        'add-team-member'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
-        'Introduce yourself, your company, and what you are building.'
+        'Introduce yourself, your company, and what you are building.',
+        'Team Roles'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
@@ -34,7 +37,8 @@ const CreatingApprenticeship: FC = () => {
         <VideoUpload
             dispatch={dispatch}
             CompanyVideo={formState.CompanyVideo}
-        />
+        />,
+        <TeamRoles />
     ];
     return (
         <div
