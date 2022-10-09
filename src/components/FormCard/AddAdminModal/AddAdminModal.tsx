@@ -1,27 +1,41 @@
 import { FC, useState } from 'react';
+import ReactDOM from 'react-dom';
 
 import InputField from '../../InputField/InputField';
 import PictureUpload from '../../PictureUpload/PictureUpload';
 
 type AddAdminModalProps = {
     open: boolean;
+    onClose: any;
 };
 
-const AddAdminModal: FC<AddAdminModalProps> = ({ open }) => {
+const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
     const [name, setName] = useState('');
     const [mail, setMail] = useState('');
     const [linkedin, setLinkedin] = useState('');
 
     if (!open) return null;
 
-    return (
+    return ReactDOM.createPortal(
         <>
             <div className=" z-1000 fixed top-0 left-0 right-0 bottom-0 bg-background-Md ">
                 <div className="z-1000 fixed top-1/2 left-1/2 flex	h-[388px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-rdx-purple bg-white p-6">
+                    <button
+                        className="absolute right-8 top-9 "
+                        onClick={onClose}
+                    >
+                        <img
+                            alt="close"
+                            src="src\assets\Images\Cancel.svg"
+                        ></img>
+                    </button>
                     <form className="">
                         <p className="pb-4 text-xl font-medium">
                             Add Team Admin
                         </p>
+                        <button className="absolute right-16 top-6 rounded-lg bg-rdx-purple py-2 px-4 text-sm font-normal text-white">
+                            Save
+                        </button>
                         <PictureUpload></PictureUpload>
                         <div className="pt-4">
                             <div className="flex h-[48px] w-[552px] rounded-2xl border-2 border-[#CECECE] bg-[#FFF] ">
@@ -79,7 +93,8 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open }) => {
                     </form>
                 </div>
             </div>
-        </>
+        </>,
+        document.getElementById('portal') as HTMLInputElement
     );
 };
 

@@ -14,7 +14,10 @@ const AddAdmin: FC = () => {
                 }}
             ></AddMemberButton>
 
-            <AddAdminModal open={isOpen}></AddAdminModal>
+            <AddAdminModal
+                open={isOpen}
+                onClose={() => setIsOpen(false)}
+            ></AddAdminModal>
         </div>
     );
 };
