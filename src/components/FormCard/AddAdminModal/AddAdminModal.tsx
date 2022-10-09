@@ -14,6 +14,12 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
     const [mail, setMail] = useState('');
     const [linkedin, setLinkedin] = useState('');
 
+    const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        const admin = { name, mail, linkedin };
+        console.log(admin);
+    };
+
     if (!open) return null;
 
     return ReactDOM.createPortal(
@@ -29,7 +35,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                             src="src\assets\Images\Cancel.svg"
                         ></img>
                     </button>
-                    <form className="">
+                    <form className="" onSubmit={() => handleSubmit}>
                         <p className="pb-4 text-xl font-medium">
                             Add Team Admin
                         </p>
@@ -42,7 +48,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                 <img
                                     alt="ProfileIcon"
                                     src="src/assets/Images/profileIconPurple.svg"
-                                    className="h-[22px] w-[18px] flex-none translate-y-2.5 translate-x-4 "
+                                    className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField
                                     type="text"
@@ -59,7 +65,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                 <img
                                     alt="MailIcon"
                                     src="src/assets/Images/SmsPurple.svg"
-                                    className="h-[22px] w-[18px] flex-none translate-y-2.5 translate-x-4 "
+                                    className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField
                                     type="text"
@@ -76,14 +82,14 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                 <img
                                     alt="LinkIcon"
                                     src="src/assets/Images/LinkPurple.svg"
-                                    className="h-[22px] w-[18px] flex-none translate-y-2.5 translate-x-4 "
+                                    className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField
                                     type="text"
                                     className=" h-[44px] w-[550px] rounded-2xl border-none bg-[#FFF] pl-6 text-[#2F3031] outline-none"
                                     name="linkedIn"
                                     defaultValue=""
-                                    placeholder="LinkedIn (Optional)"
+                                    placeholder="LinkedIn URL (optional)"
                                     onChange={e =>
                                         setLinkedin('e.target.Value')
                                     }

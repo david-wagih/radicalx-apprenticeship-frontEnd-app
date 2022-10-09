@@ -1,0 +1,22 @@
+{
+    "admins":[
+        {
+            "name": "John Mckinsey",
+            "email": "JohnMckinsey@gamil.com",
+            "linkedIn": "https://www.linkedin.com/in/veronika-fayez-9100ab235/",
+            "id": "1"
+        },
+        {
+            "name": "John Mckinsey",
+            "email": "JohnMckinsey@gamil.com",
+            "linkedIn": "https://www.linkedin.com/in/veronika-fayez-9100ab235/",
+            "id": "2"
+        },
+        {
+            "name": "John Mckinsey",
+            "email": "JohnMckinsey@gamil.com",
+            "linkedIn": "",
+            "id": "3"
+        }
+    ]
+}
