@@ -18,14 +18,20 @@ const CreatingApprenticeship: FC = () => {
         'company-description',
         'apprenticeship-description',
         'apprenticeship-video',
-        'add-team-member'
+        'add-team-member',
+        'team-roles',
+        'team-admin',
+        'timeline'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
         'Introduce yourself, your company, and what you are building.',
-        'Team Roles'
+        'Team Type',
+        'Team Roles',
+        'Team Admin',
+        'Timeline'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
@@ -38,14 +44,10 @@ const CreatingApprenticeship: FC = () => {
             dispatch={dispatch}
             CompanyVideo={formState.CompanyVideo}
         />,
-        <TeamRoles />
+        <TeamRoles dispatch={dispatch} />
     ];
     return (
-        <div
-            className="parent min-h-screen  bg-background-gray
-        relative w-[1512px] h-[1963px] 
-        "
-        >
+        <div className="parent min-h-screen bg-background-gray relative w-[1512px] h-[1963px] ">
             <Header
                 readyToPublish={formState.checked
                     .flat()
@@ -62,11 +64,7 @@ const CreatingApprenticeship: FC = () => {
                     formState.checked[4]
                 ]}
             />
-            <div
-                className="cards
-           flex flex-col items-start p-0 absolute gap-[20px] isolate w-[770px] h-[1697px] top-[218px] left-[371px]
-           "
-            >
+            <div className="cards flex flex-col items-start p-0 absolute gap-[20px] isolate w-[800px] h-[1697px] top-[218px] left-[371px]">
                 {headers.map((header, index) => (
                     <FormCard
                         header={header}

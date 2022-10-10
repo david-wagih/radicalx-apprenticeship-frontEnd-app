@@ -1,32 +1,20 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import ApprenticeshipCards from '../../components/Cards/ApprenticeshipCards/ApprenticeshipCards';
 import NavBar from '../../components/NavBar/NavBar';
 
-import ApprenticeshipCards from './ApprenticeshipCards/ApprenticeshipCards';
-
+import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
-    const titles = ['Frontend Developer', 'Backend Developer', 'DevOps', 'PM '];
-    const text = [
-        'hello mu name is mohamed and i am a frontend developer from giza egypt i am 22 years ol hello mu name is mohamed and i am a frontend developer from giza egypt i am 22 years ol hello mu name is mohamed and i am a frontend developer from giza egypt i am 22 years ol hello mu name is mohamed and i am a frontend developer from giza egypt i am 22 years ol ',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit'
-    ];
-    const tags = [
-        ['ReactReactRR', 'Typescript', 'Javascript', 'HTML'],
-        ['React', 'Typescript', 'Javascript', 'HTML'],
-        ['React', 'Typescript', 'Javascript', 'HTML'],
-        ['React', 'Typescript', 'Javascript', 'HTML']
-    ];
-
+    const [apprenticeships, setApprenticeships] = useState<[]>([]);
+    const { user_id } = useParams();
+    useEffect(() => {
+        getUserApprenticeships(user_id, setApprenticeships);
+    }, []);
     return (
         <>
             <NavBar />
-            <ApprenticeshipCards
-                titles={titles}
-                descriptions={text}
-                tags={tags}
-            />
+            <ApprenticeshipCards apprenticeships={apprenticeships} />
         </>
     );
 };

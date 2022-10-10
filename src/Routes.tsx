@@ -19,8 +19,7 @@ const RoutesComponent: FC = () => {
                     path="/creating_apprenticeship"
                     element={<CreatingApprenticeship />}
                 />
-                <Route path="homepage" element={<HomePage />} />
-                <Route path="addrole" element={<AddRoleForm />} />
+                <Route path="/homepage" element={<HomePage />} />
             </Routes>
         </BrowserRouter>
     );

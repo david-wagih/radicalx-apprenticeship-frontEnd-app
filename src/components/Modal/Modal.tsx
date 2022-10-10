@@ -10,14 +10,11 @@ const Modal: FC<ModalProps> = ({ children }) => {
         null
     ) as unknown as React.MutableRefObject<HTMLDivElement>;
     if (!elementRef.current) {
-        console.log('elementRef.current', elementRef.current);
         elementRef.current = document.createElement('div') as HTMLDivElement;
     }
     useEffect((): (() => void) => {
         const modalRoot = document.getElementById('modal') as HTMLDivElement;
-        console.log('modalRoot', modalRoot);
         modalRoot.appendChild(elementRef.current) as HTMLDivElement;
-        console.log('modalRoot', modalRoot);
         return () =>
             modalRoot.removeChild(elementRef.current) as HTMLDivElement;
     }, []);

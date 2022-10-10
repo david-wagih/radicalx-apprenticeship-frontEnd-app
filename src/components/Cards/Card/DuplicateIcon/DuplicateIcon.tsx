@@ -1,6 +1,6 @@
 const DuplicateIcon = () => {
     return (
-        <div className="duplicate-icon  ml-[10px] hover:cursor-pointer">
+        <div className="duplicate-icon  hover:cursor-pointer">
             <svg
                 width="20"
                 height="20"

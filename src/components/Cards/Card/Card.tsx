@@ -10,19 +10,22 @@ interface CardProps {
     paragraph: string;
     tags: string[];
     myKey: string;
+    id: string;
 }
 
-const Card: FC<CardProps> = ({ title, paragraph, tags, myKey }) => {
+const Card: FC<CardProps> = ({ title, paragraph, tags, myKey, id }) => {
     return (
         <div
-            className="box-border flex flex-col items-start p-5 h-56 bg-white flex-none order-none self-stretch flex-grow-0 w-[365px] border-[#CFD3D9] border rounded-lg "
+            className="box-border flex flex-col items-start p-5 h-56 bg-white flex-none order-none self-stretch flex-grow-0 w-fit border-[#CFD3D9] border rounded-lg "
             key={myKey}
         >
-            <div className="inline-flex">
+            <div className="flex justify-between w-full">
                 <Title text={title} />
-                <EditIcon />
-                <DuplicateIcon />
-                <DeleteIcon />
+                <div className="icons flex space-x-2">
+                    <EditIcon id={id} />
+                    <DuplicateIcon id={id} />
+                    <DeleteIcon id={id} />
+                </div>
             </div>
             <div className="mb-[35px]">
                 <Paragraph text={paragraph} />

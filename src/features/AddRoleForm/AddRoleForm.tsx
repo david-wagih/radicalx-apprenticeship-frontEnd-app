@@ -20,24 +20,16 @@ interface AddRoleFormProps {
 
 const AddRoleForm: FC<AddRoleFormProps> = ({
     setShowModal,
-    roles = [
-        'Developer',
-        'Designer',
-        'Tester',
-        'Project Manager',
-        'Business Analyst',
-        'Scrum Master',
-        'Product Owner'
-    ],
-    Description = 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit amet',
-    reqSkills = ['React', 'Angular', 'Vue', 'Node', 'Express', 'MongoDB'],
-    compSkills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java'],
-    minHours = 20,
-    location = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow']
+    roles,
+    Description,
+    reqSkills,
+    compSkills,
+    minHours,
+    location
 }) => {
     return (
-        <div className="form gap-[20px] w-[600px] h-[899px] left-[456px] top-[40px] box-border flex flex-col items-start p-6 absolute border-[1px] border-[#793EF5] border-solid rounded-[24px]">
-            <div className="title-save flex flex-row  items-center p-0 h-8 flex-none order-none self-stretch flex-grow-0 gap-[350px] w-[522px]">
+        <div className="form gap-[20px] z-50 w-[600px] bg-white h-fit left-[456px] top-[40px] box-border flex flex-col items-start p-6 absolute border-[1px] border-[#793EF5] border-solid rounded-[24px]">
+            <div className="title-save flex flex-row  items-center p-0 h-8 flex-none order-none self-stretch flex-grow-0 gap-[350px] w-[522px] ">
                 <p className="title flex flex-row items-center p-0 w-30 h-6 flex-none order-none flex-grow-0 gap-[16px] text-xl font-semibold">
                     Add Role
                 </p>

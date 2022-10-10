@@ -1,9 +1,6 @@
 const EditIcon = () => {
     return (
-        <div
-            className="edit-icon  w-5 h-5 flex-none order-none flex-grow-0 ml-[80px]
-        hover:cursor-pointer"
-        >
+        <div className="edit-icon w-5 h-5 hover:cursor-pointer">
             <svg
                 width="20"
                 height="20"

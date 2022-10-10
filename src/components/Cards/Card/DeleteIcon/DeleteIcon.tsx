@@ -1,6 +1,11 @@
-const DeleteIcon = () => {
+interface DeleteIconProps {
+    id: string;
+}
+const DeleteIcon = ({ id }) => {
+    // const endPoint=window.location.pathname.includes('homepage')?`minimum_apprenticeship_data?user_id=${id}`:
+
     return (
-        <div className="delete-icon ml-[10px] hover:cursor-pointer">
+        <div className="delete- hover:cursor-pointer">
             <svg
                 width="20"
                 height="20"

@@ -8,7 +8,6 @@ const AddRoleButton: FC<AddTeamMemberButtonProps> = ({ setShowModal }) => {
         <button
             className="add-button translate-x-[110px] translate-y-[-43px]"
             onClick={() => {
-                console.log("I'm a button");
                 setShowModal(true);
             }}
         >
