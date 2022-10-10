@@ -8,11 +8,14 @@ import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
-import { ActionType, initialState, reducer } from './Controller';
+import { action, ActionType, initialState, reducer, State } from './Controller';
 
 const CreatingApprenticeship: FC = () => {
-    const [formState, dispatch] = useReducer(reducer, initialState);
-    console.log('formState.CompanyVideo', formState.CompanyVideo);
+    const [formState, dispatch] = useReducer<React.Reducer<State, action>>(
+        reducer as React.Reducer<State, action>,
+        initialState
+    );
+    console.log(formState.checked);
     const keys = [
         'logo-title',
         'company-description',
@@ -35,14 +38,14 @@ const CreatingApprenticeship: FC = () => {
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
-        <CardText type={ActionType.CompanyDescription} dispatch={dispatch} />,
+        <CardText type={ActionType.companyDescription} dispatch={dispatch} />,
         <CardText
-            type={ActionType.ApprenticeshipDescription}
+            type={ActionType.apprenticeshipDescription}
             dispatch={dispatch}
         />,
         <VideoUpload
             dispatch={dispatch}
-            CompanyVideo={formState.CompanyVideo}
+            companyVideo={formState.companyVideo}
         />,
         <></>,
         <TeamRoles dispatch={dispatch} />,

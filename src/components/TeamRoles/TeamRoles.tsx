@@ -1,16 +1,19 @@
 import { FC, useState } from 'react';
 
 import AddRoleForm from '../../features/AddRoleForm/AddRoleForm';
+import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
 import RoleCards from '../Cards/RoleCards/RoleCards';
 import Modal from '../Modal/Modal';
 
 import AddRoleButton from './AddRoleButton/AddRoleButton';
+
 interface TeamRolesProps {
+    dispatch: (action: { type: string; payload: teamRoles | null }) => void;
     roles: string[];
     reqSkills: string[];
     compSkills: string[];
-    Description: string;
-    minHours: number;
+    Description?: string;
+    minHours?: number;
     location: string[];
 }
 
@@ -53,6 +56,7 @@ const TeamRoles: FC<TeamRolesProps> = ({
             {showModal && (
                 <Modal>
                     <AddRoleForm
+                        dispatch={dispatch}
                         setShowModal={setShowModal}
                         roles={roles}
                         Description={Description}

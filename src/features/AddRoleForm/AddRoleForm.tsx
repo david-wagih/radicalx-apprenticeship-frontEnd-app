@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import ExitIcon from '../../components/AddRoleForm/ExitIcon/ExitIcon';
+import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
 
 import ComplimentarySkills from './ComplimentarySkills/ComplimentarySkills';
 import Location from './Location/Location';
@@ -9,6 +10,7 @@ import RequiredSkills from './RequiredSkills/RequiredSkills';
 import RoleDescription from './RoleDescription/RoleDescription';
 import SelectRole from './SelectRole/SelectRole';
 interface AddRoleFormProps {
+    dispatch: (action: { type: string; payload: teamRoles | null }) => void;
     setShowModal: (showModal: boolean) => void;
     roles: string[];
     reqSkills: string[];

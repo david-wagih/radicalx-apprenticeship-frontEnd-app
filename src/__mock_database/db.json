@@ -29,19 +29,19 @@
                 {
                     "id": 9652198595,
                     "title": "Front End Developer",
-                    "description": "ITdQiAtHqlrrzXTWptFLJFnZqVjSytkOEgVJYVoBEcLpJIUSGCMvhIbgoOYPzskyJuWtkcIeOtyJLGoYfJAEabkAsglSIrKNfyNj",
+                    "description": "Impetrata in spezial non incominciare da nel nome coloro di,.",
                     "tags": ["React", "app", "developer"]
                 },
                 {
                     "id": 6505661263,
                     "title": "Back End Developer",
-                    "description": "HIOoCqtSHwJwmEsxdgQiHsmEdSNzBsUxXpGpEJKULPvrGeBrqBdIlkONUeQymMmftlkOHBIZCVnUDZbzSboaVNGWJScANksVWAIt",
+                    "description": " dear hall harold monks moths ear and none was, vast from caught of labyrinth one taste and. He of.Long que de qu'un qu'elle et masque ment. L'abri contemplons et flanc grimace encore sur aux, et ses monstre a. deine schnelle ich und bist, jedoch du und gartens ich die mein gut geliebet ruft, geträumt so doch vom. pisan deja y ni manecitas come paso buscando. Ciudades se comida de la. Resonancia las cielo la hule helechos.Tremblais exaltée de dans travers l'ouragan fleurs cieux triomphants, les lune anglais freles punaises milieu comme. Ou pôles j'ai fois.",
                     "tags": ["web", "developer", "PHP"]
                 },
                 {
                     "id": 7235751195,
                     "title": "Flutter Developer",
-                    "description": "IVfTvlxkguObGNfKjQyJUrUasZQRtTFxtNkYicagmyolFjwhkrpQjzNHEkipeHKDfItCZlhklozPXktuAGRWQtVrFyHTDCBhWAmTMcomkKWzzQFgyLIhwXSGICoHfZsXDGMsBeQOmWRnWxzjzOnZMc",
+                    "description": " das fühlt verklungen geisterreich meinem ist noch jenem. Sonst in wohl und menge erschüttert.Wangen großer grambefangen der denkst schönen, sanft vögel der mein da verwundert zu rast sonder.",
                     "tags": ["flutter", "developer", "mobile"]
                 }
             ]
@@ -51,13 +51,13 @@
         {
             "id": 9652196695,
             "apprenticeship_data": {
-                "apprenticeship_title": "Mobile App Developer",
-                "company_logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-                "company_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.",
-                "apprenticeship_description": "Vile yet dote true deigned blazon favour love. Who ne.",
-                "company_video": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-                "team_type": "Mobile App",
-                "team_roles": [
+                "apprenticeshipTitle": "Mobile App Developer",
+                "companyLogo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                "companyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.",
+                "apprenticeshipDescription": "Vile yet dote true deigned blazon favour love. Who ne.",
+                "companyVideo": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+                "teamType": "Mobile App",
+                "teamRoles": [
                     {
                         "role_id": 7450539665,
                         "role_name": "Mobile App Developer",

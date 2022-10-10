@@ -17,7 +17,7 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
     apprenticeships
 }) => {
     return (
-        <div className="flex flex-col items-start p-0 absolute gap-32px w-[1250px] min-h-[298px] h-fit left-[311px] top-[57px]">
+        <div className="flex flex-col items-start p-0 absolute  w-[1150px] min-h-[298px] h-fit left-[311px] top-[57px]">
             <div className="flex flex-row justify-between items-center p-0 flex-none order-none flex-grow-0 gap-[626px] w-[1135px] h-1/5">
                 <p className="w-64 h-6 not-italic font-semibold text-3xl leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">
                     Apprenticeship

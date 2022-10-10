@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
 
+import { action } from '../../../features/CreatingApprenticeship/Controller';
+
 interface LogoAndTitleProps {
-    dispatch: (action: { type: string; payload: string | File | null }) => void;
+    dispatch: (action: action) => void;
 }
 const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
     const [file, setFile] = useState<File | null>(null);
@@ -13,15 +15,11 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
     const handleUploadingLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         setFile(file || null);
-        dispatch({ type: 'ApprenticeshipLogo', payload: file || null });
+        dispatch({ type: 'companyLogo', payload: file || null });
     };
 
     return (
-        <div
-            className="logo-title flex flex-row items-center p-0 h-20 flex-none order-1 self-stretch flex-grow-0
-        gap-[24px] isolate width-[ 722px]
-        "
-        >
+        <div className="logo-title flex flex-row items-center p-0 h-20 flex-none order-1 self-stretch flex-grow-0 gap-[24px] isolate width-[ 722px]">
             <input
                 id="#uploadLogo"
                 type="file"
@@ -67,7 +65,7 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
             w-[480px] z-[1] border-none outline-none"
                 onChange={e =>
                     dispatch({
-                        type: 'ApprenticeshipTitle',
+                        type: 'apprenticeshipTitle',
                         payload: e.target.value
                     })
                 }
