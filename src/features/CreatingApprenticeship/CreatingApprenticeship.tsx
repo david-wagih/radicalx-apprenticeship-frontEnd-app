@@ -44,7 +44,9 @@ const CreatingApprenticeship: FC = () => {
             dispatch={dispatch}
             CompanyVideo={formState.CompanyVideo}
         />,
-        <TeamRoles dispatch={dispatch} />
+        <></>,
+        <TeamRoles dispatch={dispatch} />,
+        <></>
     ];
     return (
         <div className="parent min-h-screen bg-background-gray relative w-[1512px] h-[1963px] ">
