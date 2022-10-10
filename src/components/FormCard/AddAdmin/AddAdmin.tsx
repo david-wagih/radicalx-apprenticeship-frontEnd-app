@@ -34,6 +34,7 @@ const AddAdmin: FC = () => {
         };
         console.log('here ', newAdmin);
         setAdmins(current => [...current, newAdmin]);
+        setIsOpen(false);
     };
     const [isOpen, setIsOpen] = useState(false);
 

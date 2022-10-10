@@ -23,7 +23,6 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
         e.preventDefault();
         const admin = { name, mail, linkedin };
         handleSave(name, mail, linkedin);
-        console.log(admin);
     };
 
     if (!open) return null;
@@ -43,7 +42,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                     </button>
                     <form
                         className=""
-                        onSubmit={() => handleSave(name, mail, linkedin)}
+                        onSubmit={e => handleSave(name, mail, linkedin)}
                     >
                         <p className="pb-4 text-xl font-medium">
                             Add Team Admin
