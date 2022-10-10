@@ -3,31 +3,38 @@ import { FC, useEffect, useState } from 'react';
 import AddAdminModal from '../AddAdminModal/AddAdminModal';
 import AddMemberButton from '../AddMemberButton/AddMemberButton';
 import AdminCard from '../AdminCard/AdminCard';
-interface AddAdminProps {
-    newAdmin: object;
-}
 
-const AddAdmin: FC<AddAdminProps> = newAdmin => {
+const AddAdmin: FC = () => {
     const [admins, setAdmins] = useState([
         {
             name: 'John Mckinsey',
             email: 'JohnMckinsey@gamil.com',
-            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/',
-            id: '1'
+            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/'
         },
         {
             name: 'John Mckinsey',
             email: 'JohnMckinsey@gamil.com',
-            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/',
-            id: '2'
+            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/'
         },
         {
             name: 'John Mckinsey',
             email: 'JohnMckinsey@gamil.com',
-            linkedIn: '',
-            id: '3'
+            linkedIn: ''
         }
     ]);
+    const handleSave = (
+        newName: string,
+        newMail: string,
+        newlinkedin: string
+    ) => {
+        const newAdmin = {
+            name: newName,
+            email: newMail,
+            linkedIn: newlinkedin
+        };
+        console.log('here ', newAdmin);
+        setAdmins(current => [...current, newAdmin]);
+    };
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -41,6 +48,7 @@ const AddAdmin: FC<AddAdminProps> = newAdmin => {
             <AddAdminModal
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
+                handleSave={handleSave}
             ></AddAdminModal>
             <div className="grid grid-cols-2 gap-4">
                 {admins.map(admin => (

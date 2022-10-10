@@ -7,9 +7,14 @@ import PictureUpload from '../../PictureUpload/PictureUpload';
 type AddAdminModalProps = {
     open: boolean;
     onClose: any;
+    handleSave: any;
 };
 
-const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
+const AddAdminModal: FC<AddAdminModalProps> = ({
+    open,
+    onClose,
+    handleSave
+}) => {
     const [name, setName] = useState('');
     const [mail, setMail] = useState('');
     const [linkedin, setLinkedin] = useState('');
@@ -17,6 +22,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
     const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const admin = { name, mail, linkedin };
+        handleSave(name, mail, linkedin);
         console.log(admin);
     };
 
@@ -35,7 +41,10 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                             src="src\assets\Images\Cancel.svg"
                         ></img>
                     </button>
-                    <form className="" onSubmit={() => handleSubmit}>
+                    <form
+                        className=""
+                        onSubmit={() => handleSave(name, mail, linkedin)}
+                    >
                         <p className="pb-4 text-xl font-medium">
                             Add Team Admin
                         </p>
@@ -56,7 +65,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                     name="name"
                                     defaultValue=""
                                     placeholder="Name"
-                                    onChange={e => setName('e.target.Value')}
+                                    onChange={e => setName(e.target.value)}
                                 />
                             </div>
                         </div>
@@ -73,7 +82,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                     name="email"
                                     defaultValue=""
                                     placeholder="Email"
-                                    onChange={e => setMail('e.target.Value')}
+                                    onChange={e => setMail(e.target.value)}
                                 />
                             </div>
                         </div>
@@ -90,9 +99,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({ open, onClose }) => {
                                     name="linkedIn"
                                     defaultValue=""
                                     placeholder="LinkedIn URL (optional)"
-                                    onChange={e =>
-                                        setLinkedin('e.target.Value')
-                                    }
+                                    onChange={e => setLinkedin(e.target.value)}
                                 />
                             </div>
                         </div>
