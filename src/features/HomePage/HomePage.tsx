@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ApprenticeshipCards from '../../components/Cards/ApprenticeshipCards/ApprenticeshipCards';
+import ApprenticeshipCards from '../../components/ApprenticeshipCards/ApprenticeshipCards';
 import NavBar from '../../components/NavBar/NavBar';
 
 import { getUserApprenticeships } from './Service';

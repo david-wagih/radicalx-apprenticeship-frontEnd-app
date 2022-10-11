@@ -11,7 +11,6 @@ interface VideoUploadProps {
 }
 
 const VideoUpload: FC<VideoUploadProps> = ({ dispatch, companyVideo }) => {
-    console.log(companyVideo);
     const clickUploadVideo = () => {
         document.getElementById('uploadVideo')?.click();
     };

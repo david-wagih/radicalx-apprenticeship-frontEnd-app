@@ -1,20 +1,39 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
+
+import { teamRole } from '../../../../../features/CreatingApprenticeship/Controller';
 
 interface EditIconProps {
-    id: string;
+    currentRole: teamRole;
+    setInitialValues: (initialValues: teamRole) => void;
+    setShowModal: (showModal: boolean) => void;
 }
 
-
-const EditIcon: FC<EditIconProps> = ({ id }) => {
+const EditIcon: FC<EditIconProps> = ({
+    currentRole,
+    setInitialValues,
+    setShowModal
+}) => {
     return (
-        <div className="edit-icon w-5 h-5 hover:cursor-pointer">
+        <div
+            className="edit-icon w-5 h-5 hover:cursor-pointer"
+            onClick={() => {
+                setInitialValues({
+                    roleName: currentRole.roleName,
+                    roleDescription: currentRole.roleDescription,
+                    requiredSkills: currentRole.requiredSkills,
+                    complimentarySkills: currentRole.complimentarySkills,
+                    minHours: currentRole.minHours,
+                    locationPreferences: currentRole.locationPreferences
+                });
+                setShowModal(true);
+            }}
+        >
             <svg
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={() => console.log(id)}
             >
                 <g opacity="0.5">
                     <path

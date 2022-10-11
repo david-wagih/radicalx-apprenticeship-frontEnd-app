@@ -1,15 +1,31 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
-import ArrowDownIcon from '../../../components/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
-import ComplimentarySkillsIcon from '../../../components/AddRoleForm/ComplimentarySkillsIcon/ComplimentarySkillsIcon';
-import CheckBoxDropDown from '../../../components/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
+import ArrowDownIcon from '../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
+import CheckBoxDropDown from '../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
+import ComplimentarySkillsIcon from '../../../components/TeamRoles/AddRoleForm/ComplimentarySkillsIcon/ComplimentarySkillsIcon';
+import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+
 interface ComplimentarySkillsProps {
-    compSkills: string[];
+    compSkillsOptions: string[];
+    setCurrentRole: (role: teamRole) => void;
+    currentRole: teamRole;
+    initialCompSkills?: string[];
 }
 
-const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({ compSkills }) => {
+const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({
+    compSkillsOptions,
+    setCurrentRole,
+    currentRole,
+    initialCompSkills
+}) => {
     const [showDropDown, setShowDropDown] = useState(false);
-    const [chosenSkills, setChosenSkills] = useState<string[]>([]);
+    const [chosenSkills, setChosenSkills] = useState<string[]>(
+        initialCompSkills || []
+    );
+    useEffect(() => {
+        setCurrentRole({ ...currentRole, complimentarySkills: chosenSkills });
+    }, [chosenSkills]);
+
     return (
         <div className="req-skills-div flex flex-col items-start p-0 h-fit flex-none flex-grow-0 gap-[8px] w-[555px]">
             <p className="title mb-[10px] w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">
@@ -22,7 +38,7 @@ const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({ compSkills }) => {
                 </div>
                 {showDropDown && (
                     <CheckBoxDropDown
-                        options={compSkills}
+                        options={compSkillsOptions}
                         setShowCheckBoxDropDown={setShowDropDown}
                         whichDropDown="compSkills"
                         chosenOptions={chosenSkills}

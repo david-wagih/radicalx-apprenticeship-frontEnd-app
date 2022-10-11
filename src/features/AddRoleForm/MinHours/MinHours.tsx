@@ -1,13 +1,23 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-import HoursIcon from '../../../components/AddRoleForm/HoursIcon/HoursIcon';
+import HoursIcon from '../../../components/TeamRoles/AddRoleForm/HoursIcon/HoursIcon';
+import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
 
 interface MinHoursProps {
-    initialValue: number;
+    initialValue?: string;
+    setCurrentRole: (currentRole: teamRole) => void;
+    currentRole: teamRole;
 }
 
-const MinHours: FC<MinHoursProps> = ({ initialValue }) => {
-    const [hours, setHours] = useState(initialValue);
+const MinHours: FC<MinHoursProps> = ({
+    initialValue,
+    setCurrentRole,
+    currentRole
+}) => {
+    const [hours, setHours] = useState(initialValue || '0');
+    useEffect(() => {
+        setCurrentRole({ ...currentRole, minHours: hours });
+    }, [hours]);
     return (
         <div className="req-skills-div flex flex-col items-start p-0 h-fit flex-none flex-grow-0 gap-[8px] w-[555px]">
             <p className="title mb-[10px] w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">

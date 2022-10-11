@@ -1,13 +1,28 @@
 import { FC } from 'react';
+
+import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+
 interface AddTeamMemberButtonProps {
     setShowModal: (modal: boolean) => void;
+    setInitialValues: (initialValues: teamRole) => void;
 }
 
-const AddRoleButton: FC<AddTeamMemberButtonProps> = ({ setShowModal }) => {
+const AddRoleButton: FC<AddTeamMemberButtonProps> = ({
+    setShowModal,
+    setInitialValues
+}) => {
     return (
         <button
             className="add-button translate-x-[110px] translate-y-[-43px]"
             onClick={() => {
+                setInitialValues({
+                    roleName: '',
+                    roleDescription: '',
+                    requiredSkills: [],
+                    complimentarySkills: [],
+                    minHours: '',
+                    locationPreferences: []
+                });
                 setShowModal(true);
             }}
         >

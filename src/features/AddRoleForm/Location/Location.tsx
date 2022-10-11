@@ -1,15 +1,35 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
-import ArrowDownIcon from '../../../components/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
-import CheckBoxDropDown from '../../../components/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
-import LocationIcon from '../../../components/AddRoleForm/LocationIcon/LocationIcon';
+import ArrowDownIcon from '../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
+import CheckBoxDropDown from '../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
+import LocationIcon from '../../../components/TeamRoles/AddRoleForm/LocationIcon/LocationIcon';
+import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+
 interface LocationProps {
     locations: string[];
+    setCurrentRole: (role: teamRole) => void;
+    currentRole: teamRole;
+    initialLocations?: string[];
 }
 
-const Location: FC<LocationProps> = ({ locations }) => {
+const Location: FC<LocationProps> = ({
+    locations,
+    setCurrentRole,
+    currentRole,
+    initialLocations
+}) => {
     const [showDropDown, setShowDropDown] = useState(false);
-    const [chosenLocations, setChosenLocations] = useState<string[]>([]);
+    const [chosenLocations, setChosenLocations] = useState<string[]>(
+        initialLocations || []
+    );
+
+    useEffect(() => {
+        setCurrentRole({
+            ...currentRole,
+            locationPreferences: chosenLocations
+        });
+    }, [chosenLocations.length]);
+
     return (
         <div className="req-skills-div flex flex-col items-start p-0 h-fit flex-none flex-grow-0 gap-[8px] w-[555px]">
             <p className="title mb-[10px] w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">

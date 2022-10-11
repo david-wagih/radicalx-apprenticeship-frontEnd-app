@@ -1,14 +1,30 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import uuid from 'react-uuid';
 
-import ArrowDownIcon from '../../../components/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
-import DropDown from '../../../components/AddRoleForm/DropDown/DropDown';
-import RoleIcon from '../../../components/AddRoleForm/RoleIcon/RoleIcon';
+import ArrowDownIcon from '../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
+import DropDown from '../../../components/TeamRoles/AddRoleForm/DropDown/DropDown';
+import RoleIcon from '../../../components/TeamRoles/AddRoleForm/RoleIcon/RoleIcon';
+import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+
 interface SelectRoleProps {
     roles: string[];
+    setCurrentRole: (role: teamRole) => void;
+    currentRole: teamRole;
+    initialRole?: string;
 }
-const SelectRole: FC<SelectRoleProps> = ({ roles }) => {
+const SelectRole: FC<SelectRoleProps> = ({
+    roles,
+    setCurrentRole,
+    currentRole,
+    initialRole
+}) => {
     const [showDropDown, setShowDropDown] = useState(false);
-    const [role, setRole] = useState('Select Role');
+    const [role, setRole] = useState(initialRole || 'select role');
+
+    useEffect(() => {
+        setCurrentRole({ ...currentRole, roleName: role });
+    }, [role]);
+
     return (
         <div className="role box-border flex flex-row items-start h-12 bg-white flex-none  self-stretch flex-grow-0 py-[12px] pr-[12px] pl-[16px] gap-[10px] w-[555px] border-[1px]  border-[#CECECE] border-solid rounded-[12px]">
             <RoleIcon />

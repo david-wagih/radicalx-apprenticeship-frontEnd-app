@@ -6,8 +6,8 @@ export const initialState: State = {
     apprenticeshipDescription: '',
     companyVideo: null,
     teamType: '',
-    teamRoles: null,
-    teamAdmins: null,
+    teamRoles: [],
+    teamAdmins: [],
     timeline: null
 };
 
@@ -23,6 +23,7 @@ export enum ActionType {
     timeline = 'timeline'
 }
 export type teamRoles = {
+    id?: string;
     roleName: string;
     roleDescription: string;
     requiredSkills: string[];
@@ -30,6 +31,15 @@ export type teamRoles = {
     minHours: string;
     locationPreferences: string[];
 }[];
+export type teamRole = {
+    id?: string;
+    roleName: string;
+    roleDescription: string;
+    requiredSkills: string[];
+    complimentarySkills: string[];
+    minHours: string;
+    locationPreferences: string[];
+};
 
 export type teamAdmins = {
     name: string;
@@ -42,7 +52,7 @@ export type timeLine = {
 };
 export type action = {
     type: string;
-    payload: string | File | teamRoles | teamAdmins | timeLine | null;
+    payload: string | File | teamRoles | teamAdmins | timeLine;
 };
 export type checked = [boolean[], boolean, boolean, boolean, boolean];
 
@@ -54,8 +64,8 @@ export interface State {
     apprenticeshipDescription: string;
     companyVideo: File | null;
     teamType: string;
-    teamRoles: teamRoles | null;
-    teamAdmins: teamAdmins | null;
+    teamRoles: teamRoles | [];
+    teamAdmins: teamAdmins | [];
     timeline: timeLine | null;
 }
 
@@ -118,8 +128,9 @@ export function reducer(state: State, action: action) {
         return {
             ...state,
             teamRoles: action.payload as teamRoles,
+            //if action.payload is empty array then we will set the progress bar to false
             checked:
-                action.payload === null
+                action.payload.length === 0
                     ? setProgressBarOfIndex(false, 2, 0, state.checked)
                     : setProgressBarOfIndex(true, 2, 0, state.checked)
         };
@@ -128,7 +139,7 @@ export function reducer(state: State, action: action) {
             ...state,
             teamAdmins: action.payload as teamAdmins,
             checked:
-                action.payload === null
+                action.payload.length === 0
                     ? setProgressBarOfIndex(false, 3, 0, state.checked)
                     : setProgressBarOfIndex(true, 3, 0, state.checked)
         };

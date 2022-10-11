@@ -9,13 +9,38 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
 import { action, ActionType, initialState, reducer, State } from './Controller';
-
+const roles = [
+    'Developer',
+    'Designer',
+    'Tester',
+    'Project Manager',
+    'Business Analyst',
+    'Scrum Master',
+    'Product Owner'
+];
+const requiredSkillsOptions = [
+    'React',
+    'Angular',
+    'Vue',
+    'Node',
+    'Express',
+    'MongoDB'
+];
+const compSkills = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'TypeScript',
+    'Python',
+    'Java'
+];
+const locations = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow'];
 const CreatingApprenticeship: FC = () => {
     const [formState, dispatch] = useReducer<React.Reducer<State, action>>(
         reducer as React.Reducer<State, action>,
         initialState
     );
-    console.log(formState.checked);
+    console.log('formState:', formState);
     const keys = [
         'logo-title',
         'company-description',
@@ -48,7 +73,13 @@ const CreatingApprenticeship: FC = () => {
             companyVideo={formState.companyVideo}
         />,
         <></>,
-        <TeamRoles dispatch={dispatch} />,
+        <TeamRoles
+            dispatch={dispatch}
+            roles={roles}
+            requiredSkillsOptions={requiredSkillsOptions}
+            compSkills={compSkills}
+            locations={locations}
+        />,
         <></>
     ];
     return (

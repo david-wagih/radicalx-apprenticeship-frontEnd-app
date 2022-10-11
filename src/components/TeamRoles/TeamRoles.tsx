@@ -1,73 +1,76 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import AddRoleForm from '../../features/AddRoleForm/AddRoleForm';
+import { action } from '../../features/CreatingApprenticeship/Controller';
 import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
-import RoleCards from '../Cards/RoleCards/RoleCards';
+import { teamRole } from '../../features/CreatingApprenticeship/Controller';
 import Modal from '../Modal/Modal';
 
 import AddRoleButton from './AddRoleButton/AddRoleButton';
+import RoleCards from './RoleCards/RoleCards';
 
 interface TeamRolesProps {
-    dispatch: (action: { type: string; payload: teamRoles | null }) => void;
+    dispatch: (action: action) => void;
     roles: string[];
-    reqSkills: string[];
+    requiredSkillsOptions: string[];
     compSkills: string[];
     Description?: string;
-    minHours?: number;
-    location: string[];
+    minHours?: string;
+    locations: string[];
 }
 
 const TeamRoles: FC<TeamRolesProps> = ({
-    roles = [
-        'Developer',
-        'Designer',
-        'Tester',
-        'Project Manager',
-        'Business Analyst',
-        'Scrum Master',
-        'Product Owner'
-    ],
-    Description = 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit amet',
-    reqSkills = ['React', 'Angular', 'Vue', 'Node', 'Express', 'MongoDB'],
-    compSkills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java'],
-    minHours = 20,
-    location = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow']
+    dispatch,
+    roles,
+    requiredSkillsOptions,
+    compSkills,
+    locations
 }) => {
+    const [neededRoles, setNeededRoles] = useState<teamRoles>([]);
     const [showModal, setShowModal] = useState(false);
-    const teamRoles = [
-        {
-            id: 3919869831,
-            title: 'Mobile App Developer',
-            description:
-                "Promettant long qu'elle hélas mal la sur pourquoi la. Flanc quel un la et, fatale.",
-            tags: ['Flutter', 'Dart', 'React Native', 'Android']
-        },
-        {
-            id: 1942767747,
-            title: 'Mobile App Developer',
-            description:
-                'Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.',
-            tags: ['Flutter', 'Dart', 'React Native', 'Android']
-        }
-    ];
+
+    useEffect(() => {
+        dispatch({ type: 'teamRoles', payload: neededRoles });
+    }, [neededRoles]);
+
+    const [initialValues, setInitialValues] = useState<teamRole>({
+        roleName: '',
+        roleDescription: '',
+        requiredSkills: [],
+        complimentarySkills: [],
+        minHours: '',
+        locationPreferences: []
+    });
+
     return (
         <div className="team-roles">
-            <AddRoleButton setShowModal={setShowModal} />
+            <AddRoleButton
+                setShowModal={setShowModal}
+                setInitialValues={setInitialValues}
+            />
+
             {showModal && (
                 <Modal>
                     <AddRoleForm
-                        dispatch={dispatch}
-                        setShowModal={setShowModal}
                         roles={roles}
-                        Description={Description}
-                        reqSkills={reqSkills}
-                        compSkills={compSkills}
-                        minHours={minHours}
-                        location={location}
+                        requiredSkillsOptions={requiredSkillsOptions}
+                        compSkillsOptions={compSkills}
+                        locations={locations}
+                        setShowModal={setShowModal}
+                        setNeededRoles={setNeededRoles}
+                        neededRoles={neededRoles}
+                        initialValues={initialValues}
                     />
                 </Modal>
             )}
-            {TeamRoles && <RoleCards apprenticeships={teamRoles} />}
+            {neededRoles && (
+                <RoleCards
+                    neededRoles={neededRoles}
+                    setNeededRoles={setNeededRoles}
+                    setInitialValues={setInitialValues}
+                    setShowModal={setShowModal}
+                />
+            )}
         </div>
     );
 };

@@ -1,19 +1,39 @@
 import { FC } from 'react';
 
+import {
+    teamRole,
+    teamRoles
+} from '../../../../features/CreatingApprenticeship/Controller';
+
 import DeleteIcon from './DeleteIcon/DeleteIcon';
 import DuplicateIcon from './DuplicateIcon/DuplicateIcon';
 import EditIcon from './EditIcon/EditIcon';
 import Paragraph from './Paragraph/Paragraph';
 import Title from './Title/Tittle';
-interface CardProps {
+
+interface RoleCardProps {
+    myKey: string;
     title: string;
     paragraph: string;
     tags: string[];
-    myKey: string;
-    id: string;
+    index: number;
+    setNeededRoles: (neededRoles: teamRoles) => void;
+    neededRoles: teamRoles;
+    setInitialValues: (initialValues: teamRole) => void;
+    setShowModal: (showModal: boolean) => void;
 }
 
-const Card: FC<CardProps> = ({ title, paragraph, tags, myKey, id }) => {
+const RoleCard: FC<RoleCardProps> = ({
+    myKey,
+    title,
+    paragraph,
+    tags,
+    index,
+    setNeededRoles,
+    neededRoles,
+    setInitialValues,
+    setShowModal
+}) => {
     return (
         <div
             className="box-border flex flex-col items-start p-5 h-56 bg-white flex-none order-none self-stretch flex-grow-0 w-fit border-[#CFD3D9] border rounded-lg "
@@ -22,9 +42,21 @@ const Card: FC<CardProps> = ({ title, paragraph, tags, myKey, id }) => {
             <div className="flex justify-between w-full">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
-                    <EditIcon id={id} />
-                    <DuplicateIcon id={id} />
-                    <DeleteIcon id={id} />
+                    <EditIcon
+                        currentRole={neededRoles[index]}
+                        setInitialValues={setInitialValues}
+                        setShowModal={setShowModal}
+                    />
+                    <DuplicateIcon
+                        index={index}
+                        setNeededRoles={setNeededRoles}
+                        neededRoles={neededRoles}
+                    />
+                    <DeleteIcon
+                        index={index}
+                        setNeededRoles={setNeededRoles}
+                        neededRoles={neededRoles}
+                    />
                 </div>
             </div>
             <div className="mb-[35px]">
@@ -46,4 +78,4 @@ const Card: FC<CardProps> = ({ title, paragraph, tags, myKey, id }) => {
     );
 };
 
-export default Card;
+export default RoleCard;

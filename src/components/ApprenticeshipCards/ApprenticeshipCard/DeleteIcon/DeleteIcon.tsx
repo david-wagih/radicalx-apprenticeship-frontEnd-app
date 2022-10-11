@@ -1,7 +1,7 @@
-interface DeleteIconProps {
-    id: string;
-}
-const DeleteIcon = ({ id }) => {
+import { FC } from 'react';
+
+interface DeleteIconProps {}
+const DeleteIcon: FC<DeleteIconProps> = ({}) => {
     // const endPoint=window.location.pathname.includes('homepage')?`minimum_apprenticeship_data?user_id=${id}`:
 
     return (

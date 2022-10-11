@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import uuid from 'react-uuid';
 
-import CreateButton from '../../CreateButton/CreateButton';
-import Card from '../Card/Card';
+import CreateButton from '../CreateButton/CreateButton';
+
+import ApprenticeshipCard from './ApprenticeshipCard/ApprenticeshipCard';
 
 interface ApprenticeshipCardsProps {
     apprenticeships: {
@@ -27,13 +28,12 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
             <div className="cards w-4/6 h-fit grid grid-cols-2 gap-y-4 ">
                 {apprenticeships &&
                     apprenticeships.map(apprenticeship => (
-                        <Card
+                        <ApprenticeshipCard
                             key={uuid()}
                             title={apprenticeship.title}
                             paragraph={apprenticeship.description}
                             tags={apprenticeship.tags}
                             myKey={uuid()}
-                            id={apprenticeship.id}
                         />
                     ))}
             </div>

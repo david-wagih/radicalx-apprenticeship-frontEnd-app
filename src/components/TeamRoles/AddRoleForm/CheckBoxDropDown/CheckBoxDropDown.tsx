@@ -26,7 +26,7 @@ const removeOption = (chosenOptions: string[], optionToRemove: string) => {
 interface CheckBoxDropDownProps {
     options: string[];
     setShowCheckBoxDropDown: (value: boolean) => void;
-    whichDropDown: string;
+    whichDropDown?: string;
     chosenOptions: string[];
     setChosenOptions: (value: string[]) => void;
 }
