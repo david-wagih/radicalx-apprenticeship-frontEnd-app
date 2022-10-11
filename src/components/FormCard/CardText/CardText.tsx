@@ -1,10 +1,10 @@
 import { FC } from 'react';
+
+import { action } from '../../../features/CreatingApprenticeship/Controller';
+
 interface cardTextProps {
     type: string;
-    dispatch: (action: {
-        type: string;
-        payload: string | File | string;
-    }) => void;
+    dispatch: (action: action) => void;
 }
 const CardText: FC<cardTextProps> = ({ dispatch, type }) => {
     return (

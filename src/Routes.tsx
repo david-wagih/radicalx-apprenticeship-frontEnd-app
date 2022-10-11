@@ -1,7 +1,13 @@
 import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import DashBoard from './components/NavBar/Dashboard/Dashboard';
+import {
+    options,
+    OptionsContext
+} from './contexts/optionsContext/OptionsContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';
+import HomePage from './features/HomePage/HomePage';
 import LogIn from './features/LogIn/LogIn';
 import SignUp from './features/SignUp/SignUp';
 
@@ -11,11 +17,16 @@ const RoutesComponent: FC = () => {
             <Routes>
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/" element={<LogIn />} />
+                <Route path="/dashboard" element={<DashBoard />} />
                 <Route
                     path="/creating_apprenticeship"
-                    element={<CreatingApprenticeship />}
+                    element={
+                        <OptionsContext.Provider value={options}>
+                            <CreatingApprenticeship />
+                        </OptionsContext.Provider>
+                    }
                 />
+                <Route path="/homepage" element={<HomePage />} />
             </Routes>
         </BrowserRouter>
     );
