@@ -1,9 +1,9 @@
-import React, { FC, useContext,useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 
 import ArrowDownIcon from '../../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
 import CheckBoxDropDown from '../../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
 import ComplimentarySkillsIcon from '../../../../components/TeamRoles/AddRoleForm/ComplimentarySkillsIcon/ComplimentarySkillsIcon';
-import { OptionsContext } from '../../../../contexts/optionsContext/OptionsContext';
+import { OptionsContext } from '../../../../Contexts/OptionsContext/OptionsContext';
 import { teamRole } from '../../Controller';
 
 interface ComplimentarySkillsProps {

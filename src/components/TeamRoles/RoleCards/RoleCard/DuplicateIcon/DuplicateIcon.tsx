@@ -1,17 +1,13 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
+import { RolesContext } from '../../../../../Contexts/RolesContext/RolesContext';
 import { teamRoles } from '../../../../../features/CreatingApprenticeship/Controller';
 
 interface DuplicateIconProps {
-    setNeededRoles: (neededRoles: teamRoles) => void;
-    neededRoles: teamRoles;
     index: number;
 }
-const DuplicateIcon: FC<DuplicateIconProps> = ({
-    setNeededRoles,
-    neededRoles,
-    index
-}) => {
+const DuplicateIcon: FC<DuplicateIconProps> = ({ index }) => {
+    const { neededRoles, setNeededRoles } = useContext(RolesContext);
     return (
         <div
             className="duplicate-icon  hover:cursor-pointer"

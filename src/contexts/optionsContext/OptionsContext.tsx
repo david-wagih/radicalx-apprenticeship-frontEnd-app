@@ -1,5 +1,6 @@
 import { createContext } from 'react';
 
+//NOTE:we can make each team type have different options
 export const options = {
     roles: [
         'Developer',

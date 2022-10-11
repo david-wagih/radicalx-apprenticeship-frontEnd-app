@@ -5,7 +5,8 @@ import DashBoard from './components/NavBar/Dashboard/Dashboard';
 import {
     options,
     OptionsContext
-} from './contexts/optionsContext/OptionsContext';
+} from './Contexts/OptionsContext/OptionsContext';
+import { RolesContextProvider } from './Contexts/RolesContext/RolesContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';
 import HomePage from './features/HomePage/HomePage';
 import LogIn from './features/LogIn/LogIn';
@@ -22,7 +23,9 @@ const RoutesComponent: FC = () => {
                     path="/creating_apprenticeship"
                     element={
                         <OptionsContext.Provider value={options}>
-                            <CreatingApprenticeship />
+                            <RolesContextProvider>
+                                <CreatingApprenticeship />
+                            </RolesContextProvider>
                         </OptionsContext.Provider>
                     }
                 />

@@ -1,16 +1,9 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
-import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+import { RolesContext } from '../../../Contexts/RolesContext/RolesContext';
 
-interface AddTeamMemberButtonProps {
-    setShowModal: (modal: boolean) => void;
-    setInitialValues: (initialValues: teamRole) => void;
-}
-
-const AddRoleButton: FC<AddTeamMemberButtonProps> = ({
-    setShowModal,
-    setInitialValues
-}) => {
+const AddRoleButton: FC = () => {
+    const { setInitialValues, setShowModal } = useContext(RolesContext);
     return (
         <button
             className="add-button translate-x-[110px] translate-y-[-43px]"

@@ -1,6 +1,7 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import uuid from 'react-uuid';
 
+import { RolesContext } from '../../../Contexts/RolesContext/RolesContext';
 import {
     teamRole,
     teamRoles
@@ -8,19 +9,8 @@ import {
 
 import RoleCard from './RoleCard/RoleCard';
 
-interface RoleCardsProps {
-    neededRoles: teamRoles;
-    setNeededRoles: (neededRoles: teamRoles) => void;
-    setInitialValues: (initialValues: teamRole) => void;
-    setShowModal: (showModal: boolean) => void;
-}
-
-const RoleCards: FC<RoleCardsProps> = ({
-    neededRoles,
-    setNeededRoles,
-    setInitialValues,
-    setShowModal
-}) => {
+const RoleCards: FC = () => {
+    const { neededRoles } = useContext(RolesContext);
     return (
         <div className="cards w-[770px] h-fit grid grid-cols-2 gap-y-4">
             {neededRoles.map((neededRole, index) => (
@@ -31,10 +21,6 @@ const RoleCards: FC<RoleCardsProps> = ({
                     paragraph={neededRole.roleDescription}
                     tags={neededRole.requiredSkills}
                     index={index}
-                    setNeededRoles={setNeededRoles}
-                    neededRoles={neededRoles}
-                    setInitialValues={setInitialValues}
-                    setShowModal={setShowModal}
                 />
             ))}
         </div>

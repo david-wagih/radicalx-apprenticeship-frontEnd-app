@@ -1,7 +1,7 @@
-import { FC, useState } from 'react';
+import { FC, useContext, useState } from 'react';
 
 import ExitIcon from '../../../components/TeamRoles/AddRoleForm/ExitIcon/ExitIcon';
-import { teamRoles } from '../Controller';
+import { RolesContext } from '../../../Contexts/RolesContext/RolesContext';
 import { teamRole } from '../Controller';
 
 import ComplimentarySkills from './ComplimentarySkills/ComplimentarySkills';
@@ -10,21 +10,10 @@ import MinHours from './MinHours/MinHours';
 import RequiredSkills from './RequiredSkills/RequiredSkills';
 import RoleDescription from './RoleDescription/RoleDescription';
 import SelectRole from './SelectRole/SelectRole';
-interface AddRoleFormProps {
-    setShowModal: (showModal: boolean) => void;
-    //------------------
-    setNeededRoles: (neededRoles: teamRoles) => void;
-    neededRoles: teamRoles;
-    //------------------
-    initialValues: teamRole;
-}
 
-const AddRoleForm: FC<AddRoleFormProps> = ({
-    setShowModal,
-    setNeededRoles,
-    neededRoles,
-    initialValues
-}) => {
+const AddRoleForm: FC = () => {
+    const { initialValues, setShowModal, neededRoles, setNeededRoles } =
+        useContext(RolesContext);
     const [currentRole, setCurrentRole] = useState<teamRole>(initialValues);
 
     return (
@@ -53,7 +42,7 @@ const AddRoleForm: FC<AddRoleFormProps> = ({
                     >
                         Save
                     </button>
-                    <ExitIcon setShowModal={setShowModal} />
+                    <ExitIcon  />
                 </div>
             </div>
             <SelectRole

@@ -1,10 +1,9 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
-interface ExitIconProps {
-    setShowModal: (showModal: boolean) => void;
-}
+import { RolesContext } from '../../../../Contexts/RolesContext/RolesContext';
 
-const ExitIcon: FC<ExitIconProps> = ({ setShowModal }) => {
+const ExitIcon: FC = () => {
+    const { setShowModal } = useContext(RolesContext);
     return (
         <button
             className="exit-button"

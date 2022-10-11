@@ -4,7 +4,7 @@ import uuid from 'react-uuid';
 import ArrowDownIcon from '../../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
 import DropDown from '../../../../components/TeamRoles/AddRoleForm/DropDown/DropDown';
 import RoleIcon from '../../../../components/TeamRoles/AddRoleForm/RoleIcon/RoleIcon';
-import { OptionsContext } from '../../../../contexts/optionsContext/OptionsContext';
+import { OptionsContext } from '../../../../Contexts/OptionsContext/OptionsContext';
 import { teamRole } from '../../Controller';
 
 interface SelectRoleProps {

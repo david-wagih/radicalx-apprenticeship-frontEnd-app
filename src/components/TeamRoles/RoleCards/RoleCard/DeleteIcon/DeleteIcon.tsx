@@ -1,19 +1,13 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
+import { RolesContext } from '../../../../../Contexts/RolesContext/RolesContext';
 import { teamRoles } from '../../../../../features/CreatingApprenticeship/Controller';
 
 interface DeleteIconProps {
-    setNeededRoles: (neededRoles: teamRoles) => void;
-    neededRoles: teamRoles;
     index: number;
 }
-const DeleteIcon: FC<DeleteIconProps> = ({
-    setNeededRoles,
-    neededRoles,
-    index
-}) => {
-    // const endPoint=window.location.pathname.includes('homepage')?`minimum_apprenticeship_data?user_id=${id}`:
-
+const DeleteIcon: FC<DeleteIconProps> = ({ index }) => {
+    const { setNeededRoles, neededRoles } = useContext(RolesContext);
     return (
         <div
             className="delete- hover:cursor-pointer"

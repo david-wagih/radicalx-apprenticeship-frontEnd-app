@@ -1,18 +1,15 @@
-import { FC, useState } from 'react';
+import { FC, useContext,useState } from 'react';
 
+import { RolesContext } from '../../../../../Contexts/RolesContext/RolesContext';
 import { teamRole } from '../../../../../features/CreatingApprenticeship/Controller';
 
 interface EditIconProps {
     currentRole: teamRole;
-    setInitialValues: (initialValues: teamRole) => void;
-    setShowModal: (showModal: boolean) => void;
 }
 
-const EditIcon: FC<EditIconProps> = ({
-    currentRole,
-    setInitialValues,
-    setShowModal
-}) => {
+const EditIcon: FC<EditIconProps> = ({ currentRole }) => {
+    const { setInitialValues, setShowModal } = useContext(RolesContext);
+
     return (
         <div
             className="edit-icon w-5 h-5 hover:cursor-pointer"

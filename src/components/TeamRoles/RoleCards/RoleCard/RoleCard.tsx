@@ -1,9 +1,6 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
-import {
-    teamRole,
-    teamRoles
-} from '../../../../features/CreatingApprenticeship/Controller';
+import { RolesContext } from '../../../../Contexts/RolesContext/RolesContext';
 
 import DeleteIcon from './DeleteIcon/DeleteIcon';
 import DuplicateIcon from './DuplicateIcon/DuplicateIcon';
@@ -17,10 +14,6 @@ interface RoleCardProps {
     paragraph: string;
     tags: string[];
     index: number;
-    setNeededRoles: (neededRoles: teamRoles) => void;
-    neededRoles: teamRoles;
-    setInitialValues: (initialValues: teamRole) => void;
-    setShowModal: (showModal: boolean) => void;
 }
 
 const RoleCard: FC<RoleCardProps> = ({
@@ -28,12 +21,9 @@ const RoleCard: FC<RoleCardProps> = ({
     title,
     paragraph,
     tags,
-    index,
-    setNeededRoles,
-    neededRoles,
-    setInitialValues,
-    setShowModal
+    index
 }) => {
+    const { neededRoles } = useContext(RolesContext);
     return (
         <div
             className="box-border flex flex-col items-start p-5 h-56 bg-white flex-none order-none self-stretch flex-grow-0 w-fit border-[#CFD3D9] border rounded-lg "
@@ -42,21 +32,9 @@ const RoleCard: FC<RoleCardProps> = ({
             <div className="flex justify-between w-full">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
-                    <EditIcon
-                        currentRole={neededRoles[index]}
-                        setInitialValues={setInitialValues}
-                        setShowModal={setShowModal}
-                    />
-                    <DuplicateIcon
-                        index={index}
-                        setNeededRoles={setNeededRoles}
-                        neededRoles={neededRoles}
-                    />
-                    <DeleteIcon
-                        index={index}
-                        setNeededRoles={setNeededRoles}
-                        neededRoles={neededRoles}
-                    />
+                    <EditIcon currentRole={neededRoles[index]} />
+                    <DuplicateIcon index={index} />
+                    <DeleteIcon index={index} />
                 </div>
             </div>
             <div className="mb-[35px]">

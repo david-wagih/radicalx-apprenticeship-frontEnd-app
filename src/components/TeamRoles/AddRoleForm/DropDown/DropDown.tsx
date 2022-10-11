@@ -1,4 +1,4 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 
 const searchInOptions = (options: string[], searchValue: string) => {
     let optionsBySearchValue = options.slice(0);

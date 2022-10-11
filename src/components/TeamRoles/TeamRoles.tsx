@@ -1,9 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useContext, useEffect } from 'react';
 
+import { RolesContext } from '../../Contexts/RolesContext/RolesContext';
 import AddRoleForm from '../../features/CreatingApprenticeship/AddRoleForm/AddRoleForm';
 import { action } from '../../features/CreatingApprenticeship/Controller';
-import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
-import { teamRole } from '../../features/CreatingApprenticeship/Controller';
 import Modal from '../Modal/Modal';
 
 import AddRoleButton from './AddRoleButton/AddRoleButton';
@@ -14,47 +13,20 @@ interface TeamRolesProps {
 }
 
 const TeamRoles: FC<TeamRolesProps> = ({ dispatch }) => {
-    const [neededRoles, setNeededRoles] = useState<teamRoles>([]);
-    const [showModal, setShowModal] = useState(false);
-
+    const { neededRoles, showModal } = useContext(RolesContext);
     useEffect(() => {
         dispatch({ type: 'teamRoles', payload: neededRoles });
     }, [neededRoles]);
-
-    const [initialValues, setInitialValues] = useState<teamRole>({
-        roleName: '',
-        roleDescription: '',
-        requiredSkills: [],
-        complimentarySkills: [],
-        minHours: '',
-        locationPreferences: []
-    });
-
     return (
         <div className="team-roles">
-            <AddRoleButton
-                setShowModal={setShowModal}
-                setInitialValues={setInitialValues}
-            />
+            <AddRoleButton />
 
             {showModal && (
                 <Modal>
-                    <AddRoleForm
-                        setShowModal={setShowModal}
-                        setNeededRoles={setNeededRoles}
-                        neededRoles={neededRoles}
-                        initialValues={initialValues}
-                    />
+                    <AddRoleForm />
                 </Modal>
             )}
-            {neededRoles && (
-                <RoleCards
-                    neededRoles={neededRoles}
-                    setNeededRoles={setNeededRoles}
-                    setInitialValues={setInitialValues}
-                    setShowModal={setShowModal}
-                />
-            )}
+            {neededRoles && <RoleCards />}
         </div>
     );
 };
