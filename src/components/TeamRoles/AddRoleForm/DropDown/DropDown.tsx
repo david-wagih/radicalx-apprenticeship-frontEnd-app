@@ -1,6 +1,4 @@
-import { FC, useState } from 'react';
-
-import { action } from '../../../../features/CreatingApprenticeship/Controller';
+import { FC, useContext, useState } from 'react';
 
 const searchInOptions = (options: string[], searchValue: string) => {
     let optionsBySearchValue = options.slice(0);

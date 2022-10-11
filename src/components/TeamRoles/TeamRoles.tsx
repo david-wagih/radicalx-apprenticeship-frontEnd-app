@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 
-import AddRoleForm from '../../features/AddRoleForm/AddRoleForm';
+import AddRoleForm from '../../features/CreatingApprenticeship/AddRoleForm/AddRoleForm';
 import { action } from '../../features/CreatingApprenticeship/Controller';
 import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
 import { teamRole } from '../../features/CreatingApprenticeship/Controller';
@@ -11,21 +11,9 @@ import RoleCards from './RoleCards/RoleCards';
 
 interface TeamRolesProps {
     dispatch: (action: action) => void;
-    roles: string[];
-    requiredSkillsOptions: string[];
-    compSkills: string[];
-    Description?: string;
-    minHours?: string;
-    locations: string[];
 }
 
-const TeamRoles: FC<TeamRolesProps> = ({
-    dispatch,
-    roles,
-    requiredSkillsOptions,
-    compSkills,
-    locations
-}) => {
+const TeamRoles: FC<TeamRolesProps> = ({ dispatch }) => {
     const [neededRoles, setNeededRoles] = useState<teamRoles>([]);
     const [showModal, setShowModal] = useState(false);
 
@@ -52,10 +40,6 @@ const TeamRoles: FC<TeamRolesProps> = ({
             {showModal && (
                 <Modal>
                     <AddRoleForm
-                        roles={roles}
-                        requiredSkillsOptions={requiredSkillsOptions}
-                        compSkillsOptions={compSkills}
-                        locations={locations}
                         setShowModal={setShowModal}
                         setNeededRoles={setNeededRoles}
                         neededRoles={neededRoles}

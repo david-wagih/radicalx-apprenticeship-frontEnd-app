@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+import { teamRole } from '../../Controller';
 
 interface RoleDescriptionProps {
     initialDescription?: string;

@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 
-import ExitIcon from '../../components/TeamRoles/AddRoleForm/ExitIcon/ExitIcon';
-import { teamRoles } from '../../features/CreatingApprenticeship/Controller';
-import { teamRole } from '../../features/CreatingApprenticeship/Controller';
+import ExitIcon from '../../../components/TeamRoles/AddRoleForm/ExitIcon/ExitIcon';
+import { teamRoles } from '../Controller';
+import { teamRole } from '../Controller';
 
 import ComplimentarySkills from './ComplimentarySkills/ComplimentarySkills';
 import Location from './Location/Location';
@@ -11,12 +11,6 @@ import RequiredSkills from './RequiredSkills/RequiredSkills';
 import RoleDescription from './RoleDescription/RoleDescription';
 import SelectRole from './SelectRole/SelectRole';
 interface AddRoleFormProps {
-    //values of dropdowns
-    roles: string[];
-    requiredSkillsOptions: string[];
-    compSkillsOptions: string[];
-    locations: string[];
-    //------------------
     setShowModal: (showModal: boolean) => void;
     //------------------
     setNeededRoles: (neededRoles: teamRoles) => void;
@@ -26,10 +20,6 @@ interface AddRoleFormProps {
 }
 
 const AddRoleForm: FC<AddRoleFormProps> = ({
-    roles,
-    requiredSkillsOptions,
-    compSkillsOptions,
-    locations,
     setShowModal,
     setNeededRoles,
     neededRoles,
@@ -68,7 +58,6 @@ const AddRoleForm: FC<AddRoleFormProps> = ({
             </div>
             <SelectRole
                 initialRole={initialValues.roleName}
-                roles={roles}
                 setCurrentRole={setCurrentRole}
                 currentRole={currentRole}
             />
@@ -79,13 +68,11 @@ const AddRoleForm: FC<AddRoleFormProps> = ({
             />
             <RequiredSkills
                 initialRequiredSkills={initialValues.requiredSkills}
-                skills={requiredSkillsOptions}
                 setCurrentRole={setCurrentRole}
                 currentRole={currentRole}
             />
             <ComplimentarySkills
                 initialCompSkills={initialValues.complimentarySkills}
-                compSkillsOptions={compSkillsOptions}
                 setCurrentRole={setCurrentRole}
                 currentRole={currentRole}
             />
@@ -96,7 +83,6 @@ const AddRoleForm: FC<AddRoleFormProps> = ({
             />
             <Location
                 initialLocations={initialValues.locationPreferences}
-                locations={locations}
                 setCurrentRole={setCurrentRole}
                 currentRole={currentRole}
             />

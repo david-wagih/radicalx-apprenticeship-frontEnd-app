@@ -1,23 +1,24 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useContext,useEffect, useState } from 'react';
 
-import ArrowDownIcon from '../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
-import CheckBoxDropDown from '../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
-import ComplimentarySkillsIcon from '../../../components/TeamRoles/AddRoleForm/ComplimentarySkillsIcon/ComplimentarySkillsIcon';
-import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+import ArrowDownIcon from '../../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
+import CheckBoxDropDown from '../../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
+import ComplimentarySkillsIcon from '../../../../components/TeamRoles/AddRoleForm/ComplimentarySkillsIcon/ComplimentarySkillsIcon';
+import { OptionsContext } from '../../../../contexts/optionsContext/OptionsContext';
+import { teamRole } from '../../Controller';
 
 interface ComplimentarySkillsProps {
-    compSkillsOptions: string[];
     setCurrentRole: (role: teamRole) => void;
     currentRole: teamRole;
     initialCompSkills?: string[];
 }
 
 const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({
-    compSkillsOptions,
     setCurrentRole,
     currentRole,
     initialCompSkills
 }) => {
+    const compSkillsOptions = useContext(OptionsContext).compSkills;
+
     const [showDropDown, setShowDropDown] = useState(false);
     const [chosenSkills, setChosenSkills] = useState<string[]>(
         initialCompSkills || []

@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
-import HoursIcon from '../../../components/TeamRoles/AddRoleForm/HoursIcon/HoursIcon';
-import { teamRole } from '../../../features/CreatingApprenticeship/Controller';
+import HoursIcon from '../../../../components/TeamRoles/AddRoleForm/HoursIcon/HoursIcon';
+import { teamRole } from '../../Controller';
 
 interface MinHoursProps {
     initialValue?: string;

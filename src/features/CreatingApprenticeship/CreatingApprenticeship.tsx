@@ -9,31 +9,6 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
 import { action, ActionType, initialState, reducer, State } from './Controller';
-const roles = [
-    'Developer',
-    'Designer',
-    'Tester',
-    'Project Manager',
-    'Business Analyst',
-    'Scrum Master',
-    'Product Owner'
-];
-const requiredSkillsOptions = [
-    'React',
-    'Angular',
-    'Vue',
-    'Node',
-    'Express',
-    'MongoDB'
-];
-const compSkills = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'TypeScript',
-    'Python',
-    'Java'
-];
 const locations = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow'];
 const CreatingApprenticeship: FC = () => {
     const [formState, dispatch] = useReducer<React.Reducer<State, action>>(
@@ -75,10 +50,6 @@ const CreatingApprenticeship: FC = () => {
         <></>,
         <TeamRoles
             dispatch={dispatch}
-            roles={roles}
-            requiredSkillsOptions={requiredSkillsOptions}
-            compSkills={compSkills}
-            locations={locations}
         />,
         <></>
     ];
