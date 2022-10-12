@@ -1,5 +1,6 @@
 import { FC, useReducer } from 'react';
 
+import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
@@ -21,20 +22,14 @@ const CreatingApprenticeship: FC = () => {
         'company-description',
         'apprenticeship-description',
         'apprenticeship-video',
-        'add-team-member',
-        'team-roles',
-        'team-admin',
-        'timeline'
+        'Team Admin'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
         'Introduce yourself, your company, and what you are building.',
-        'Team Type',
-        'Team Roles',
-        'Team Admin',
-        'Timeline'
+        'Team Admin'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
@@ -48,13 +43,11 @@ const CreatingApprenticeship: FC = () => {
             companyVideo={formState.companyVideo}
         />,
         <></>,
-        <TeamRoles
-            dispatch={dispatch}
-        />,
+        <TeamRoles dispatch={dispatch} />,
         <></>
     ];
     return (
-        <div className="parent min-h-screen bg-background-gray relative w-[1512px] h-[1963px] ">
+        <div className="parent relative h-[1963px] min-h-screen w-[1512px] bg-background-gray ">
             <Header
                 readyToPublish={formState.checked
                     .flat()
@@ -68,10 +61,11 @@ const CreatingApprenticeship: FC = () => {
                     formState.checked[1],
                     formState.checked[2],
                     formState.checked[3],
-                    formState.checked[4]
+                    formState.checked[4],
+                    formState.checked[5]
                 ]}
             />
-            <div className="cards flex flex-col items-start p-0 absolute gap-[20px] isolate w-[800px] h-[1697px] top-[218px] left-[371px]">
+            <div className="cards absolute top-[218px] left-[371px] isolate flex h-[1697px] w-[800px] flex-col items-start gap-[20px] p-0">
                 {headers.map((header, index) => (
                     <FormCard
                         header={header}
