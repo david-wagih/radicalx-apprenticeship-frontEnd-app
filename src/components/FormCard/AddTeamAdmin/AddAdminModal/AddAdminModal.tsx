@@ -106,7 +106,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                 </div>
             </div>
         </>,
-        document.getElementById('portal') as HTMLInputElement
+        document.getElementById('modal') as HTMLInputElement
     );
 };
 
