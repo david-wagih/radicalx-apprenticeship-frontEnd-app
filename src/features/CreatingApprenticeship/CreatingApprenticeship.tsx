@@ -1,6 +1,6 @@
 import { FC, useReducer, useState } from 'react';
 
-import AddAdmin from '../../components/FormCard/AddAdmin/AddAdmin';
+import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';

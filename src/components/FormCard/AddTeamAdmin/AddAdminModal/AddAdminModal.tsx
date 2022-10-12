@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import InputField from '../../InputField/InputField';
-import PictureUpload from '../../PictureUpload/PictureUpload';
+import InputField from '../../../InputField/InputField';
+import PictureUpload from '../../../PictureUpload/PictureUpload';
 
 type AddAdminModalProps = {
     open: boolean;
