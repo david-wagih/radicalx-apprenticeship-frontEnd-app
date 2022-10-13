@@ -17,19 +17,7 @@ const AddAdmin: FC<AddAdminProps> = ({ dispatch }) => {
     useEffect(() => {
         dispatch({ type: 'teamAdmins', payload: admins });
     }, [admins.length]);
-    const handleSave = (
-        newName: string,
-        newMail: string,
-        newlinkedin: string
-    ) => {
-        const newAdmin = {
-            name: newName,
-            email: newMail,
-            linkedIn: newlinkedin
-        };
-        setAdmins(current => [...current, newAdmin]);
-        setIsOpen(false);
-    };
+
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -38,19 +26,21 @@ const AddAdmin: FC<AddAdminProps> = ({ dispatch }) => {
                 handleClick={() => {
                     setIsOpen(true);
                 }}
-            ></AddMemberButton>
-
+            />
             <AddAdminModal
                 open={isOpen}
-                onClose={() => setIsOpen(false)}
-                handleSave={handleSave}
-            ></AddAdminModal>
+                setAdmins={setAdmins}
+                admins={admins}
+                setIsOpen={setIsOpen}
+            />
             <div className="grid grid-cols-2 gap-4">
-                {admins.map(admin => (
+                {admins.map((admin, index) => (
                     <AdminCard
+                        key={index}
                         name={admin.name}
                         linkedIn={admin.linkedIn}
-                    ></AdminCard>
+                        logo={admin.logo}
+                    />
                 ))}
             </div>
         </div>

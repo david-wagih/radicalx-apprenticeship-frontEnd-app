@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
 
 interface PicProps {
-    dispatch: (action: { type: string; payload: string | File | null }) => void;
+    setLogo: (logo: File | null) => void;
 }
-const PictureUpload: FC<PicProps> = ({ dispatch }) => {
+const PictureUpload: FC<PicProps> = ({ setLogo }) => {
     const [file, setFile] = useState<File | null>(null);
 
     const clickUploadLogo = () => {
@@ -13,7 +13,7 @@ const PictureUpload: FC<PicProps> = ({ dispatch }) => {
     const handleUploadingLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         setFile(file || null);
-        dispatch({ type: 'ApprenticeshipLogo', payload: file || null });
+        setLogo(file || null);
     };
 
     return (

@@ -15,6 +15,7 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
+    console.log('formState:', formState);
     const keys = [
         'logo-title',
         'company-description',

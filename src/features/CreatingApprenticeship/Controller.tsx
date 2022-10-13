@@ -45,6 +45,7 @@ export type teamAdmins = {
     name: string;
     email: string;
     linkedIn: string;
+    logo: File | null;
 }[];
 export type timeLine = {
     startDate: string;

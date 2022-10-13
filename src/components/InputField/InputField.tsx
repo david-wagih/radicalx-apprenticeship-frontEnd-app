@@ -7,9 +7,10 @@ import uuid from 'react-uuid';
 
 const key = uuid();
 interface InputProps {
+    value: string;
     type: string;
     className: string;
-    defaultValue: string;
+    defaultValue?: string;
     name: string;
     placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -18,6 +19,7 @@ interface InputProps {
 
 //NOTE: <InputsProps> means that our component will receive props of type InputProps
 const InputField: FC<InputProps> = ({
+    value,
     type,
     className,
     name,
@@ -31,6 +33,7 @@ const InputField: FC<InputProps> = ({
     return (
         <>
             <input
+                value={value}
                 type={type}
                 className={className}
                 name={name}
