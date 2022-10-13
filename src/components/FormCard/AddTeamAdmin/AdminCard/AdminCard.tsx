@@ -28,7 +28,7 @@ const AdminCard: FC<AdminCardProps> = ({ name, linkedIn, logo }) => {
                     </svg>
                 </div>
                 <p className="relative py-6 pl-16 text-left align-middle text-lg font-semibold leading-6">
-                    {name}
+                    {name.length > 20 ? name.slice(0, 20) + '...' : name}
                 </p>
                 {linkedIn && (
                     <div className="absolute py-6 pl-[317px]">
