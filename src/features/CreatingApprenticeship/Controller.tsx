@@ -1,86 +1,166 @@
-export const initialState = {
+export const initialState: State = {
     checked: [[false, false, false, false, false], false, false, false, false],
-    ApprenticeshipTitle: '',
-    ApprenticeshipLogo: null,
-    ApprenticeshipDescription: '',
-    CompanyDescription: '',
-    CompanyVideo: null
+    apprenticeshipTitle: '',
+    companyLogo: null,
+    companyDescription: '',
+    apprenticeshipDescription: '',
+    companyVideo: null,
+    teamType: '',
+    teamRoles: [],
+    teamAdmins: [],
+    timeline: null
 };
 
 export enum ActionType {
-    ApprenticeshipTitle = 'ApprenticeshipTitle',
-    ApprenticeshipLogo = 'ApprenticeshipLogo',
-    ApprenticeshipDescription = 'ApprenticeshipDescription',
-    CompanyDescription = 'CompanyDescription',
-    CompanyVideo = 'CompanyVideo'
+    apprenticeshipTitle = 'apprenticeshipTitle',
+    companyLogo = 'companyLogo',
+    companyDescription = 'companyDescription',
+    apprenticeshipDescription = 'apprenticeshipDescription',
+    companyVideo = 'companyVideo',
+    teamType = 'teamType',
+    teamRoles = 'teamRoles',
+    teamAdmins = 'teamAdmins',
+    timeline = 'timeline'
+}
+export type teamRoles = {
+    id?: string;
+    roleName: string;
+    roleDescription: string;
+    requiredSkills: string[];
+    complimentarySkills: string[];
+    minHours: string;
+    locationPreferences: string[];
+}[];
+export type teamRole = {
+    id?: string;
+    roleName: string;
+    roleDescription: string;
+    requiredSkills: string[];
+    complimentarySkills: string[];
+    minHours: string;
+    locationPreferences: string[];
+};
+
+export type teamAdmins = {
+    name: string;
+    email: string;
+    linkedIn: string;
+    logo: File | null;
+}[];
+export type timeLine = {
+    startDate: string;
+    endDate: string;
+};
+export type action = {
+    type: string;
+    payload: string | File | teamRoles | teamAdmins | timeLine | null;
+};
+export type checked = [boolean[], boolean, boolean, boolean, boolean];
+
+export interface State {
+    checked: checked;
+    apprenticeshipTitle: string;
+    companyLogo: File | null;
+    companyDescription: string;
+    apprenticeshipDescription: string;
+    companyVideo: File | null;
+    teamType: string;
+    teamRoles: teamRoles | [];
+    teamAdmins: teamAdmins | [];
+    timeline: timeLine | null;
 }
 
-interface State {
-    checked: [
-        [boolean, boolean, boolean, boolean, boolean],
-        boolean,
-        boolean,
-        boolean,
-        boolean
-    ];
-    ApprenticeshipTitle: string;
-    ApprenticeshipLogo: File | null;
-    ApprenticeshipDescription: string;
-    CompanyDescription: string;
-    CompanyVideo: File | null;
-}
-
-export function reducer(
-    state: State,
-    action: { type: string; payload: string | File | null }
-) {
-    if (action.type === ActionType.ApprenticeshipTitle) {
+export function reducer(state: State, action: action) {
+    if (action.type === ActionType.apprenticeshipTitle) {
         return {
             ...state,
-            ApprenticeshipTitle: action.payload as string,
+            apprenticeshipTitle: action.payload as string,
             checked:
                 action.payload === ''
                     ? setProgressBarOfIndex(false, 0, 0, state.checked)
                     : setProgressBarOfIndex(true, 0, 0, state.checked)
         };
-    } else if (action.type === ActionType.ApprenticeshipLogo) {
+    } else if (action.type === ActionType.companyLogo) {
         return {
             ...state,
-            ApprenticeshipLogo: null,
+            companyLogo: action.payload as File,
             checked:
                 action.payload === null
                     ? setProgressBarOfIndex(false, 0, 1, state.checked)
                     : setProgressBarOfIndex(true, 0, 1, state.checked)
         };
-    } else if (action.type === ActionType.ApprenticeshipDescription) {
+    } else if (action.type === ActionType.apprenticeshipDescription) {
         return {
             ...state,
-            ApprenticeshipDescription: action.payload as string,
+            apprenticeshipDescription: action.payload as string,
             checked:
                 action.payload === ''
                     ? setProgressBarOfIndex(false, 0, 2, state.checked)
                     : setProgressBarOfIndex(true, 0, 2, state.checked)
         };
-    } else if (action.type === ActionType.CompanyDescription) {
+    } else if (action.type === ActionType.companyDescription) {
         return {
             ...state,
-            CompanyDescription: action.payload as string,
+            companyDescription: action.payload as string,
             checked:
                 action.payload === ''
                     ? setProgressBarOfIndex(false, 0, 3, state.checked)
                     : setProgressBarOfIndex(true, 0, 3, state.checked)
         };
-    } else if (action.type === ActionType.CompanyVideo) {
+    } else if (action.type === ActionType.companyVideo) {
         return {
             ...state,
-            CompanyVideo: action.payload as File | null,
+            companyVideo: action.payload as File,
             checked:
                 action.payload === null
                     ? setProgressBarOfIndex(false, 0, 4, state.checked)
                     : setProgressBarOfIndex(true, 0, 4, state.checked)
         };
+    } else if (action.type === ActionType.teamType) {
+        return {
+            ...state,
+            teamType: action.payload as string,
+            checked:
+                action.payload === ''
+                    ? setProgressBarOfIndex(false, 1, 0, state.checked)
+                    : setProgressBarOfIndex(true, 1, 0, state.checked)
+        };
+    } else if (action.type === ActionType.teamRoles) {
+        return {
+            ...state,
+            teamRoles: action.payload as teamRoles,
+            //if action.payload is empty array then we will set the progress bar to false
+            checked:
+                action.payload !== null && action.payload instanceof Array
+                    ? action.payload.length !== 0
+                        ? setProgressBarOfIndex(true, 2, 0, state.checked)
+                        : setProgressBarOfIndex(false, 2, 0, state.checked)
+                    : setProgressBarOfIndex(false, 2, 0, state.checked)
+        };
+    } else if (action.type === ActionType.teamAdmins) {
+        return {
+            ...state,
+            teamAdmins: action.payload as teamAdmins,
+            checked:
+                action.payload !== null && action.payload instanceof Array
+                    ? action.payload.length !== 0
+                        ? setProgressBarOfIndex(true, 3, 0, state.checked)
+                        : setProgressBarOfIndex(false, 3, 0, state.checked)
+                    : setProgressBarOfIndex(false, 3, 0, state.checked)
+        };
+    } else if (action.type === ActionType.timeline) {
+        return {
+            ...state,
+            timeline: action.payload as timeLine,
+            checked:
+                action.payload === null
+                    ? setProgressBarOfIndex(false, 4, 0, state.checked)
+                    : setProgressBarOfIndex(true, 4, 0, state.checked)
+        };
     }
+    return state;
 }
+
 //only the first check sign in the progress bar needs five things to be set
 //to true(title,logo,company description,apprenticeship description,video):
 //so when the title is set we will call setProgressBarOfIndex(0,0,progressBar)
@@ -97,14 +177,18 @@ const setProgressBarOfIndex = (
             value,
             ...checked[0].slice(indexInCheckedOfZero + 1)
         ];
-        console.log('1', checked[1]);
-        console.log('2', checked[2]);
-        return [checkedOfZero, checked[1], checked[2], checked[3], checked[4]];
+        return [
+            checkedOfZero,
+            checked[1],
+            checked[2],
+            checked[3],
+            checked[4]
+        ] as checked;
     } else {
         return [
             ...checked.slice(0, indexInChecked),
             value,
             ...checked.slice(indexInChecked + 1)
-        ];
+        ] as checked;
     }
 };

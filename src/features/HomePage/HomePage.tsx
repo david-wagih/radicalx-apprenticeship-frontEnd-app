@@ -1,26 +1,20 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import ApprenticeshipCards from '../../components/ApprenticeshipCards/ApprenticeshipCards';
 import NavBar from '../../components/NavBar/NavBar';
 
-import ApprenticeshipCards from './ApprenticeshipCards/ApprenticeshipCards';
-
+import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
-    const titles = ['Frontend Developer', 'Backend Developer', 'DevOps', 'PM '];
-    const text = [
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit',
-        'lore ipsum dolor sit amet, consectetur adipiscing elit lore ipsum dolor sit amet, consectetur adipiscing elit'
-    ];
-    const tags = [['React', 'Typescript', 'Javascript', 'HTML']];
+    const [apprenticeships, setApprenticeships] = useState<[]>([]);
+    const { user_id } = useParams();
+    useEffect(() => {
+        getUserApprenticeships(user_id, setApprenticeships);
+    }, []);
     return (
         <>
             <NavBar />
-            <ApprenticeshipCards
-                titles={titles}
-                descriptions={text}
-                tags={tags}
-            />
+            <ApprenticeshipCards apprenticeships={apprenticeships} />
         </>
     );
 };

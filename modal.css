@@ -1,0 +1,31 @@
+#modal {
+    background-color: rgba(241, 244, 248, 0.8);
+    filter: drop-shadow(0px 12px 34px rgba(0, 0, 0, 0.04));
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+    overflow: scroll;
+}
+
+#modal:empty {
+    display: none;
+}
+
+/* to hide scrollbar */
+#modal::-webkit-scrollbar {
+    display: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+#modal {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}

@@ -1,7 +1,9 @@
 import { FC, useState } from 'react';
 
+import { action } from '../../../features/CreatingApprenticeship/Controller';
+
 interface LogoAndTitleProps {
-    dispatch: (action: { type: string; payload: string | File | null }) => void;
+    dispatch: (action: action) => void;
 }
 const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
     const [file, setFile] = useState<File | null>(null);
@@ -11,17 +13,12 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
     };
 
     const handleUploadingLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        setFile(file || null);
-        dispatch({ type: 'ApprenticeshipLogo', payload: file || null });
+        setFile(e.target.files?.[0] || null);
+        dispatch({ type: 'companyLogo', payload: file });
     };
 
     return (
-        <div
-            className="logo-title flex flex-row items-center p-0 h-20 flex-none order-1 self-stretch flex-grow-0
-        gap-[24px] isolate width-[ 722px]
-        "
-        >
+        <div className="logo-title width-[ 722px] isolate order-1 flex h-20 flex-none flex-grow-0 flex-row items-center gap-[24px] self-stretch p-0">
             <input
                 id="#uploadLogo"
                 type="file"
@@ -30,13 +27,13 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
                 size={2000000}
                 onChange={handleUploadingLogo}
             />
-            <div className="uploading-area" onClick={clickUploadLogo}>
-                <div className="w-20 h-20 bg-gray-300 flex-none order-none flex-grow-0 z-0 rounded-[20px]">
+            <button className="uploading-area" onClick={clickUploadLogo}>
+                <div className="z-0 order-none h-20 w-20 flex-none flex-grow-0 rounded-[20px] bg-gray-300">
                     {file && (
                         <img
                             src={URL.createObjectURL(file)}
                             alt="logo"
-                            className="w-20 h-20 rounded-[20px]"
+                            className="h-20 w-20 rounded-[20px]"
                         />
                     )}
                 </div>
@@ -46,7 +43,7 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
                     viewBox="0 0 28 28"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="flex flex-row items-start p-1 absolute w-6 h-6 bg-blue-600 flex-none order-2 flex-grow-0 z-[2] rounded-[10px] top-[125px] left-[90px] gap-[10px]"
+                    className="absolute top-[125px] left-[90px] z-[2] order-2 flex h-6 w-6 flex-none flex-grow-0 flex-row items-start gap-[10px] rounded-[10px] bg-blue-600 p-1"
                 >
                     <rect width="28" height="28" rx="10" fill="#2153FF" />
                     <path
@@ -60,14 +57,13 @@ const LogoAndTitle: FC<LogoAndTitleProps> = ({ dispatch }) => {
                         stroke="white"
                     />
                 </svg>
-            </div>
+            </button>
             <input
                 type="text"
-                className="title h-6 not-italic on font-normal text-2xl leading-6 flex items-center text-gray-900 flex-none order-1 flex-grow-0
-            w-[480px] z-[1] border-none outline-none"
+                className="title on z-[1] order-1 flex h-6 w-[480px] flex-none flex-grow-0 items-center border-none text-2xl font-normal not-italic leading-6 text-gray-900 outline-none"
                 onChange={e =>
                     dispatch({
-                        type: 'ApprenticeshipTitle',
+                        type: 'apprenticeshipTitle',
                         payload: e.target.value
                     })
                 }

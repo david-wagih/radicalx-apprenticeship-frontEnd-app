@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import DashBoard from './components/NavBar/Dashboard/Dashboard';
+import { OptionsContextProvider } from './Contexts/OptionsContext/OptionsContext';
+import { RolesContextProvider } from './Contexts/RolesContext/RolesContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';
 import HomePage from './features/HomePage/HomePage';
 import LogIn from './features/LogIn/LogIn';
@@ -16,9 +18,15 @@ const RoutesComponent: FC = () => {
                 <Route path="/dashboard" element={<DashBoard />} />
                 <Route
                     path="/creating_apprenticeship"
-                    element={<CreatingApprenticeship />}
+                    element={
+                        <OptionsContextProvider>
+                            <RolesContextProvider>
+                                <CreatingApprenticeship />
+                            </RolesContextProvider>
+                        </OptionsContextProvider>
+                    }
                 />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/homepage" element={<HomePage />} />
             </Routes>
         </BrowserRouter>
     );

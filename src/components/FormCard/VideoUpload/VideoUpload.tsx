@@ -1,22 +1,24 @@
-import { FC, useRef, useState } from 'react';
+import { FC } from 'react';
+
+import { action } from '../../../features/CreatingApprenticeship/Controller';
 
 import UploadedVideo from './UploadedVideo/UploadedVideo';
 import UploadIcon from './UploadIcon/UploadIcon';
 
 interface VideoUploadProps {
-    dispatch: (action: { type: string; payload: File | null }) => void;
-    CompanyVideo: File | null;
+    dispatch: (action: action) => void;
+    companyVideo: File | null;
 }
 
-const VideoUpload: FC<VideoUploadProps> = ({ dispatch, CompanyVideo }) => {
+const VideoUpload: FC<VideoUploadProps> = ({ dispatch, companyVideo }) => {
     const clickUploadVideo = () => {
         document.getElementById('uploadVideo')?.click();
     };
 
     const handleUploadingVideo = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch({
-            type: 'CompanyVideo',
-            payload: e.target.files?.[0] || null
+            type: 'companyVideo',
+            payload: e.target.files?.[0] as File
         });
     };
     return (
@@ -30,9 +32,9 @@ const VideoUpload: FC<VideoUploadProps> = ({ dispatch, CompanyVideo }) => {
                 onChange={handleUploadingVideo}
             />
             <UploadIcon clickUploadVideo={clickUploadVideo} />
-            {CompanyVideo && (
+            {companyVideo && (
                 <UploadedVideo
-                    fileName={CompanyVideo?.name.slice(0, 20)}
+                    fileName={companyVideo?.name.slice(0, 20)}
                     dispatch={dispatch}
                 />
             )}

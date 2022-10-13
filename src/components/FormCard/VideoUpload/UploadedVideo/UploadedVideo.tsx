@@ -1,7 +1,10 @@
 import { FC } from 'react';
+
+import { action } from '../../../../features/CreatingApprenticeship/Controller';
+
 interface UploadedVideoProps {
     fileName: string;
-    dispatch: (action: { type: string; payload: File | null }) => void;
+    dispatch: (action: action) => void;
 }
 
 const UploadedVideo: FC<UploadedVideoProps> = ({ fileName, dispatch }) => {
@@ -29,7 +32,7 @@ const UploadedVideo: FC<UploadedVideoProps> = ({ fileName, dispatch }) => {
                 className="hover:cursor-pointer"
                 onClick={() => {
                     dispatch({
-                        type: 'CompanyVideo',
+                        type: 'companyVideo',
                         payload: null
                     });
                 }}

@@ -1,47 +1,53 @@
 import { FC, useReducer } from 'react';
 
+import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
-import { ActionType, initialState, reducer } from './Controller';
-
+import { action, ActionType, initialState, reducer, State } from './Controller';
 const CreatingApprenticeship: FC = () => {
-    const [formState, dispatch] = useReducer(reducer, initialState);
-    console.log('formState.CompanyVideo', formState.CompanyVideo);
+    const [formState, dispatch] = useReducer<React.Reducer<State, action>>(
+        reducer as React.Reducer<State, action>,
+        initialState
+    );
     const keys = [
         'logo-title',
         'company-description',
         'apprenticeship-description',
-        'apprenticeship-video'
+        'apprenticeship-video',
+        'team-roles',
+        'team-admin'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
-        'Introduce yourself, your company, and what you are building.'
+        'Introduce yourself, your company, and what you are building.',
+        'Team Roles',
+        'Team Admin'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
-        <CardText type={ActionType.CompanyDescription} dispatch={dispatch} />,
+        <CardText type={ActionType.companyDescription} dispatch={dispatch} />,
         <CardText
-            type={ActionType.ApprenticeshipDescription}
+            type={ActionType.apprenticeshipDescription}
             dispatch={dispatch}
         />,
         <VideoUpload
             dispatch={dispatch}
-            CompanyVideo={formState.CompanyVideo}
-        />
+            companyVideo={formState.companyVideo}
+        />,
+        <TeamRoles dispatch={dispatch} />,
+        <AddAdmin dispatch={dispatch} />,
+        <></>
     ];
     return (
-        <div
-            className="parent min-h-screen  bg-background-gray
-        relative w-[1512px] h-[1963px] 
-        "
-        >
+        <div className="parent relative h-[1963px] min-h-screen w-full bg-background-gray ">
             <Header
                 readyToPublish={formState.checked
                     .flat()
@@ -58,11 +64,7 @@ const CreatingApprenticeship: FC = () => {
                     formState.checked[4]
                 ]}
             />
-            <div
-                className="cards
-           flex flex-col items-start p-0 absolute gap-[20px] isolate w-[770px] h-[1697px] top-[218px] left-[371px]
-           "
-            >
+            <div className="cards absolute top-[218px] left-[371px] isolate flex h-[1697px] w-[800px] flex-col items-start gap-[20px] p-0">
                 {headers.map((header, index) => (
                     <FormCard
                         header={header}

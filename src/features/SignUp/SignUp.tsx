@@ -66,6 +66,7 @@ const SignUp: FC = () => {
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
                         <InputField
+                            value={form.name}
                             type="text"
                             className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="name"
@@ -76,11 +77,12 @@ const SignUp: FC = () => {
                     </div>
                     <div className="flex  h-[48px] w-[360px] rounded-2xl border-2 border-[#CECECE] bg-[#F5F5F7] pl-5">
                         <img
-                            alt="ProfileIcon"
+                            alt="mobileIcon"
                             src="src/assets/Images/mobileIcon.svg"
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
                         <InputField
+                            value={form.phoneNumber}
                             type="phone"
                             className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="phoneNumber"
@@ -96,6 +98,7 @@ const SignUp: FC = () => {
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
                         <InputField
+                            value={form.email}
                             type="text"
                             className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="email"
@@ -121,6 +124,7 @@ const SignUp: FC = () => {
                             className="h-[22px] w-[18px] flex-none translate-y-2.5 "
                         ></img>
                         <InputField
+                            value={form.password}
                             type={passwordShown ? 'text' : 'password'}
                             className="h-[44px] w-[280px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                             name="password"
