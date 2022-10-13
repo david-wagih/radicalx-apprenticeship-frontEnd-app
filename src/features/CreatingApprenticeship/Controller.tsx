@@ -19,7 +19,7 @@ export enum ActionType {
     companyVideo = 'companyVideo',
     teamType = 'teamType',
     teamRoles = 'teamRoles',
-    teamAdmin = 'teamAdmin',
+    teamAdmins = 'teamAdmins',
     timeline = 'timeline'
 }
 export type teamRoles = {
@@ -134,7 +134,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 2, 0, state.checked)
                     : setProgressBarOfIndex(true, 2, 0, state.checked)
         };
-    } else if (action.type === ActionType.teamAdmin) {
+    } else if (action.type === ActionType.teamAdmins) {
         return {
             ...state,
             teamAdmins: action.payload as teamAdmins,

@@ -10,25 +10,25 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import TeamRoles from '../../components/TeamRoles/TeamRoles';
 
 import { action, ActionType, initialState, reducer, State } from './Controller';
-const locations = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Glasgow'];
 const CreatingApprenticeship: FC = () => {
     const [formState, dispatch] = useReducer<React.Reducer<State, action>>(
         reducer as React.Reducer<State, action>,
         initialState
     );
-    console.log('formState:', formState);
     const keys = [
         'logo-title',
         'company-description',
         'apprenticeship-description',
         'apprenticeship-video',
-        'Team Admin'
+        'team-roles',
+        'team-admin'
     ];
     const headers = [
         'Logo & Title',
         'Company Description',
         'Apprenticeship Description',
         'Introduce yourself, your company, and what you are building.',
+        'Team Roles',
         'Team Admin'
     ];
     const children = [
@@ -42,8 +42,8 @@ const CreatingApprenticeship: FC = () => {
             dispatch={dispatch}
             companyVideo={formState.companyVideo}
         />,
-        <></>,
         <TeamRoles dispatch={dispatch} />,
+        <AddAdmin dispatch={dispatch} />,
         <></>
     ];
     return (
@@ -61,8 +61,7 @@ const CreatingApprenticeship: FC = () => {
                     formState.checked[1],
                     formState.checked[2],
                     formState.checked[3],
-                    formState.checked[4],
-                    formState.checked[5]
+                    formState.checked[4]
                 ]}
             />
             <div className="cards absolute top-[218px] left-[371px] isolate flex h-[1697px] w-[800px] flex-col items-start gap-[20px] p-0">

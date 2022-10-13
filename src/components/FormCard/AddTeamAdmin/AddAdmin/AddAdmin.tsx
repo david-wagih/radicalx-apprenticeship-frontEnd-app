@@ -1,27 +1,22 @@
 import { FC, useEffect, useState } from 'react';
 
+import {
+    action,
+    teamAdmins
+} from '../../../../features/CreatingApprenticeship/Controller';
 import AddAdminModal from '../AddAdminModal/AddAdminModal';
 import AddMemberButton from '../AddMemberButton/AddMemberButton';
 import AdminCard from '../AdminCard/AdminCard';
 
-const AddAdmin: FC = () => {
-    const [admins, setAdmins] = useState([
-        {
-            name: 'John Mckinsey',
-            email: 'JohnMckinsey@gamil.com',
-            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/'
-        },
-        {
-            name: 'John Mckinsey',
-            email: 'JohnMckinsey@gamil.com',
-            linkedIn: 'https://www.linkedin.com/in/veronika-fayez-9100ab235/'
-        },
-        {
-            name: 'John Mckinsey',
-            email: 'JohnMckinsey@gamil.com',
-            linkedIn: ''
-        }
-    ]);
+interface AddAdminProps {
+    dispatch: (action: action) => void;
+}
+
+const AddAdmin: FC<AddAdminProps> = ({ dispatch }) => {
+    const [admins, setAdmins] = useState<teamAdmins>([]);
+    useEffect(() => {
+        dispatch({ type: 'teamAdmins', payload: admins });
+    }, [admins.length]);
     const handleSave = (
         newName: string,
         newMail: string,
@@ -32,7 +27,6 @@ const AddAdmin: FC = () => {
             email: newMail,
             linkedIn: newlinkedin
         };
-        console.log('here ', newAdmin);
         setAdmins(current => [...current, newAdmin]);
         setIsOpen(false);
     };
