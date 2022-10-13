@@ -17,7 +17,7 @@ const Location: FC<LocationProps> = ({
     currentRole,
     initialLocations
 }) => {
-    const locations = useContext(OptionsContext).locations;
+    const locations = useContext(OptionsContext).options.locations;
     const [showDropDown, setShowDropDown] = useState(false);
     const [chosenLocations, setChosenLocations] = useState<string[]>(
         initialLocations || []

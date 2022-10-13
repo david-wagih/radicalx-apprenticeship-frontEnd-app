@@ -2,10 +2,6 @@ import { FC, useContext } from 'react';
 import uuid from 'react-uuid';
 
 import { RolesContext } from '../../../Contexts/RolesContext/RolesContext';
-import {
-    teamRole,
-    teamRoles
-} from '../../../features/CreatingApprenticeship/Controller';
 
 import RoleCard from './RoleCard/RoleCard';
 

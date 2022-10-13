@@ -17,7 +17,8 @@ const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({
     currentRole,
     initialCompSkills
 }) => {
-    const compSkillsOptions = useContext(OptionsContext).compSkills;
+    const compSkillsOptions =
+        useContext(OptionsContext).options.complimentarySkillsOptions;
 
     const [showDropDown, setShowDropDown] = useState(false);
     const [chosenSkills, setChosenSkills] = useState<string[]>(

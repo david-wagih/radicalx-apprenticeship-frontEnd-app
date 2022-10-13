@@ -5,7 +5,7 @@ interface TeamCardProps {
     title: string;
 }
 
-const TeamCard: FC<TeamCardProps> = ({ icon, title }) => {
+const TeamCard: FC<TeamCardProps> = () => {
     return <></>;
 };
 

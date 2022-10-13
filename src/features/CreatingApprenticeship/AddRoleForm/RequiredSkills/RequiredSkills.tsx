@@ -4,7 +4,6 @@ import ArrowDownIcon from '../../../../components/TeamRoles/AddRoleForm/ArrowDow
 import CheckBoxDropDown from '../../../../components/TeamRoles/AddRoleForm/CheckBoxDropDown/CheckBoxDropDown';
 import ReqSkillsIcon from '../../../../components/TeamRoles/AddRoleForm/ReqSkillsIcon/ReqSkillsIcon';
 import { OptionsContext } from '../../../../Contexts/OptionsContext/OptionsContext';
-import { RolesContext } from '../../../../Contexts/RolesContext/RolesContext';
 import { teamRole } from '../../Controller';
 
 interface RequiredSkillsProps {
@@ -18,7 +17,7 @@ const RequiredSkills: FC<RequiredSkillsProps> = ({
     currentRole,
     initialRequiredSkills
 }) => {
-    const skills = useContext(OptionsContext).requiredSkillsOptions;
+    const skills = useContext(OptionsContext).options.requiredSkillsOptions;
 
     const [showDropDown, setShowDropDown] = useState(false);
     const [chosenRequiredSkills, setChosenRequiredSkills] = useState<string[]>(

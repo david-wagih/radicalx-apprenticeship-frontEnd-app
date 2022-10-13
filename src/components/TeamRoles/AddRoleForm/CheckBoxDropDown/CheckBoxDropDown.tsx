@@ -58,6 +58,7 @@ const CheckBoxDropDown: FC<CheckBoxDropDownProps> = ({
                         );
                     }
                 }}
+                value={search}
             />
             <div className="roles flex flex-col items-start p-0 w-fit h-fit flex-none order-1 flex-grow-0 gap-[8px]">
                 {optionsBySearchValue.map(option => (

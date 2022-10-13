@@ -1,5 +1,4 @@
 import { FC, useContext, useEffect, useState } from 'react';
-import uuid from 'react-uuid';
 
 import ArrowDownIcon from '../../../../components/TeamRoles/AddRoleForm/ArrowDownIcon/ArrowDownIcon';
 import DropDown from '../../../../components/TeamRoles/AddRoleForm/DropDown/DropDown';
@@ -22,7 +21,7 @@ const SelectRole: FC<SelectRoleProps> = ({
     useEffect(() => {
         setCurrentRole({ ...currentRole, roleName: role });
     }, [role]);
-    const roles = useContext(OptionsContext).roles;
+    const roles = useContext(OptionsContext).options.roles;
     return (
         <div className="role box-border flex flex-row items-start h-12 bg-white flex-none  self-stretch flex-grow-0 py-[12px] pr-[12px] pl-[16px] gap-[10px] w-[555px] border-[1px]  border-[#CECECE] border-solid rounded-[12px]">
             <RoleIcon />

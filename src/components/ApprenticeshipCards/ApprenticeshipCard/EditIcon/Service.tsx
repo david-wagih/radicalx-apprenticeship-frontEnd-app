@@ -1,2 +1,0 @@
-const navigateToEdit = (id: string) => {
-    

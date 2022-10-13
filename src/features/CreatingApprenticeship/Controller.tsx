@@ -53,7 +53,7 @@ export type timeLine = {
 };
 export type action = {
     type: string;
-    payload: string | File | teamRoles | teamAdmins | timeLine;
+    payload: string | File | teamRoles | teamAdmins | timeLine | null;
 };
 export type checked = [boolean[], boolean, boolean, boolean, boolean];
 
@@ -131,18 +131,22 @@ export function reducer(state: State, action: action) {
             teamRoles: action.payload as teamRoles,
             //if action.payload is empty array then we will set the progress bar to false
             checked:
-                action.payload.length === 0
-                    ? setProgressBarOfIndex(false, 2, 0, state.checked)
-                    : setProgressBarOfIndex(true, 2, 0, state.checked)
+                action.payload !== null && action.payload instanceof Array
+                    ? action.payload.length !== 0
+                        ? setProgressBarOfIndex(true, 2, 0, state.checked)
+                        : setProgressBarOfIndex(false, 2, 0, state.checked)
+                    : setProgressBarOfIndex(false, 2, 0, state.checked)
         };
     } else if (action.type === ActionType.teamAdmins) {
         return {
             ...state,
             teamAdmins: action.payload as teamAdmins,
             checked:
-                action.payload.length === 0
-                    ? setProgressBarOfIndex(false, 3, 0, state.checked)
-                    : setProgressBarOfIndex(true, 3, 0, state.checked)
+                action.payload !== null && action.payload instanceof Array
+                    ? action.payload.length !== 0
+                        ? setProgressBarOfIndex(true, 3, 0, state.checked)
+                        : setProgressBarOfIndex(false, 3, 0, state.checked)
+                    : setProgressBarOfIndex(false, 3, 0, state.checked)
         };
     } else if (action.type === ActionType.timeline) {
         return {

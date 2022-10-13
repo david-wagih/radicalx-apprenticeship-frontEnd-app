@@ -1,7 +1,5 @@
 import { FC } from 'react';
 
-import CreateButton from '../CreateButton/CreateButton';
-
 import BackIcon from './BackIcon/BackIcon';
 import PublishButton from './PublishButton/PublishButton';
 import Title from './Title/Title';

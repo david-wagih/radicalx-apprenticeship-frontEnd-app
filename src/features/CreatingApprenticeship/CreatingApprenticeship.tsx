@@ -15,7 +15,6 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
-    console.log('formState:', formState);
     const keys = [
         'logo-title',
         'company-description',
@@ -48,7 +47,7 @@ const CreatingApprenticeship: FC = () => {
         <></>
     ];
     return (
-        <div className="parent relative h-[1963px] min-h-screen w-[1512px] bg-background-gray ">
+        <div className="parent relative h-[1963px] min-h-screen w-full bg-background-gray ">
             <Header
                 readyToPublish={formState.checked
                     .flat()

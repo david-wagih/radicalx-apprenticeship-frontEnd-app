@@ -2,10 +2,7 @@ import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import DashBoard from './components/NavBar/Dashboard/Dashboard';
-import {
-    options,
-    OptionsContext
-} from './Contexts/OptionsContext/OptionsContext';
+import { OptionsContextProvider } from './Contexts/OptionsContext/OptionsContext';
 import { RolesContextProvider } from './Contexts/RolesContext/RolesContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';
 import HomePage from './features/HomePage/HomePage';
@@ -22,11 +19,11 @@ const RoutesComponent: FC = () => {
                 <Route
                     path="/creating_apprenticeship"
                     element={
-                        <OptionsContext.Provider value={options}>
+                        <OptionsContextProvider>
                             <RolesContextProvider>
                                 <CreatingApprenticeship />
                             </RolesContextProvider>
-                        </OptionsContext.Provider>
+                        </OptionsContextProvider>
                     }
                 />
                 <Route path="/homepage" element={<HomePage />} />

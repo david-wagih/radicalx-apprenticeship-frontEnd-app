@@ -18,9 +18,7 @@ const PictureUpload: FC<PicProps> = ({ setLogo }) => {
 
     return (
         <div
-            className="logo-title width-[ 722px] isolate order-1 flex h-20 flex-none flex-grow-0 flex-row
-        items-center gap-[24px] self-stretch p-0
-        "
+            className="logo-title width-[ 722px] isolate order-1 flex h-20 flex-none flex-grow-0 flex-row items-center gap-[24px] self-stretch p-0"
         >
             <input
                 id="#uploadLogo"
@@ -30,7 +28,11 @@ const PictureUpload: FC<PicProps> = ({ setLogo }) => {
                 size={2000000}
                 onChange={handleUploadingLogo}
             />
-            <div className="uploading-area" onClick={clickUploadLogo}>
+            <button
+                className="uploading-area"
+                onClick={clickUploadLogo}
+                type="button"
+            >
                 <div className="z-0 order-none h-20 w-20 flex-none flex-grow-0 rounded-[20px] bg-gray-300">
                     {file && (
                         <img
@@ -60,7 +62,7 @@ const PictureUpload: FC<PicProps> = ({ setLogo }) => {
                         stroke="white"
                     />
                 </svg>
-            </div>
+            </button>
         </div>
     );
 };

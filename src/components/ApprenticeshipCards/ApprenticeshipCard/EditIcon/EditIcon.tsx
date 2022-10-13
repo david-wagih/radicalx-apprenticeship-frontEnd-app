@@ -1,8 +1,6 @@
 import { FC } from 'react';
 
-interface EditIconProps {}
-
-const EditIcon: FC<EditIconProps> = ({}) => {
+const EditIcon: FC = () => {
     return (
         <div className="edit-icon w-5 h-5 hover:cursor-pointer">
             <svg
