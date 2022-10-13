@@ -118,7 +118,7 @@ const LogIn: FC = () => {
                 )}
                 <div className="flex flex-row justify-between items-start p-0 gap-[20px] w-[360px] h-[24px] flex-none order-1 grow-0">
                     <RememberMe />
-                    <Link to="/forgot-password">
+                    <Link to="/ForgotPassword">
                         <p className="w-146px h-24px font-Space Grotesk not-italic font-medium text-base leading-6 text-center tracking-wider  text-rdx-purple">
                             {' '}
                             Forget Password?
