@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 
