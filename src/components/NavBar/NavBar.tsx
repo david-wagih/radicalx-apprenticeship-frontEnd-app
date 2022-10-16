@@ -4,6 +4,7 @@ import Apprenticeships from './Apprenticeships/Apprenticeships';
 import DashBoard from './Dashboard/Dashboard';
 import Internships from './Internships/Internships';
 import Jobs from './Jobs/Jobs';
+import Logout from './Logout/Logout';
 import RadicalLogo from './RadicalLogo/RadicalLogo';
 import Settings from './Settings/Settings';
 
@@ -48,6 +49,7 @@ const NavBar = () => {
                     </li>
                 ))}
             </ul>
+            <Logout username='Adam Scott' photoURL=''/>
         </div>
     );
 };
