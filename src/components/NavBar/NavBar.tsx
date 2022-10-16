@@ -49,7 +49,10 @@ const NavBar = () => {
                     </li>
                 ))}
             </ul>
-            <Logout username='Adam Scott' photoURL=''/>
+            <Logout
+                username="Adam Scott"
+                photoURL="https://picsum.photos/200/300"
+            />
         </div>
     );
 };
