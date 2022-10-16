@@ -2,7 +2,8 @@ import { FC, useState } from 'react';
 
 import InputField from '../../components/InputField/InputField';
 
-import { handleSubmit, validateEmail, validatePassword } from './Controller';
+import { validateEmail, validatePassword } from './Controller';
+import { handleSubmit } from './Service';
 
 const SignUp: FC = () => {
     const [form, setForm] = useState({
@@ -51,6 +52,8 @@ const SignUp: FC = () => {
                             e,
                             form.email,
                             form.password,
+                            form.name,
+                            form.phoneNumber,
                             setEmailErrorMessage,
                             setPasswordErrorMessage
                         )

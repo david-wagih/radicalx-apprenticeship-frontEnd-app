@@ -7,6 +7,7 @@ export const validatePassword = (
     setPasswordErrorMessage('');
     if (value == '') {
         setPasswordErrorMessage('Password is required');
+        return false;
     } else if (
         !validator.isStrongPassword(value, {
             minLength: 8,
@@ -17,6 +18,9 @@ export const validatePassword = (
         })
     ) {
         setPasswordErrorMessage('Is Not Strong Password');
+        return false;
+    } else {
+        return true;
     }
 };
 
@@ -28,19 +32,11 @@ export const validateEmail = (
     const email = value;
     if (email == '') {
         setEmailErrorMessage('Email is required');
+        return false;
     } else if (!validator.isEmail(email)) {
         setEmailErrorMessage('Please, enter valid Email!');
+        return false;
+    } else {
+        return true;
     }
-};
-
-export const handleSubmit = (
-    e: React.FormEvent<HTMLFormElement>,
-    email: string,
-    password: string,
-    setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>,
-    setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
-) => {
-    e.preventDefault();
-    validateEmail(email, setEmailErrorMessage);
-    validatePassword(password, setPasswordErrorMessage);
 };

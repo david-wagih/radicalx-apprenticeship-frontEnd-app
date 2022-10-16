@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import InputField from '../../components/InputField/InputField';
 
 import RememberMe from './RememberMe/RememberMe';
-import { handleSubmit, validateEmail, validatePassword } from './Controller';
+import { validateEmail, validatePassword } from './Controller';
+import { handleSubmit } from './Service';
 
 const LogIn: FC = () => {
     const [form, setForm] = useState({
