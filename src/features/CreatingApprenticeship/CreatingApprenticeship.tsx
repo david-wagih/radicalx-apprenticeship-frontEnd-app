@@ -4,6 +4,7 @@ import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
+import TeamTypes from '../../components/FormCard/TeamTypes/TeamTypes';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
@@ -15,11 +16,13 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
+    console.log('formState', formState);
     const keys = [
         'logo-title',
         'company-description',
         'apprenticeship-description',
         'apprenticeship-video',
+        'team-types',
         'team-roles',
         'team-admin'
     ];
@@ -28,6 +31,7 @@ const CreatingApprenticeship: FC = () => {
         'Company Description',
         'Apprenticeship Description',
         'Introduce yourself, your company, and what you are building.',
+        'Team Type',
         'Team Roles',
         'Team Admin'
     ];
@@ -42,9 +46,9 @@ const CreatingApprenticeship: FC = () => {
             dispatch={dispatch}
             companyVideo={formState.companyVideo}
         />,
+        <TeamTypes dispatch={dispatch} />,
         <TeamRoles dispatch={dispatch} />,
-        <AddAdmin dispatch={dispatch} />,
-        <></>
+        <AddAdmin dispatch={dispatch} />
     ];
     return (
         <div className="parent relative h-[1963px] min-h-screen w-full bg-background-gray ">

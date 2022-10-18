@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import TeamCard from './components/FormCard/TeamTypes/TeamCard/TeamCard';
 import { OptionsContextProvider } from './Contexts/OptionsContext/OptionsContext';
 import { RolesContextProvider } from './Contexts/RolesContext/RolesContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';

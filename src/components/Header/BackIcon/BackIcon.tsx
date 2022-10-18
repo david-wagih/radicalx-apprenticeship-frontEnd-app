@@ -1,17 +1,11 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BackIcon: FC = () => {
-    const goBack = useNavigate();
-
     return (
-        <div
-            className="back-icon-div
-        flex flex-row items-center p-6 h-20 bg-white rou flex-none order-none rounded-l-[30px] self-stretch w-[300px] flex-grow-0
-        "
-        >
-            <div className="icon-text flex flex-row items-center p-0 w-20 h-6 flex-none order-none gap-2 flex-grow-0">
-                <button className="back-button" onClick={() => goBack(-1)}>
+        <Link to={'/homepage'}>
+            <div className="back-icon-div flex flex-row items-center p-6 h-20 bg-white rou flex-none order-none rounded-l-[30px] self-stretch w-[300px] flex-grow-0">
+                <button className="back-button">
                     <svg
                         width="28"
                         height="28"
@@ -54,7 +48,7 @@ const BackIcon: FC = () => {
                     Back
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
