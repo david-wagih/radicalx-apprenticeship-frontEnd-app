@@ -4,7 +4,8 @@ import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
 import CardText from '../../components/FormCard/CardText/CardText';
 import FormCard from '../../components/FormCard/FormCard';
 import LogoAndTitle from '../../components/FormCard/LogoAndTitle/LogoAndTitle';
-import TeamTypes from '../../components/FormCard/TeamTypes/TeamTypes';
+import TeamType from '../../components/FormCard/TeamType/TeamType';
+import TimeLine from '../../components/FormCard/TimeLine/TimeLine';
 import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
@@ -16,7 +17,7 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
-    console.log('formState', formState);
+    console.log('formState', JSON.stringify(formState));
     const keys = [
         'logo-title',
         'company-description',
@@ -24,7 +25,8 @@ const CreatingApprenticeship: FC = () => {
         'apprenticeship-video',
         'team-types',
         'team-roles',
-        'team-admin'
+        'team-admin',
+        'timeline'
     ];
     const headers = [
         'Logo & Title',
@@ -33,7 +35,8 @@ const CreatingApprenticeship: FC = () => {
         'Introduce yourself, your company, and what you are building.',
         'Team Type',
         'Team Roles',
-        'Team Admin'
+        'Team Admin',
+        'Timeline'
     ];
     const children = [
         <LogoAndTitle dispatch={dispatch} />,
@@ -46,9 +49,10 @@ const CreatingApprenticeship: FC = () => {
             dispatch={dispatch}
             companyVideo={formState.companyVideo}
         />,
-        <TeamTypes dispatch={dispatch} />,
+        <TeamType dispatch={dispatch} />,
         <TeamRoles dispatch={dispatch} />,
-        <AddAdmin dispatch={dispatch} />
+        <AddAdmin dispatch={dispatch} />,
+        <TimeLine dispatch={dispatch} />
     ];
     return (
         <div className="parent relative h-[1963px] min-h-screen w-full bg-background-gray ">

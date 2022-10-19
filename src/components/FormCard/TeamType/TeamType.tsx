@@ -11,11 +11,12 @@ import MobileIcon from './TeamsIcons/MobileIcon';
 import PrototypingIcon from './TeamsIcons/PrototypingIcon';
 import WebIcon from './TeamsIcons/WebIcon';
 
-interface teamTypesProps {
+interface teamTypeProps {
     dispatch: (action: action) => void;
+    teamType?: string;
 }
-const TeamTypes: FC<teamTypesProps> = ({ dispatch }) => {
-    const [currentType, setCurrentType] = useState('');
+const TeamType: FC<teamTypeProps> = ({ dispatch, teamType }) => {
+    const [currentType, setCurrentType] = useState(teamType || '');
     const titles = [
         'Web Platforms',
         'Mobile App',
@@ -38,6 +39,8 @@ const TeamTypes: FC<teamTypesProps> = ({ dispatch }) => {
         <div className="team-types flex flex-row items-start p-0 gap-[16px] w-[722px] h-fit flex-wrap ml-[10px]">
             {titles.map((title, index) => (
                 <TeamCard
+                    key={index + title}
+                    myKey={title}
                     icon={icons[index]}
                     title={title}
                     dispatch={dispatch}
@@ -49,4 +52,4 @@ const TeamTypes: FC<teamTypesProps> = ({ dispatch }) => {
     );
 };
 
-export default TeamTypes;
+export default TeamType;

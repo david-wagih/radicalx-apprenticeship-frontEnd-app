@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer basep{
-    body{
+@layer basep {
+    body {
         font-family: 'Space Grotesk', sans-serif;
     }
 }
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -16,9 +16,36 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px #F5F5F7 inset;
-  transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0px 1000px #f5f5f7 inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 input:-webkit-autofill {
-    -webkit-text-fill-color: #2F3031 !important;
-    }
+    -webkit-text-fill-color: #2f3031 !important;
+}
+
+input[type='date'] {
+    width: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+}
+input[type='date']::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(/src/assets/Images/Calendar.png) no-repeat;
+    background-size: 100%;
+    width: 24px;
+    height: 24px;
+    border-width: thin;
+}
+
+input[type='date']::-webkit-datetime-edit-day-field,
+input[type='date']::-webkit-datetime-edit-month-field,
+input[type='date']::-webkit-datetime-edit-year-field {
+    color: transparent;
+    width: 0;
+    height: 0;
+    border-width: 0;
+    padding: 0;
+}

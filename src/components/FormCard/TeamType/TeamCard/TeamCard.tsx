@@ -8,6 +8,7 @@ interface TeamCardProps {
     currentType: string;
     setCurrentType: (type: string) => void;
     dispatch: (action: action) => void;
+    myKey: string;
 }
 
 const TeamCard: FC<TeamCardProps> = ({
@@ -15,7 +16,8 @@ const TeamCard: FC<TeamCardProps> = ({
     title,
     currentType,
     setCurrentType,
-    dispatch
+    dispatch,
+    myKey
 }) => {
     const [bgColor, setBgColor] = useState('bg-[#ffffff] border-[#CFD3D9]');
     const [checked, setChecked] = useState(false);
@@ -37,6 +39,7 @@ const TeamCard: FC<TeamCardProps> = ({
     return (
         <div
             className={`team-card ${bgColor} box-border flex flex-row items-start py-[16px] pr-[12px] pl-[16px] gap-[10px] w-[230px] h-[91px]  border-[1px] border-solid  rounded-[20px] flex-none`}
+            key={myKey}
         >
             <div className="icon-and-text flex flex-col items-start p-[0px] gap-[11px] w-[168px] h-[59px] flex-none order-0 self-stretch flex-grow justify-between ">
                 {icon}
