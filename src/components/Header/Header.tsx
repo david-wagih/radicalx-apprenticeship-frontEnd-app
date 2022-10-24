@@ -1,13 +1,16 @@
 import { FC } from 'react';
 
+import { State } from '../../features/CreatingApprenticeship/Controller';
+
 import BackIcon from './BackIcon/BackIcon';
 import PublishButton from './PublishButton/PublishButton';
 import Title from './Title/Title';
 
 interface HeaderProps {
     readyToPublish: boolean;
+    formData: State;
 }
-const Header: FC<HeaderProps> = ({ readyToPublish }) => {
+const Header: FC<HeaderProps> = ({ readyToPublish, formData }) => {
     return (
         <div
             className="header 
@@ -16,7 +19,10 @@ const Header: FC<HeaderProps> = ({ readyToPublish }) => {
         >
             <BackIcon />
             <Title />
-            <PublishButton readyToPublish={readyToPublish} />
+            <PublishButton
+                readyToPublish={readyToPublish}
+                formData={formData}
+            />
         </div>
     );
 };

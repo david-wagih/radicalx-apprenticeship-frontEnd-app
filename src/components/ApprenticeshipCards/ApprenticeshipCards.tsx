@@ -7,7 +7,7 @@ import ApprenticeshipCard from './ApprenticeshipCard/ApprenticeshipCard';
 
 interface ApprenticeshipCardsProps {
     apprenticeships: {
-        id: string;
+        id: number;
         title: string;
         description: string;
         tags: string[];
@@ -29,6 +29,7 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
                 {apprenticeships &&
                     apprenticeships.map(apprenticeship => (
                         <ApprenticeshipCard
+                            id={apprenticeship.id}
                             key={uuid()}
                             title={apprenticeship.title}
                             paragraph={apprenticeship.description}

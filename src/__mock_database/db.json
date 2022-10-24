@@ -59,31 +59,31 @@
                 "teamType": "Mobile App",
                 "teamRoles": [
                     {
-                        "role_id": 7450539665,
-                        "role_name": "Mobile App Developer",
-                        "role_description": "Promettant long qu'elle hélas mal la sur pourquoi la. Flanc quel un la et, fatale.",
-                        "role_skills": [
-                            "Flutter",
-                            "Dart",
-                            "React Native",
-                            "Android",
-                            "iOS"
+                        "roleName": "font-end Developer",
+                        "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                        "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                        "complimentarySkills": ["React", "Angular", "Firebase"],
+                        "minHours": 50,
+                        "locationPreferences": [
+                            "Asia",
+                            "Europe",
+                            "North America"
                         ]
                     },
                     {
-                        "role_id": 7450486665,
-                        "role_name": "font-end Developer",
-                        "role_description": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
-                        "role_skills": [
-                            "CSS",
-                            "HTML",
-                            "JavaScript",
-                            "React",
-                            "Angular"
+                        "roleName": "font-end Developer",
+                        "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                        "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                        "complimentarySkills": ["React", "Angular", "Firebase"],
+                        "minHours": 50,
+                        "locationPreferences": [
+                            "Asia",
+                            "Europe",
+                            "North America"
                         ]
                     }
                 ],
-                "team_admins": [
+                "teamAdmins": [
                     {
                         "name": "John Doe",
                         "email": "vufmonil@ro.gl",
@@ -96,47 +96,61 @@
                     }
                 ],
                 "timeline": {
-                    "start_date": "2021-01-01",
-                    "end_date": "2021-06-01"
+                    "startDate": "2021-01-01",
+                    "endDate": "2021-06-01"
                 }
             }
         },
         {
             "id": 8905661263,
             "apprenticeship_data": {
-                "apprenticeship_title": "Mobile App Developer",
-                "company_logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-                "company_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.",
-                "apprenticeship_description": "Vile yet dote true deigned blazon favour love. Who ne.",
-                "company_video": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-                "team_type": "Mobile App",
-                "team_roles": [
+                "apprenticeshipTitle": "Mobile App Developer",
+                "companyLogo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                "companyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.",
+                "apprenticeshipDescription": "Vile yet dote true deigned blazon favour love. Who ne.",
+                "companyVideo": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+                "teamType": "Mobile App",
+                "teamRoles": [
                     {
-                        "role_id": 3919869831,
-                        "role_name": "Mobile App Developer",
-                        "role_description": "Promettant long qu'elle hélas mal la sur pourquoi la. Flanc quel un la et, fatale.",
-                        "role_skills": [
-                            "Flutter",
-                            "Dart",
-                            "React Native",
-                            "Android",
-                            "iOS"
-                        ]
+                        "id": 7450486665,
+                        "roleData": {
+                            "role": "font-end Developer",
+                            "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                            "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                            "complimentarySkills": [
+                                "React",
+                                "Angular",
+                                "Firebase"
+                            ],
+                            "minHours": 50,
+                            "locationPreference": [
+                                "Asia",
+                                "Europe",
+                                "North America"
+                            ]
+                        }
                     },
                     {
-                        "role_id": 1942767747,
-                        "role_name": "Mobile App Developer",
-                        "role_description": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
-                        "role_skills": [
-                            "Flutter",
-                            "Dart",
-                            "React Native",
-                            "Android",
-                            "iOS"
-                        ]
+                        "id": 7450486665,
+                        "roleData": {
+                            "role": "font-end Developer",
+                            "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                            "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                            "complimentarySkills": [
+                                "React",
+                                "Angular",
+                                "Firebase"
+                            ],
+                            "minHours": 50,
+                            "locationPreference": [
+                                "Asia",
+                                "Europe",
+                                "North America"
+                            ]
+                        }
                     }
                 ],
-                "team_admins": [
+                "teamAdmins": [
                     {
                         "name": "John Doe",
                         "email": "vufmonil@ro.gl",
@@ -149,33 +163,60 @@
                     }
                 ],
                 "timeline": {
-                    "start_date": "2021-01-01",
-                    "end_date": "2021-06-01"
+                    "startDate": "2021-01-01",
+                    "endDate": "2021-06-01"
                 }
-            }
-        }
-    ],
-    "full_role_data": [
-        {
-            "id": 7450539665,
-            "role_data": {
-                "role": "Mobile App Developer",
-                "role_description": "Promettant long qu'elle hélas mal la sur pourquoi la. Flanc quel un la et, fatale.",
-                "required_skills": ["Flutter", "Dart", "React Native"],
-                "complimentary_skills": ["Android", "iOS", "Firebase"],
-                "min_hours": 50,
-                "location_preference": ["Asia", "Europe", "North America"]
             }
         },
         {
-            "id": 7450486665,
-            "role_data": {
-                "role": "font-end Developer",
-                "role_description": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
-                "required_skills": ["CSS", "HTML", "JavaScript"],
-                "complimentary_skills": ["React", "Angular", "Firebase"],
-                "min_hours": 50,
-                "location_preference": ["Asia", "Europe", "North America"]
+            "id": 7271751195,
+            "apprenticeship_data": {
+                "apprenticeshipTitle": "Mobile App Developer",
+                "companyLogo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                "companyDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.",
+                "apprenticeshipDescription": "Vile yet dote true deigned blazon favour love. Who ne.",
+                "companyVideo": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+                "teamType": "Mobile App",
+                "teamRoles": [
+                    {
+                        "id": 7450486665,
+                        "roleData": {
+                            "role": "font-end Developer",
+                            "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                            "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                            "complimentarySkills": [
+                                "React",
+                                "Angular",
+                                "Firebase"
+                            ],
+                            "minHours": 50,
+                            "locationPreference": [
+                                "Asia",
+                                "Europe",
+                                "North America"
+                            ]
+                        }
+                    },
+                    {
+                        "id": 7450486665,
+                        "roleData": {
+                            "role": "font-end Developer",
+                            "roleDescription": "Lasi sxancon mi tiel bonsxance kaj koro vestajxon. Pli zuron.",
+                            "requiredSkills": ["CSS", "HTML", "JavaScript"],
+                            "complimentarySkills": [
+                                "React",
+                                "Angular",
+                                "Firebase"
+                            ],
+                            "minHours": 50,
+                            "locationPreference": [
+                                "Asia",
+                                "Europe",
+                                "North America"
+                            ]
+                        }
+                    }
+                ]
             }
         }
     ]

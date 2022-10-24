@@ -5,6 +5,8 @@
 @layer basep {
     body {
         font-family: 'Space Grotesk', sans-serif;
+        height: 100vh;
+        background-color: rgb(241 244 248);
     }
 }
 input:-webkit-autofill,

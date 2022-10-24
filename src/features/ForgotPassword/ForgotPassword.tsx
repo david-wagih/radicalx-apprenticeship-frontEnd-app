@@ -1,4 +1,3 @@
-//TODO here the user will enter his email and click on the button to send the email to reset the password
 import { FC, useState } from 'react';
 
 import InputField from '../../components/InputField/InputField';

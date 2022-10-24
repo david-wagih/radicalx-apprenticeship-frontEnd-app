@@ -1,10 +1,11 @@
 export const getUserApprenticeships = async (
-    userId: string | undefined,
+    userId: number | undefined,
     setApprenticeships: React.Dispatch<React.SetStateAction<[]>>
 ) => {
     const response = await fetch(
-        `http://localhost:3000/minimum_apprenticeship_data?user_id=${userId}`
+        `http://localhost:3000/minimum_apprenticeship_data?id=${userId}`
     );
     const data = await response.json();
-    setApprenticeships(data[0].apprenticeships_data);
+    const ApenticeshipData = data[0].apprenticeships_data;
+    setApprenticeships(ApenticeshipData);
 };

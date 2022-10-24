@@ -1,3 +1,7 @@
+import { useContext } from 'react';
+
+import { RolesContext } from '../../Contexts/RolesContext/RolesContext';
+
 export const initialState: State = {
     checked: [[false, false, false, false, false], false, false, false, false],
     apprenticeshipTitle: '',
@@ -11,19 +15,7 @@ export const initialState: State = {
     timeline: null
 };
 
-export enum ActionType {
-    apprenticeshipTitle = 'apprenticeshipTitle',
-    companyLogo = 'companyLogo',
-    companyDescription = 'companyDescription',
-    apprenticeshipDescription = 'apprenticeshipDescription',
-    companyVideo = 'companyVideo',
-    teamType = 'teamType',
-    teamRoles = 'teamRoles',
-    teamAdmins = 'teamAdmins',
-    timeline = 'timeline'
-}
 export type teamRoles = {
-    id?: string;
     roleName: string;
     roleDescription: string;
     requiredSkills: string[];
@@ -32,7 +24,6 @@ export type teamRoles = {
     locationPreferences: string[];
 }[];
 export type teamRole = {
-    id?: string;
     roleName: string;
     roleDescription: string;
     requiredSkills: string[];
@@ -45,7 +36,7 @@ export type teamAdmins = {
     name: string;
     email: string;
     linkedIn: string;
-    logo: File | null;
+    logo: File | string | null;
 }[];
 export type timeLine = {
     startDate: string;
@@ -53,14 +44,14 @@ export type timeLine = {
 };
 export type action = {
     type: string;
-    payload: string | File | teamRoles | teamAdmins | timeLine | null;
+    payload: string | File | teamRoles | teamAdmins | timeLine | State | null;
 };
 export type checked = [boolean[], boolean, boolean, boolean, boolean];
 
 export interface State {
     checked: checked;
     apprenticeshipTitle: string;
-    companyLogo: File | null;
+    companyLogo: File | string | null;
     companyDescription: string;
     apprenticeshipDescription: string;
     companyVideo: File | null;
@@ -71,7 +62,7 @@ export interface State {
 }
 
 export function reducer(state: State, action: action) {
-    if (action.type === ActionType.apprenticeshipTitle) {
+    if (action.type === 'apprenticeshipTitle') {
         return {
             ...state,
             apprenticeshipTitle: action.payload as string,
@@ -80,7 +71,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 0, 0, state.checked)
                     : setProgressBarOfIndex(true, 0, 0, state.checked)
         };
-    } else if (action.type === ActionType.companyLogo) {
+    } else if (action.type === 'companyLogo') {
         return {
             ...state,
             companyLogo: action.payload as File,
@@ -89,7 +80,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 0, 1, state.checked)
                     : setProgressBarOfIndex(true, 0, 1, state.checked)
         };
-    } else if (action.type === ActionType.apprenticeshipDescription) {
+    } else if (action.type === 'apprenticeshipDescription') {
         return {
             ...state,
             apprenticeshipDescription: action.payload as string,
@@ -98,7 +89,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 0, 2, state.checked)
                     : setProgressBarOfIndex(true, 0, 2, state.checked)
         };
-    } else if (action.type === ActionType.companyDescription) {
+    } else if (action.type === 'companyDescription') {
         return {
             ...state,
             companyDescription: action.payload as string,
@@ -107,7 +98,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 0, 3, state.checked)
                     : setProgressBarOfIndex(true, 0, 3, state.checked)
         };
-    } else if (action.type === ActionType.companyVideo) {
+    } else if (action.type === 'companyVideo') {
         return {
             ...state,
             companyVideo: action.payload as File,
@@ -116,7 +107,7 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 0, 4, state.checked)
                     : setProgressBarOfIndex(true, 0, 4, state.checked)
         };
-    } else if (action.type === ActionType.teamType) {
+    } else if (action.type === 'teamType') {
         return {
             ...state,
             teamType: action.payload as string,
@@ -125,11 +116,10 @@ export function reducer(state: State, action: action) {
                     ? setProgressBarOfIndex(false, 1, 0, state.checked)
                     : setProgressBarOfIndex(true, 1, 0, state.checked)
         };
-    } else if (action.type === ActionType.teamRoles) {
+    } else if (action.type === 'teamRoles') {
         return {
             ...state,
             teamRoles: action.payload as teamRoles,
-            //if action.payload is empty array then we will set the progress bar to false
             checked:
                 action.payload !== null && action.payload instanceof Array
                     ? action.payload.length !== 0
@@ -137,7 +127,7 @@ export function reducer(state: State, action: action) {
                         : setProgressBarOfIndex(false, 2, 0, state.checked)
                     : setProgressBarOfIndex(false, 2, 0, state.checked)
         };
-    } else if (action.type === ActionType.teamAdmins) {
+    } else if (action.type === 'teamAdmins') {
         return {
             ...state,
             teamAdmins: action.payload as teamAdmins,
@@ -148,7 +138,7 @@ export function reducer(state: State, action: action) {
                         : setProgressBarOfIndex(false, 3, 0, state.checked)
                     : setProgressBarOfIndex(false, 3, 0, state.checked)
         };
-    } else if (action.type === ActionType.timeline) {
+    } else if (action.type === 'timeline') {
         return {
             ...state,
             timeline: action.payload as timeLine,
@@ -156,6 +146,13 @@ export function reducer(state: State, action: action) {
                 action.payload === null
                     ? setProgressBarOfIndex(false, 4, 0, state.checked)
                     : setProgressBarOfIndex(true, 4, 0, state.checked)
+        };
+    } else if (action.type === 'fillData') {
+        const { setNeededRoles } = useContext(RolesContext);
+        setNeededRoles((action.payload as State).teamRoles);
+        return {
+            ...(action.payload as State),
+            checked: [[true, true, true, true, true], true, true, true, true]
         };
     }
     return state;

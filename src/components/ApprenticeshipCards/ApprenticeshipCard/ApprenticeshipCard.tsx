@@ -10,13 +10,15 @@ interface ApprenticeshipCardProps {
     title: string;
     paragraph: string;
     tags: string[];
+    id:number;
 }
 
 const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
     myKey,
     title,
     paragraph,
-    tags
+    tags,
+    id
 }) => {
     return (
         <div
@@ -26,7 +28,7 @@ const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
             <div className="flex justify-between w-full">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
-                    <EditIcon />
+                    <EditIcon id={id}/>
                     <DuplicateIcon />
                     <DeleteIcon />
                 </div>

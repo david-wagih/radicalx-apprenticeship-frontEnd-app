@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import TeamCard from './components/FormCard/TeamTypes/TeamCard/TeamCard';
 import { OptionsContextProvider } from './Contexts/OptionsContext/OptionsContext';
 import { RolesContextProvider } from './Contexts/RolesContext/RolesContext';
 import CreatingApprenticeship from './features/CreatingApprenticeship/CreatingApprenticeship';
@@ -21,6 +20,16 @@ const RoutesComponent: FC = () => {
                 <Route element={<PrivateRoutes />}>
                     <Route
                         path="/creating_apprenticeship"
+                        element={
+                            <OptionsContextProvider>
+                                <RolesContextProvider>
+                                    <CreatingApprenticeship />
+                                </RolesContextProvider>
+                            </OptionsContextProvider>
+                        }
+                    />
+                    <Route
+                        path="/creating_apprenticeship/:id"
                         element={
                             <OptionsContextProvider>
                                 <RolesContextProvider>

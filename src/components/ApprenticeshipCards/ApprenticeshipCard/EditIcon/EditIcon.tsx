@@ -1,8 +1,15 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-const EditIcon: FC = () => {
+interface EditIconProps {
+    id: number;
+}
+const EditIcon: FC<EditIconProps> = ({ id = 9652196695 }) => {
     return (
-        <div className="edit-icon w-5 h-5 hover:cursor-pointer">
+        <Link
+            className="edit-icon w-5 h-5 hover:cursor-pointer"
+            to={`/creating_apprenticeship/${id}`}
+        >
             <svg
                 width="20"
                 height="20"
@@ -28,7 +35,7 @@ const EditIcon: FC = () => {
                     />
                 </g>
             </svg>
-        </div>
+        </Link>
     );
 };
 

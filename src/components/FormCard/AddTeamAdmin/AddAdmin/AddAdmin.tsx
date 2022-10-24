@@ -10,13 +10,18 @@ import AdminCard from '../AdminCard/AdminCard';
 
 interface AddAdminProps {
     dispatch: (action: action) => void;
+    alreadyExcitingAdmins: teamAdmins;
 }
 
-const AddAdmin: FC<AddAdminProps> = ({ dispatch }) => {
+const AddAdmin: FC<AddAdminProps> = ({ dispatch, alreadyExcitingAdmins }) => {
     const [admins, setAdmins] = useState<teamAdmins>([]);
     useEffect(() => {
         dispatch({ type: 'teamAdmins', payload: admins });
     }, [admins.length]);
+    
+    useEffect(() => {
+        setAdmins(alreadyExcitingAdmins);
+    }, [alreadyExcitingAdmins]);
 
     const [isOpen, setIsOpen] = useState(false);
 

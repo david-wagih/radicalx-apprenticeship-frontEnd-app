@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { action } from '../../../features/CreatingApprenticeship/Controller';
 
@@ -16,7 +16,10 @@ interface teamTypeProps {
     teamType?: string;
 }
 const TeamType: FC<teamTypeProps> = ({ dispatch, teamType }) => {
-    const [currentType, setCurrentType] = useState(teamType || '');
+    const [currentType, setCurrentType] = useState('');
+    useEffect(() => {
+        setCurrentType(teamType || '');
+    }, [teamType]);
     const titles = [
         'Web Platforms',
         'Mobile App',

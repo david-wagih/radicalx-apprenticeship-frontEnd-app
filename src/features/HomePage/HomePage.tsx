@@ -7,7 +7,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
     const [apprenticeships, setApprenticeships] = useState<[]>([]);
-    const { user_id } = useParams();
+    //FIXME - this is a temporary solution to get the user id
+    const user_id = 3401597851;
     useEffect(() => {
         getUserApprenticeships(user_id, setApprenticeships);
     }, []);
