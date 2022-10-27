@@ -12,7 +12,7 @@ export const handleSubmit = (
         validateEmail(email, setEmailErrorMessage) &&
         validatePassword(password, setPasswordErrorMessage)
     ) {
-        fetch(`${baseurl}/login`, {
+        fetch(`http://localhost:4000/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,10 +21,6 @@ export const handleSubmit = (
                 email: email,
                 password: password
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                const token = data.token;
-            });
+        }).then(response => console.log(response));
     }
 };

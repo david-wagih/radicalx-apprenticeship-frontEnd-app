@@ -14,7 +14,9 @@ export const handleSubmit = (
         validateEmail(email, setEmailErrorMessage) &&
         validatePassword(password, setPasswordErrorMessage)
     ) {
-        fetch(`${baseurl}/signup`, {
+        console.log(`+20${phoneNumber}`);
+        console.log(typeof `+20${phoneNumber}`);
+        fetch(`http://localhost:4000/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,12 +25,8 @@ export const handleSubmit = (
                 email: email,
                 password: password,
                 username: name,
-                phoneNumber: phoneNumber
+                phoneNumber: `+20${phoneNumber}`
             })
-        })
-            .then(res => res.json())
-            .then(data => {
-                const token = data.token;
-            });
+        }).then(res => console.log(res));
     }
 };

@@ -9,8 +9,9 @@ import Title from './Title/Title';
 interface HeaderProps {
     readyToPublish: boolean;
     formData: State;
+    id?:number
 }
-const Header: FC<HeaderProps> = ({ readyToPublish, formData }) => {
+const Header: FC<HeaderProps> = ({ readyToPublish, formData,id }) => {
     return (
         <div
             className="header 
@@ -22,6 +23,7 @@ const Header: FC<HeaderProps> = ({ readyToPublish, formData }) => {
             <PublishButton
                 readyToPublish={readyToPublish}
                 formData={formData}
+                id={id}
             />
         </div>
     );

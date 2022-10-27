@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect, useReducer } from 'react';
+import { FC, useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 
 import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
@@ -80,17 +80,15 @@ const CreatingApprenticeship: FC = () => {
         />,
         <TimeLine
             dispatch={dispatch}
-            alreadyExcitingTimeline={formState.timeline || null}
+            alreadyExcitingTimeline={formState.timeline}
         />
     ];
-
     const { id } = useParams();
-
     useEffect(() => {
         (async function getData() {
             if (id !== undefined) {
                 const response = await fetch(
-                    `http://localhost:3000/full_apprenticeship_data?id=${id}`
+                    `http://localhost:3000/full_apprenticeship_data/${id}`
                 );
                 let data = await response.json();
                 data = data[0].apprenticeship_data;
@@ -106,6 +104,7 @@ const CreatingApprenticeship: FC = () => {
                     .flat()
                     .reduce((a: boolean, b: boolean) => a && b)}
                 formData={formState}
+                id={id}
             />
             <ProgressBar
                 checked={[

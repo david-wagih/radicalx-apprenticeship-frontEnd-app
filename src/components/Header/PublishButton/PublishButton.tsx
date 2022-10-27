@@ -5,17 +5,27 @@ import { State } from '../../../features/CreatingApprenticeship/Controller';
 interface PublishButtonProps {
     readyToPublish: boolean;
     formData: State;
+    id?: number;
 }
 const PublishButton: FC<PublishButtonProps> = ({
     readyToPublish,
-    formData
+    formData,
+    id
 }) => {
     const fillColor = readyToPublish ? '#793EF5' : '#E2E6EB';
     const strokeColor = readyToPublish ? '#FFFFFF' : '#828282';
     const handleClick = () => {
-        if (readyToPublish) {
+        if (readyToPublish && id !== undefined) {
             fetch('http://localhost:3000/full_apprenticeship_data', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+        } else if (readyToPublish && id === undefined) {
+            fetch('http://localhost:3000/full_apprenticeship_data', {
+                method: 'Update',
                 headers: {
                     'Content-Type': 'application/json'
                 },

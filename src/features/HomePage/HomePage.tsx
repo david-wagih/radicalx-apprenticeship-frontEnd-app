@@ -1,16 +1,15 @@
-import { FC, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { FC, useContext, useEffect, useState } from 'react';
 
 import ApprenticeshipCards from '../../components/ApprenticeshipCards/ApprenticeshipCards';
 import NavBar from '../../components/NavBar/NavBar';
+import { UserContext } from '../../Contexts/UserContext/UserContext';
 
 import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
     const [apprenticeships, setApprenticeships] = useState<[]>([]);
-    //FIXME - this is a temporary solution to get the user id
-    const user_id = 3401597851;
+    const { userId } = useContext(UserContext);
     useEffect(() => {
-        getUserApprenticeships(user_id, setApprenticeships);
+        getUserApprenticeships(userId, setApprenticeships);
     }, []);
     return (
         <>

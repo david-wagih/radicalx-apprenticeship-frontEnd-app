@@ -6,6 +6,6 @@ export const getUserApprenticeships = async (
         `http://localhost:3000/minimum_apprenticeship_data?id=${userId}`
     );
     const data = await response.json();
-    const ApenticeshipData = data[0].apprenticeships_data;
+    const ApenticeshipData = data[0];
     setApprenticeships(ApenticeshipData);
 };
