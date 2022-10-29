@@ -70,7 +70,6 @@ const LogIn: FC = () => {
                         type="text"
                         className="h-[44px] w-[300px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                         name="email"
-                        defaultValue=""
                         placeholder="Email"
                         onChange={changeHandler}
                     />
@@ -96,7 +95,6 @@ const LogIn: FC = () => {
                         type={passwordShown ? 'text' : 'password'}
                         className="h-[44px] w-[280px] rounded-2xl border-none bg-[#F5F5F7] pl-1 text-[#2F3031] outline-none"
                         name="password"
-                        defaultValue=""
                         placeholder="Password"
                         onChange={changeHandler}
                     />

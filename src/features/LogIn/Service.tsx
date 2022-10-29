@@ -15,12 +15,22 @@ export const handleSubmit = (
         fetch(`http://localhost:4000/login`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                accept: 'application/json'
             },
             body: JSON.stringify({
                 email: email,
                 password: password
             })
-        }).then(response => console.log(response));
+        })
+            .then(function (response) {
+                console.log(response);
+                return response.body?.getReader().read();
+            })
+            .then(function (data) {
+                console.log(data);
+                const userId = new TextDecoder().decode(data?.value);
+                console.log('userId', userId);
+            });
     }
 };

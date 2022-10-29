@@ -14,12 +14,11 @@ export const handleSubmit = (
         validateEmail(email, setEmailErrorMessage) &&
         validatePassword(password, setPasswordErrorMessage)
     ) {
-        console.log(`+20${phoneNumber}`);
-        console.log(typeof `+20${phoneNumber}`);
         fetch(`http://localhost:4000/signup`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                accept: 'application/json'
             },
             body: JSON.stringify({
                 email: email,
@@ -27,6 +26,15 @@ export const handleSubmit = (
                 username: name,
                 phoneNumber: `+20${phoneNumber}`
             })
-        }).then(res => console.log(res));
+        })
+            .then(function (response) {
+                console.log(response);
+                return response.body?.getReader().read();
+            })
+            .then(function (data) {
+                console.log(data);
+                const userId = new TextDecoder().decode(data?.value);
+                console.log('userId', userId);
+            });
     }
 };
