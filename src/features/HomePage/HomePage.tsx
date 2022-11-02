@@ -7,10 +7,10 @@ import { UserContext } from '../../Contexts/UserContext/UserContext';
 import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
     const [apprenticeships, setApprenticeships] = useState<[]>([]);
-    const { userId } = useContext(UserContext);
-    useEffect(() => {
-        getUserApprenticeships(userId, setApprenticeships);
-    }, []);
+    const { userCredentials } = useContext(UserContext);
+    // useEffect(() => {
+    //     getUserApprenticeships(userCredentials.userId, setApprenticeships);
+    // }, []);
     return (
         <>
             <NavBar />

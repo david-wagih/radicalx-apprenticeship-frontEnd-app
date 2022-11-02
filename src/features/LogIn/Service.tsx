@@ -1,18 +1,23 @@
+import { NavigateFunction } from 'react-router-dom';
+
+import { auth } from '../../PrivateRoutes';
+
 import { validateEmail, validatePassword } from './Controller';
 
-export const handleSubmit = (
+export const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     email: string,
     password: string,
     setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>,
-    setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>
+    setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>,
+    navigate: NavigateFunction
 ) => {
     e.preventDefault();
     if (
         validateEmail(email, setEmailErrorMessage) &&
         validatePassword(password, setPasswordErrorMessage)
     ) {
-        fetch(`http://localhost:4000/login`, {
+        const response = await fetch(`http://localhost:4000/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,15 +27,13 @@ export const handleSubmit = (
                 email: email,
                 password: password
             })
-        })
-            .then(function (response) {
-                console.log(response);
-                return response.body?.getReader().read();
-            })
-            .then(function (data) {
-                console.log(data);
-                const userId = new TextDecoder().decode(data?.value);
-                console.log('userId', userId);
-            });
+        });
+        if (response.ok) {
+            const json = await response.json();
+            auth.isAuthorized = true;
+            localStorage.setItem('customToken', json.customToken);
+            localStorage.setItem('userId', json.userID);
+            navigate('/homepage');
+        }
     }
 };

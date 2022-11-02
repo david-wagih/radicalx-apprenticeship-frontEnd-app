@@ -18,7 +18,6 @@ interface TeamRolesProps {
 
 const TeamRoles: FC<TeamRolesProps> = ({ dispatch }) => {
     const { neededRoles, showModal } = useContext(RolesContext);
-    console.log(neededRoles);
     useEffect(() => {
         dispatch({ type: 'teamRoles', payload: neededRoles });
     }, [neededRoles]);

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import InputField from '../../components/InputField/InputField';
 
@@ -35,6 +35,7 @@ const LogIn: FC = () => {
             [e.currentTarget.name]: e.currentTarget.value
         });
     };
+    const navigate = useNavigate();
     return (
         <div className="login-page relative h-screen w-screen ">
             <div className="purple-half absolute inset-y-0 left-0 h-[982px] w-[756px]  bg-rdx-purple "></div>
@@ -52,7 +53,8 @@ const LogIn: FC = () => {
                         form.email,
                         form.password,
                         setEmailErrorMessage,
-                        setPasswordErrorMessage
+                        setPasswordErrorMessage,
+                        navigate
                     )
                 }
             >

@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import InputField from '../../components/InputField/InputField';
 
@@ -35,7 +36,7 @@ const SignUp: FC = () => {
             [e.currentTarget.name]: e.currentTarget.value
         });
     };
-
+    const navigate = useNavigate();
     return (
         <>
             <div className="pos fixed top-0 left-0 z-[1] h-screen w-1/2 overflow-hidden bg-rdx-purple"></div>
@@ -55,7 +56,8 @@ const SignUp: FC = () => {
                             form.name,
                             form.phoneNumber,
                             setEmailErrorMessage,
-                            setPasswordErrorMessage
+                            setPasswordErrorMessage,
+                            navigate
                         )
                     }
                 >

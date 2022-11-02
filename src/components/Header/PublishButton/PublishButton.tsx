@@ -1,5 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC, useContext } from 'react';
 
+import { UserContext } from '../../../Contexts/UserContext/UserContext';
 import { State } from '../../../features/CreatingApprenticeship/Controller';
 
 interface PublishButtonProps {
@@ -14,24 +15,37 @@ const PublishButton: FC<PublishButtonProps> = ({
 }) => {
     const fillColor = readyToPublish ? '#793EF5' : '#E2E6EB';
     const strokeColor = readyToPublish ? '#FFFFFF' : '#828282';
-    const handleClick = () => {
-        if (readyToPublish && id !== undefined) {
-            fetch('http://localhost:3000/full_apprenticeship_data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-        } else if (readyToPublish && id === undefined) {
-            fetch('http://localhost:3000/full_apprenticeship_data', {
-                method: 'Update',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
+    const { userCredentials } = useContext(UserContext);
+    const handleClick = async () => {
+        console.log(userCredentials);
+        //create apprenticeship
+        if (readyToPublish && id === undefined) {
+            const response = await fetch(
+                `http://localhost:4000/create_apprenticeship/${userCredentials?.userId}`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `JWT ${userCredentials?.customToken}`
+                    },
+                    body: JSON.stringify(formData)
+                }
+            );
+            console.log(response);
+            if (response.ok) {
+                console.log('Apprenticeship created');
+            }
         }
+        //TODO: update apprenticeship
+        // else if (readyToPublish && id !== undefined) {
+        //     fetch('http://localhost:3000/full_apprenticeship_data', {
+        //         method: 'Update',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(formData)
+        //     });
+        // }
     };
     return (
         <button

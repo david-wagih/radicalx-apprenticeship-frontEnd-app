@@ -9,7 +9,6 @@ const CalenderIcon: FC = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             onClick={() => {
-                console.log(document.getElementById('end-date-input'));
                 document.getElementById('end-date-input')?.click();
             }}
         >

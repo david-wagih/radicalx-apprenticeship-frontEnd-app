@@ -40,7 +40,6 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
-    console.log('formState', formState);
 
     const children = [
         <LogoAndTitle

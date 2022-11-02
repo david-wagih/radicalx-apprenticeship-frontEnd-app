@@ -24,8 +24,8 @@ const RoutesComponent: FC = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<LogIn />} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={ContextProviders(<LogIn />)} />
+                <Route path="/signup" element={ContextProviders(<SignUp />)} />
                 <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
                 <Route element={<PrivateRoutes />}>
