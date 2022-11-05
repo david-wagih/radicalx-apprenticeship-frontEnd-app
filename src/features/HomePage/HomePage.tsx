@@ -8,9 +8,9 @@ import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
     const [apprenticeships, setApprenticeships] = useState<[]>([]);
     const { userCredentials } = useContext(UserContext);
-    // useEffect(() => {
-    //     getUserApprenticeships(userCredentials.userId, setApprenticeships);
-    // }, []);
+    useEffect(() => {
+        getUserApprenticeships(userCredentials.userId, setApprenticeships);
+    }, []);
     return (
         <>
             <NavBar />

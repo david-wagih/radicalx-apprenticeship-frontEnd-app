@@ -17,16 +17,16 @@ const PublishButton: FC<PublishButtonProps> = ({
     const strokeColor = readyToPublish ? '#FFFFFF' : '#828282';
     const { userCredentials } = useContext(UserContext);
     const handleClick = async () => {
-        console.log(userCredentials);
-        //create apprenticeship
         if (readyToPublish && id === undefined) {
+            console.log(formData);
+
             const response = await fetch(
                 `http://localhost:4000/create_apprenticeship/${userCredentials?.userId}`,
                 {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `JWT ${userCredentials?.customToken}`
+                        Authorization: `Bearer ${userCredentials?.customToken}`
                     },
                     body: JSON.stringify(formData)
                 }
