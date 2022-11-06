@@ -9,7 +9,7 @@ const HomePage: FC = () => {
     const [apprenticeships, setApprenticeships] = useState<[]>([]);
     const { userCredentials } = useContext(UserContext);
     useEffect(() => {
-        getUserApprenticeships(userCredentials.userId, setApprenticeships);
+        getUserApprenticeships(userCredentials, setApprenticeships);
     }, []);
     return (
         <>

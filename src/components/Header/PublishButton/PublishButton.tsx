@@ -2,6 +2,7 @@ import { FC, useContext } from 'react';
 
 import { UserContext } from '../../../Contexts/UserContext/UserContext';
 import { State } from '../../../features/CreatingApprenticeship/Controller';
+import { CreatingApprenticeship } from '../../../features/CreatingApprenticeship/Service';
 
 interface PublishButtonProps {
     readyToPublish: boolean;
@@ -18,23 +19,8 @@ const PublishButton: FC<PublishButtonProps> = ({
     const { userCredentials } = useContext(UserContext);
     const handleClick = async () => {
         if (readyToPublish && id === undefined) {
-            console.log(formData);
-
-            const response = await fetch(
-                `http://localhost:4000/create_apprenticeship/${userCredentials?.userId}`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${userCredentials?.customToken}`
-                    },
-                    body: JSON.stringify(formData)
-                }
-            );
-            console.log(response);
-            if (response.ok) {
-                console.log('Apprenticeship created');
-            }
+            const res = await CreatingApprenticeship(formData, userCredentials);
+            console.log(res);
         }
         //TODO: update apprenticeship
         // else if (readyToPublish && id !== undefined) {
