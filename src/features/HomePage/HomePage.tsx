@@ -14,7 +14,13 @@ const HomePage: FC = () => {
     return (
         <>
             <NavBar />
-            <ApprenticeshipCards apprenticeships={apprenticeships} />
+            <ApprenticeshipCards
+                apprenticeships={apprenticeships.map(apprenticeship => ({
+                    title: apprenticeship.apprenticeshipTitle,
+                    description: apprenticeship.apprenticeshipDescription,
+                    tags: apprenticeship.teamRoles.map(role => role.roleName)
+                }))}
+            />
         </>
     );
 };

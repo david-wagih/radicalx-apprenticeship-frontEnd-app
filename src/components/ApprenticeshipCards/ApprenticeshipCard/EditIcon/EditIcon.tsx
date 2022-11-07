@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 interface EditIconProps {
-    id: number;
+    id?: number;
 }
 const EditIcon: FC<EditIconProps> = ({ id = 9652196695 }) => {
     return (

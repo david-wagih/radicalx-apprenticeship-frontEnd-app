@@ -10,7 +10,7 @@ export const getUserApprenticeships = async (
         {
             method: 'GET',
             headers: {
-            'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 accept: 'application/json',
                 Authorization: `Bearer ${userCredentials.customToken}`
             }
@@ -20,6 +20,6 @@ export const getUserApprenticeships = async (
     if (response.ok) {
         const data = await response.json();
         console.log(data);
-        // setApprenticeships(json);
+        setApprenticeships(data);
     }
 };

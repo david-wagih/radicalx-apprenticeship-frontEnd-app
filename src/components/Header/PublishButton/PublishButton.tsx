@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../../Contexts/UserContext/UserContext';
 import { State } from '../../../features/CreatingApprenticeship/Controller';
@@ -17,10 +18,14 @@ const PublishButton: FC<PublishButtonProps> = ({
     const fillColor = readyToPublish ? '#793EF5' : '#E2E6EB';
     const strokeColor = readyToPublish ? '#FFFFFF' : '#828282';
     const { userCredentials } = useContext(UserContext);
+    const navigate = useNavigate();
     const handleClick = async () => {
         if (readyToPublish && id === undefined) {
-            const res = await CreatingApprenticeship(formData, userCredentials);
-            console.log(res);
+            const res = CreatingApprenticeship(
+                formData,
+                userCredentials,
+                navigate
+            );
         }
         //TODO: update apprenticeship
         // else if (readyToPublish && id !== undefined) {
