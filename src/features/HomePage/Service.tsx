@@ -16,10 +16,12 @@ export const getUserApprenticeships = async (
             }
         }
     );
-    console.log(response);
     if (response.ok) {
         const data = await response.json();
-        console.log(data);
-        setApprenticeships(data);
+        const apprenticeships = data.map((apprenticeship: any) => ({
+            ...apprenticeship.apprenticeshipData,
+            id: apprenticeship.apprenticeshipID
+        }));
+        setApprenticeships(apprenticeships);
     }
 };

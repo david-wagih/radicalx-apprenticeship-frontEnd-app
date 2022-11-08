@@ -16,6 +16,7 @@ const HomePage: FC = () => {
             <NavBar />
             <ApprenticeshipCards
                 apprenticeships={apprenticeships.map(apprenticeship => ({
+                    apprenticeshipId: apprenticeship.id,
                     title: apprenticeship.apprenticeshipTitle,
                     description: apprenticeship.apprenticeshipDescription,
                     tags: apprenticeship.teamRoles.map(role => role.roleName)

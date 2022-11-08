@@ -6,8 +6,8 @@ import CreateButton from '../CreateButton/CreateButton';
 import ApprenticeshipCard from './ApprenticeshipCard/ApprenticeshipCard';
 
 interface ApprenticeshipCardsProps {
-    apprenticeships: {
-        id: number;
+    apprenticeships?: {
+        apprenticeshipId: string;
         title: string;
         description: string;
         tags: string[];
@@ -29,7 +29,7 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
                 {apprenticeships &&
                     apprenticeships.map(apprenticeship => (
                         <ApprenticeshipCard
-                            id={apprenticeship.id}
+                        apprenticeshipId={apprenticeship.apprenticeshipId}
                             key={uuid()}
                             title={apprenticeship.title}
                             paragraph={apprenticeship.description}

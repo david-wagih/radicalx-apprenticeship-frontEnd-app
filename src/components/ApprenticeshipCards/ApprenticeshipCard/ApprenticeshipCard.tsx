@@ -10,7 +10,7 @@ interface ApprenticeshipCardProps {
     title: string;
     paragraph: string;
     tags: string[];
-    id?: number;
+    apprenticeshipId: string;
 }
 
 const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
@@ -18,7 +18,7 @@ const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
     title,
     paragraph,
     tags,
-    id
+    apprenticeshipId
 }) => {
     return (
         <div
@@ -28,9 +28,9 @@ const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
             <div className="flex justify-between w-full">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
-                    <EditIcon id={id} />
-                    <DuplicateIcon />
-                    <DeleteIcon />
+                    <EditIcon />
+                    <DuplicateIcon apperticeshipId={apprenticeshipId} />
+                    <DeleteIcon apprenticeshipId={apprenticeshipId} />
                 </div>
             </div>
             <div className="mb-[35px]">
