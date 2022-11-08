@@ -8,7 +8,7 @@ import { CreatingApprenticeship } from '../../../features/CreatingApprenticeship
 interface PublishButtonProps {
     readyToPublish: boolean;
     formData: State;
-    id?: number;
+    id?: string;
 }
 const PublishButton: FC<PublishButtonProps> = ({
     readyToPublish,
@@ -21,22 +21,12 @@ const PublishButton: FC<PublishButtonProps> = ({
     const navigate = useNavigate();
     const handleClick = async () => {
         if (readyToPublish && id === undefined) {
-            const res = CreatingApprenticeship(
-                formData,
-                userCredentials,
-                navigate
-            );
+            CreatingApprenticeship(formData, userCredentials, navigate);
         }
         //TODO: update apprenticeship
-        // else if (readyToPublish && id !== undefined) {
-        //     fetch('http://localhost:3000/full_apprenticeship_data', {
-        //         method: 'Update',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(formData)
-        //     });
-        // }
+        else if (readyToPublish && id !== undefined) {
+            CreatingApprenticeship(formData, userCredentials, navigate, id);
+        }
     };
     return (
         <button

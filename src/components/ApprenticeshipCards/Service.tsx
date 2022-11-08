@@ -1,30 +1,24 @@
-export const deleteApprenticeship = async (
+export const deleteApprenticeship = (
     apprenticeshipId: string,
     customToken: string
 ) => {
-    console.log(apprenticeshipId);
-    console.log(customToken);
-    const response = await fetch(
-        `http://localhost:4000/delete_apprenticeship/${apprenticeshipId}`,
-        {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                accept: 'application/json',
-                Authorization: `Bearer ${customToken}`
-            }
+    console.log('deleteApprenticeship');
+    fetch(`http://localhost:4000/delete_apprenticeship/${apprenticeshipId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+            Authorization: `Bearer ${customToken}`
         }
-    );
-    if (response.ok) {
-        console.log('deleted apprenticeship');
-    }
+    });
 };
 
-export const duplicateApprenticeship = async (
+export const duplicateApprenticeship = (
     apprenticeshipId: string,
     customToken: string
 ) => {
-    const response = await fetch(
+    console.log('duplicateApprenticeship');
+    fetch(
         `http://localhost:4000/duplicate_apprenticeship/${apprenticeshipId}`,
         {
             method: 'POST',
@@ -35,7 +29,4 @@ export const duplicateApprenticeship = async (
             }
         }
     );
-    if (response.ok) {
-        console.log('duplicated apprenticeship');
-    }
 };

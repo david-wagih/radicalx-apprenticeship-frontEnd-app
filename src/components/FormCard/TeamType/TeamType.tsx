@@ -19,6 +19,12 @@ const TeamType: FC<teamTypeProps> = ({ dispatch, teamType }) => {
     const [currentType, setCurrentType] = useState('');
     useEffect(() => {
         setCurrentType(teamType || '');
+        if (teamType) {
+            dispatch({
+                type: 'teamType',
+                payload: teamType
+            });
+        }
     }, [teamType]);
     const titles = [
         'Web Platforms',

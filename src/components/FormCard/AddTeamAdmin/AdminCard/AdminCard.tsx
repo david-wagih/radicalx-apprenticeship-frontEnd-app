@@ -18,13 +18,13 @@ const AdminCard: FC<AdminCardProps> = ({ name, linkedIn, logo }) => {
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <rect width="40" height="40" rx="8" fill="#E2E6EB" />
-                        {logo && (
+                        {(logo && logo instanceof File && (
                             <image
                                 width="40"
                                 height="40"
                                 href={URL.createObjectURL(logo)}
                             />
-                        )}
+                        )) || <image width="40" height="40" />}
                     </svg>
                 </div>
                 <p className="relative py-6 pl-16 text-left align-middle text-lg font-semibold leading-6">

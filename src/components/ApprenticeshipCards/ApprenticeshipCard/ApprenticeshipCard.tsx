@@ -28,8 +28,8 @@ const ApprenticeshipCard: FC<ApprenticeshipCardProps> = ({
             <div className="flex justify-between w-full">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
-                    <EditIcon />
-                    <DuplicateIcon apperticeshipId={apprenticeshipId} />
+                    <EditIcon apprenticeshipId={apprenticeshipId} />
+                    <DuplicateIcon apprenticeshipId={apprenticeshipId} />
                     <DeleteIcon apprenticeshipId={apprenticeshipId} />
                 </div>
             </div>

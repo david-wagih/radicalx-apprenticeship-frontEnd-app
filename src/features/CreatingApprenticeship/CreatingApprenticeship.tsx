@@ -1,4 +1,4 @@
-import { FC, useEffect, useReducer } from 'react';
+import { FC, useContext, useEffect, useReducer, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import AddAdmin from '../../components/FormCard/AddTeamAdmin/AddAdmin/AddAdmin';
@@ -11,8 +11,10 @@ import VideoUpload from '../../components/FormCard/VideoUpload/VideoUpload';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import TeamRoles from '../../components/TeamRoles/TeamRoles';
+import { UserContext } from '../../Contexts/UserContext/UserContext';
 
 import { action, initialState, reducer, State } from './Controller';
+import { getApprenticeshipData } from './Service';
 
 const keys = [
     'logo-title',
@@ -40,25 +42,33 @@ const CreatingApprenticeship: FC = () => {
         reducer as React.Reducer<State, action>,
         initialState
     );
-
+    const [dataForEdit, setDataForEdit] = useState<State | null>(null);
     const children = [
         <LogoAndTitle
             dispatch={dispatch}
             logo={formState.companyLogo as unknown as string}
-            title={formState.apprenticeshipTitle}
+            title={
+                dataForEdit?.apprenticeshipTitle ||
+                formState.apprenticeshipTitle
+            }
             placeholder="Enter Apprenticeship Title"
         />,
         <CardText
             type="companyDescription"
             dispatch={dispatch}
-            text={formState.companyDescription}
+            text={
+                dataForEdit?.companyDescription || formState.companyDescription
+            }
             placeholder="Tell us about your company"
             name="companyDescription"
         />,
         <CardText
             type="apprenticeshipDescription"
             dispatch={dispatch}
-            text={formState.apprenticeshipDescription}
+            text={
+                dataForEdit?.apprenticeshipDescription ||
+                formState.apprenticeshipDescription
+            }
             placeholder="Tell us about your apprenticeship"
             name="apprenticeshipDescription"
         />,
@@ -71,29 +81,28 @@ const CreatingApprenticeship: FC = () => {
                     : null
             }
         />,
-        <TeamType dispatch={dispatch} teamType={formState.teamType} />,
+        <TeamType
+            dispatch={dispatch}
+            teamType={dataForEdit?.teamType || formState.teamType}
+        />,
         <TeamRoles dispatch={dispatch} />,
         <AddAdmin
             dispatch={dispatch}
-            alreadyExcitingAdmins={formState.teamAdmins}
+            alreadyExcitingAdmins={
+                dataForEdit?.teamAdmins || formState.teamAdmins
+            }
         />,
         <TimeLine
             dispatch={dispatch}
-            alreadyExcitingTimeline={formState.timeline}
+            alreadyExcitingTimeline={
+                dataForEdit?.timeline || formState.timeline
+            }
         />
     ];
     const { id } = useParams();
+    const { userCredentials } = useContext(UserContext);
     useEffect(() => {
-        (async function getData() {
-            if (id !== undefined) {
-                const response = await fetch(
-                    `http://localhost:3000/full_apprenticeship_data/${id}`
-                );
-                let data = await response.json();
-                data = data[0].apprenticeship_data;
-                dispatch({ type: 'fillData', payload: data });
-            }
-        })();
+        getApprenticeshipData(setDataForEdit, userCredentials, id as string);
     }, []);
 
     return (

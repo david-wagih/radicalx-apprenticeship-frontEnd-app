@@ -2,14 +2,14 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 interface EditIconProps {
-    id?: number;
+    apprenticeshipId?: string;
 }
-const EditIcon: FC<EditIconProps> = ({ id = 9652196695 }) => {
+const EditIcon: FC<EditIconProps> = ({ apprenticeshipId }) => {
     return (
         <button>
             <Link
                 className="edit-icon w-5 h-5 hover:cursor-pointer"
-                to={`/creating_apprenticeship/${id}`}
+                to={`/creating_apprenticeship/${apprenticeshipId}`}
             >
                 <svg
                     width="20"

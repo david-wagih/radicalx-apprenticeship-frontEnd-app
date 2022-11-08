@@ -1,9 +1,11 @@
+import { apprenticeship } from '../CreatingApprenticeship/Controller';
+
 export const getUserApprenticeships = async (
     userCredentials: {
         userId: string;
         customToken: string;
     },
-    setApprenticeships: React.Dispatch<React.SetStateAction<[]>>
+    setApprenticeships: React.Dispatch<React.SetStateAction<[apprenticeship]>>
 ) => {
     const response = await fetch(
         `http://localhost:4000/data/${userCredentials.userId}`,
@@ -20,7 +22,7 @@ export const getUserApprenticeships = async (
         const data = await response.json();
         const apprenticeships = data.map((apprenticeship: any) => ({
             ...apprenticeship.apprenticeshipData,
-            id: apprenticeship.apprenticeshipID
+            apprenticeshipId: apprenticeship.apprenticeshipID
         }));
         setApprenticeships(apprenticeships);
     }

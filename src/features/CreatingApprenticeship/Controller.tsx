@@ -48,6 +48,19 @@ export type action = {
 };
 export type checked = [boolean[], boolean, boolean, boolean, boolean];
 
+export type apprenticeship = {
+    apprenticeshipId: string;
+    apprenticeshipTitle: string;
+    companyLogo: File | string | null;
+    companyDescription: string;
+    apprenticeshipDescription: string;
+    companyVideo: File | null;
+    teamType: string;
+    teamRoles: teamRoles | [];
+    teamAdmins: teamAdmins | [];
+    timeline: timeLine | null;
+};
+
 export interface State {
     checked: checked;
     apprenticeshipTitle: string;
