@@ -19,17 +19,17 @@ const MinHours: FC<MinHoursProps> = ({
         setCurrentRole({ ...currentRole, minHours: hours });
     }, [hours]);
     return (
-        <div className="req-skills-div flex flex-col items-start p-0 h-fit flex-none flex-grow-0 gap-[8px] w-[555px]">
-            <p className="title mb-[10px] w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">
+        <div className="req-skills-div flex h-fit w-[555px] flex-none flex-grow-0 flex-col items-start gap-[8px] p-0">
+            <p className="title order-none mb-[10px] flex h-6 w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 text-gray-900">
                 Minimum Hours Per Week
             </p>
-            <div className="hours box-border flex flex-row items-start h-12 bg-white  py-[12px] pr-[12px] pl-[16px] gap-[10px] w-[555px] border-[1px]  border-[#CECECE] border-solid rounded-[12px]">
+            <div className="hours box-border flex h-12 w-[555px] flex-row items-start  gap-[10px] rounded-[12px] border-[1px] border-solid border-[#CECECE] bg-white  py-[12px] pr-[12px] pl-[16px]">
                 <HoursIcon />
                 <input
                     type="number"
                     value={hours}
                     placeholder="No. of hours"
-                    className="role flex flex-col justify-between items-start p-0 h-6 flex-none order-1 self-stretch flex-grow gap-[11px] w-[456px] decoration-none outline-none"
+                    className="role decoration-none order-1 flex h-6 w-[456px] flex-none flex-grow flex-col items-start justify-between gap-[11px] self-stretch p-0 outline-none"
                     onChange={e => {
                         setHours(e.target.value);
                     }}

@@ -8,7 +8,7 @@ const EditIcon: FC<EditIconProps> = ({ apprenticeshipId }) => {
     return (
         <button>
             <Link
-                className="edit-icon w-5 h-5 hover:cursor-pointer"
+                className="edit-icon h-5 w-5 hover:cursor-pointer"
                 to={`/creating_apprenticeship/${apprenticeshipId}`}
             >
                 <svg

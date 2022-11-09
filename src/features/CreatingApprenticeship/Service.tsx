@@ -1,4 +1,5 @@
 import { State } from './Controller';
+
 export const CreatingApprenticeship = (
     formData: State,
     userCredentials: {
@@ -36,39 +37,10 @@ export const CreatingApprenticeship = (
                 body: JSON.stringify(formData)
             }
         ).then(response => {
+            console.log(response);
             if (response.ok) {
                 navigate('/homepage');
             }
         });
-    }
-};
-
-export const getApprenticeshipData = async (
-    setDataForEdit: React.Dispatch<React.SetStateAction<State | null>>,
-    userCredentials: {
-        userId: string;
-        customToken: string;
-    },
-    id: string
-) => {
-    if (id !== undefined) {
-        const response = await fetch(
-            `http://localhost:4000/data/${userCredentials?.userId}/${id}`,
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${userCredentials?.customToken}`
-                }
-            }
-        );
-        if (response.ok) {
-            const data = await response.json();
-            const apprenticeships = data.map((apprenticeship: any) => ({
-                ...apprenticeship.apprenticeshipData,
-                apprenticeshipId: apprenticeship.apprenticeshipID
-            }));
-            setDataForEdit(apprenticeships[0]);
-        }
     }
 };

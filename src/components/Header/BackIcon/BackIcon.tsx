@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const BackIcon: FC = () => {
     return (
         <Link to={'/homepage'}>
-            <div className="back-icon-div flex flex-row items-center p-6 h-20 bg-white rou flex-none order-none rounded-l-[30px] self-stretch w-[300px] flex-grow-0">
+            <div className="back-icon-div rou order-none flex h-20 w-[300px] flex-none flex-grow-0 flex-row items-center self-stretch rounded-l-[30px] bg-white p-6">
                 <button className="back-button">
                     <svg
                         width="28"
@@ -42,7 +42,7 @@ const BackIcon: FC = () => {
                 </button>
                 <div
                     className="text
-                w-10 h-6 not-italic font-normal text-lg leading-6 flex items-center text-gray-900 flex-none order-1 font-sans tracking-wider flex-grow-0
+                order-1 flex h-6 w-10 flex-none flex-grow-0 items-center font-sans text-lg font-normal not-italic leading-6 tracking-wider text-gray-900
                 "
                 >
                     Back

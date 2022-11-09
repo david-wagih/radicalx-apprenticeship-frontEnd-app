@@ -23,14 +23,14 @@ const DropDown: FC<DropDownProps> = ({
     setShowDropDown,
     setOption
 }) => {
-    const [search, setSearch] = useState('Search');
+    const [search, setSearch] = useState('');
     const [optionsBySearchValue, setoptionsBySearchValue] = useState(options);
     return (
-        <div className="box-border flex flex-col items-start p-4 absolute h-fit bg-white gap-[12px] w-[508px] left-[70px] top-[105px] border-[1px]  border-[#E2E6EB] border-solid rounded-[20px] appearance-none">
+        <div className="absolute left-[70px] top-[105px] box-border flex h-fit w-[508px] appearance-none flex-col items-start gap-[12px] rounded-[20px] border-[1px]  border-solid border-[#E2E6EB] bg-white p-4">
             <input
                 value={search}
                 type="text"
-                className="flex flex-row items-start p-2 h-10 bg-gray-200 rounded-lg flex-none order-none self-stretch flex-grow-0 gap-[10px] w-[476px]"
+                className="order-none flex h-10 w-[476px] flex-none flex-grow-0 flex-row items-start gap-[10px] self-stretch rounded-lg bg-gray-200 p-2"
                 placeholder="Search"
                 onChange={e => {
                     {
@@ -41,10 +41,10 @@ const DropDown: FC<DropDownProps> = ({
                     }
                 }}
             />
-            <div className="roles flex flex-col items-start p-0 w-fit h-fit flex-none order-1 flex-grow-0 gap-[8px]">
+            <div className="roles order-1 flex h-fit w-fit flex-none flex-grow-0 flex-col items-start gap-[8px] p-0">
                 {optionsBySearchValue.map(option => (
                     <button
-                        className="h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0 hover:bg-[#793EF5] rounded-xl p-2 hover:cursor-pointer"
+                        className="order-none flex h-6 flex-none flex-grow-0 items-center rounded-xl p-2 text-base font-medium not-italic leading-6 text-gray-900 hover:cursor-pointer hover:bg-[#793EF5]"
                         onClick={() => {
                             setOption(option);
                             setShowDropDown(false);

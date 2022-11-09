@@ -8,7 +8,7 @@ import RoleCard from './RoleCard/RoleCard';
 const RoleCards: FC = () => {
     const { neededRoles } = useContext(RolesContext);
     return (
-        <div className="cards w-[770px] h-fit grid grid-cols-2 gap-y-4">
+        <div className="cards grid h-fit w-[770px] grid-cols-2 gap-y-4">
             {neededRoles.map((neededRole, index) => (
                 <RoleCard
                     key={uuid()}

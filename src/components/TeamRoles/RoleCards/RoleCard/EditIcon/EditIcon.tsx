@@ -24,7 +24,7 @@ const EditIcon: FC<EditIconProps> = ({ currentRole }) => {
                 setShowModal(true);
             }}
         >
-            <div className="edit-icon w-5 h-5 hover:cursor-pointer">
+            <div className="edit-icon h-5 w-5 hover:cursor-pointer">
                 <svg
                     width="20"
                     height="20"

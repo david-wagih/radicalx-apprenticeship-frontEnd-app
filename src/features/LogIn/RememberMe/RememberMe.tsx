@@ -1,12 +1,12 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
-import { setRememberMe } from './Controller';
-
-const RememberMe: FC = () => {
-    const [checked, setChecked] = useState(false);
+interface RememberMeProps {
+    rememberMe: boolean;
+    setRememberMe: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const RememberMe: FC<RememberMeProps> = ({ rememberMe, setRememberMe }) => {
     const handleChecked = () => {
-        setRememberMe(!checked);
-        setChecked(!checked);
+        setRememberMe(!rememberMe);
     };
 
     return (
@@ -16,7 +16,7 @@ const RememberMe: FC = () => {
                 id="rememberMeCheckBox"
                 className="align-middle"
             >
-                {checked && (
+                {rememberMe && (
                     <svg
                         width="20"
                         height="20"
@@ -47,7 +47,7 @@ const RememberMe: FC = () => {
                         />
                     </svg>
                 )}
-                {!checked && (
+                {!rememberMe && (
                     <svg
                         width="20"
                         height="20"
@@ -68,7 +68,7 @@ const RememberMe: FC = () => {
             <label
                 htmlFor="rememberMeCheckBox"
                 className="
-            align-middle w-[114px] h-[24px] text-[#828282] font-medium text-base tracking-[0.4px] "
+            h-[24px] w-[114px] align-middle text-base font-medium tracking-[0.4px] text-[#828282] "
             >
                 Remember me
             </label>

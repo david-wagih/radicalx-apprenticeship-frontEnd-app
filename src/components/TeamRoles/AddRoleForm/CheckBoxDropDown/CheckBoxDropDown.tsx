@@ -40,15 +40,15 @@ const CheckBoxDropDown: FC<CheckBoxDropDownProps> = ({
 }) => {
     let topValue = 'top-[460px]';
     if (whichDropDown === 'compSkills') topValue = 'top-[585px]';
-    const [search, setSearch] = useState('Search');
+    const [search, setSearch] = useState('');
     const [optionsBySearchValue, setoptionsBySearchValue] = useState(options);
     return (
         <div
-            className={`box-border flex flex-col items-start p-4 absolute h-fit bg-white gap-[12px] w-[508px] left-[70px] ${topValue} border-[1px]  border-[#E2E6EB] border-solid rounded-[20px] appearance-none`}
+            className={`absolute left-[70px] box-border flex h-fit w-[508px] flex-col items-start gap-[12px] bg-white p-4 ${topValue} appearance-none  rounded-[20px] border-[1px] border-solid border-[#E2E6EB]`}
         >
             <input
                 type="text"
-                className="flex flex-row items-start p-2 h-10 bg-gray-200 rounded-lg flex-none order-none self-stretch flex-grow-0 gap-[10px] w-[476px]"
+                className="order-none flex h-10 w-[476px] flex-none flex-grow-0 flex-row items-start gap-[10px] self-stretch rounded-lg bg-gray-200 p-2"
                 placeholder="Search"
                 onChange={e => {
                     {
@@ -60,15 +60,15 @@ const CheckBoxDropDown: FC<CheckBoxDropDownProps> = ({
                 }}
                 value={search}
             />
-            <div className="roles flex flex-col items-start p-0 w-fit h-fit flex-none order-1 flex-grow-0 gap-[8px]">
+            <div className="roles order-1 flex h-fit w-fit flex-none flex-grow-0 flex-col items-start gap-[8px] p-0">
                 {optionsBySearchValue.map(option => (
                     <div
-                        className="check-boxes flex flex-row items-start p-0 w-20 h-6 flex-none order-none flex-grow-0 gap-[16px]"
+                        className="check-boxes order-none flex h-6 w-20 flex-none flex-grow-0 flex-row items-start gap-[16px] p-0"
                         key={option}
                     >
                         <input
                             type="checkbox"
-                            className="w-6 h-6 flex-none order-none flex-grow-0"
+                            className="order-none h-6 w-6 flex-none flex-grow-0"
                             name={option}
                             checked={chosenOptions.includes(option)}
                             onChange={e => {

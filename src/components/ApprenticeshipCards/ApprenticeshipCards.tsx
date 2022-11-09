@@ -18,18 +18,18 @@ const ApprenticeshipCards: FC<ApprenticeshipCardsProps> = ({
     apprenticeships
 }) => {
     return (
-        <div className="flex flex-col items-start p-0 absolute  w-[1150px] min-h-[298px] h-fit left-[311px] top-[57px]">
-            <div className="flex flex-row justify-between items-center p-0 flex-none order-none flex-grow-0 gap-[626px] w-[1135px] h-1/5">
-                <p className="w-64 h-6 not-italic font-semibold text-3xl leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">
+        <div className="absolute left-[311px] top-[57px] flex h-fit  min-h-[298px] w-[1150px] flex-col items-start p-0">
+            <div className="order-none flex h-1/5 w-[1135px] flex-none flex-grow-0 flex-row items-center justify-between gap-[626px] p-0">
+                <p className="order-none flex h-6 w-64 flex-none flex-grow-0 items-center text-3xl font-semibold not-italic leading-6 text-gray-900">
                     Apprenticeship
                 </p>
                 <CreateButton />
             </div>
-            <div className="cards w-4/6 h-fit grid grid-cols-2 gap-y-4 ">
+            <div className="cards grid h-fit w-4/6 grid-cols-2 gap-y-4 ">
                 {apprenticeships &&
                     apprenticeships.map(apprenticeship => (
                         <ApprenticeshipCard
-                        apprenticeshipId={apprenticeship.apprenticeshipId}
+                            apprenticeshipId={apprenticeship.apprenticeshipId}
                             key={uuid()}
                             title={apprenticeship.title}
                             paragraph={apprenticeship.description}

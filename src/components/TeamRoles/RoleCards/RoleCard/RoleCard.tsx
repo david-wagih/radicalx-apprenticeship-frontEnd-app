@@ -26,10 +26,10 @@ const RoleCard: FC<RoleCardProps> = ({
     const { neededRoles } = useContext(RolesContext);
     return (
         <div
-            className="box-border flex flex-col items-start p-5 h-56 bg-white flex-none order-none self-stretch flex-grow-0 w-fit border-[#CFD3D9] border rounded-lg "
+            className="order-none box-border flex h-56 w-fit flex-none flex-grow-0 flex-col items-start self-stretch rounded-lg border border-[#CFD3D9] bg-white p-5 "
             key={myKey}
         >
-            <div className="flex justify-between w-full">
+            <div className="flex w-full justify-between">
                 <Title text={title} />
                 <div className="icons flex space-x-2">
                     <EditIcon currentRole={neededRoles[index]} />
@@ -40,11 +40,11 @@ const RoleCard: FC<RoleCardProps> = ({
             <div className="mb-[35px]">
                 <Paragraph text={paragraph} />
             </div>
-            <div className=" items-start p-0 h-16 w-[265px] grid grid-cols-2 gap-y-2">
+            <div className=" grid h-16 w-[265px] grid-cols-2 items-start gap-y-2 p-0">
                 {tags?.map((tag, index) => (
                     <div
                         key={index}
-                        className="bg-[#EDEAFF] w-[125px] h-[27px] rounded-lg text-center"
+                        className="h-[27px] w-[125px] rounded-lg bg-[#EDEAFF] text-center"
                     >
                         {tag.length <= 10
                             ? tag.slice(0, 10)

@@ -8,11 +8,11 @@ interface CardHeaderProps {
 
 const CardHeader: FC<CardHeaderProps> = ({ header }) => {
     return (
-        <div className="flex flex-row justify-between items-center p-0 h-6 flex-none order-none  min-w-[750px] self-start">
+        <div className="order-none flex h-6 min-w-[750px] flex-none flex-row items-center justify-between  self-start p-0">
             <InfoIcon />
             <p
                 className="card-header 
-            h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none w-fit flex-grow-0
+            order-none flex h-6 w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 text-gray-900
             "
             >
                 {header}

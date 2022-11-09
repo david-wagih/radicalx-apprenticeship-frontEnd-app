@@ -1,24 +1,23 @@
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, useContext, useEffect } from 'react';
 
 import ApprenticeshipCards from '../../components/ApprenticeshipCards/ApprenticeshipCards';
 import NavBar from '../../components/NavBar/NavBar';
 import { UserContext } from '../../Contexts/UserContext/UserContext';
-import { apprenticeship } from '../CreatingApprenticeship/Controller';
 
 import { getUserApprenticeships } from './Service';
 const HomePage: FC = () => {
-    const [apprenticeships, setApprenticeships] = useState<[apprenticeship]>(
-        []
-    );
-    const { userCredentials } = useContext(UserContext);
+    const { userCredentials, userApprenticeships, setUserApprenticeships } =
+        useContext(UserContext);
+
     useEffect(() => {
-        getUserApprenticeships(userCredentials, setApprenticeships);
-    }, [apprenticeships]);
+        getUserApprenticeships(userCredentials, setUserApprenticeships);
+    }, []);
+
     return (
         <>
             <NavBar />
             <ApprenticeshipCards
-                apprenticeships={apprenticeships.map(apprenticeship => ({
+                apprenticeships={userApprenticeships.map(apprenticeship => ({
                     apprenticeshipId: apprenticeship.apprenticeshipId,
                     title: apprenticeship.apprenticeshipTitle,
                     description: apprenticeship.apprenticeshipDescription,

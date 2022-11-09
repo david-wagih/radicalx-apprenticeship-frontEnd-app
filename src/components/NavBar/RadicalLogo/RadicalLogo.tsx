@@ -9,7 +9,7 @@ const RadicalLogo: FC = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            className="w-40 h-8 flex-none order-none flex-grow-0"
+            className="order-none h-8 w-40 flex-none flex-grow-0"
         >
             <rect x="0.5" width="160" height="32" fill="url(#pattern0)" />
             <defs>

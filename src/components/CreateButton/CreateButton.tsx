@@ -5,7 +5,7 @@ const CreateButton: FC = () => {
     const navigate = useNavigate();
     return (
         <button
-            className="publish-apprenticeship-button flex flex-row justify-end items-center p-6 h-20 flex-none order-2 self-stretch flex-grow-0 w-[300px] rounded-r-[30px]"
+            className="publish-apprenticeship-button order-2 flex h-20 w-[300px] flex-none flex-grow-0 flex-row items-center justify-end self-stretch rounded-r-[30px] p-6"
             onClick={() => navigate('/creating_apprenticeship')}
         >
             <svg

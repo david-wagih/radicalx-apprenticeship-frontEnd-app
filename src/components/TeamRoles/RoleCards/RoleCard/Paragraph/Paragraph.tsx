@@ -5,7 +5,7 @@ interface ParagraphProps {
 const Paragraph: FC<ParagraphProps> = ({ text }) => {
     return (
         <p
-            className="w-[325px] font-sans h-16 not-italic font-normal text-sm leading-5 text-gray-900 flex-none order-1 flex-grow-0
+            className="order-1 h-16 w-[325px] flex-none flex-grow-0 font-sans text-sm font-normal not-italic leading-5 text-gray-900
         "
         >
             {text.length <= 180

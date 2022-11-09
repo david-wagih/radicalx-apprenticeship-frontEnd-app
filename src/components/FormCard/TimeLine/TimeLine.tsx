@@ -36,10 +36,10 @@ const TimeLine: FC<TimeLineInterface> = ({
         );
     }, [alreadyExcitingTimeline]);
     return (
-        <div className="flex flex-row items-start p-0 h-12 w-[722px] gap-4 ml-[10px]">
-            <div className="start-date border-[#665FEF]  box-border flex flex-row items-start h-12 bg-white flex-none order-none flex-grow p-[12px] w-[353px] border-2 rounded-lg ">
-                <div className=" text-wrapper flex flex-col justify-between items-start p-0 h-6 flex-none order-none self-stretch flex-grow w-[291px] gap-[11px]">
-                    <p className="w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0 opacity-50">
+        <div className="ml-[10px] flex h-12 w-[722px] flex-row items-start gap-4 p-0">
+            <div className="start-date order-none  box-border flex h-12 w-[353px] flex-none flex-grow flex-row items-start rounded-lg border-2 border-[#665FEF] bg-white p-[12px] ">
+                <div className=" text-wrapper order-none flex h-6 w-[291px] flex-none flex-grow flex-col items-start justify-between gap-[11px] self-stretch p-0">
+                    <p className="order-none flex h-6 w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 text-gray-900 opacity-50">
                         {timeLine.startDate}
                     </p>
                 </div>
@@ -54,9 +54,9 @@ const TimeLine: FC<TimeLineInterface> = ({
                     }}
                 />
             </div>
-            <div className="start-date border-[#665FEF]  box-border flex flex-row items-start h-12 bg-white flex-none order-none flex-grow p-[12px] w-[353px] border-2 rounded-lg ">
-                <div className=" text-wrapper flex flex-col justify-between items-start p-0 h-6 flex-none order-none self-stretch flex-grow w-[291px] gap-[11px]">
-                    <p className="w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0 opacity-50">
+            <div className="start-date order-none  box-border flex h-12 w-[353px] flex-none flex-grow flex-row items-start rounded-lg border-2 border-[#665FEF] bg-white p-[12px] ">
+                <div className=" text-wrapper order-none flex h-6 w-[291px] flex-none flex-grow flex-col items-start justify-between gap-[11px] self-stretch p-0">
+                    <p className="order-none flex h-6 w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 text-gray-900 opacity-50">
                         {timeLine.endDate}
                     </p>
                 </div>

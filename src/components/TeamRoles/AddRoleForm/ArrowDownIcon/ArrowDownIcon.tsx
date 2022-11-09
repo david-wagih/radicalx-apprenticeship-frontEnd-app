@@ -7,7 +7,7 @@ interface ArrowDownIconProps {
 const ArrowDownIcon: FC<ArrowDownIconProps> = ({ setShowDropDown }) => {
     return (
         <button
-            className="arrow-down w-6 h-6 flex-none order-2 flex-grow-0 opacity-50"
+            className="arrow-down order-2 h-6 w-6 flex-none flex-grow-0 opacity-50"
             onClick={() => {
                 setShowDropDown(true);
             }}

@@ -4,12 +4,12 @@ const title: FC = () => {
     return (
         <div
             className="title
-    flex flex-row justify-center items-center p-6 h-20 bg-white flex-none order-1 self-stretch w-[866px] flex-grow
+    order-1 flex h-20 w-[866px] flex-none flex-grow flex-row items-center justify-center self-stretch bg-white p-6
     "
         >
             <p
-                className="h-6 not-italic font-semibold text-3xl leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0
-            w-[366px] 
+                className="order-none flex h-6 w-[366px] flex-none flex-grow-0 items-center text-3xl font-semibold not-italic leading-6
+            text-gray-900 
             "
             >
                 Creating Apprenticeship

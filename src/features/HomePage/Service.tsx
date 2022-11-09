@@ -5,7 +5,9 @@ export const getUserApprenticeships = async (
         userId: string;
         customToken: string;
     },
-    setApprenticeships: React.Dispatch<React.SetStateAction<[apprenticeship]>>
+    setUserApprenticeships: React.Dispatch<
+        React.SetStateAction<apprenticeship[]>
+    >
 ) => {
     const response = await fetch(
         `http://localhost:4000/data/${userCredentials.userId}`,
@@ -20,10 +22,20 @@ export const getUserApprenticeships = async (
     );
     if (response.ok) {
         const data = await response.json();
-        const apprenticeships = data.map((apprenticeship: any) => ({
-            ...apprenticeship.apprenticeshipData,
-            apprenticeshipId: apprenticeship.apprenticeshipID
-        }));
-        setApprenticeships(apprenticeships);
+        console.log('data', data);
+        const apprenticeships = data.map(
+            (apprenticeship: {
+                apprenticeshipID: string;
+                apprenticeshipData: apprenticeship;
+            }) => ({
+                ...apprenticeship.apprenticeshipData,
+                apprenticeshipId: apprenticeship.apprenticeshipID
+            })
+        );
+        localStorage.setItem(
+            'apprenticeships',
+            JSON.stringify(apprenticeships)
+        );
+        setUserApprenticeships(apprenticeships);
     }
 };

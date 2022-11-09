@@ -12,10 +12,10 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ onInteract }) => {
     const { customToken } = useContext(UserContext).userCredentials;
     return (
-        <div className="flex fixed items-center justify-center w-full h-full">
+        <div className="fixed flex h-full w-full items-center justify-center">
             <div
-                className="flex flex-col rounded-[18px] bg-white p-[22px]
-            w-[500px] h-[300px]"
+                className="flex h-[300px] w-[500px] flex-col rounded-[18px]
+            bg-white p-[22px]"
             >
                 <button
                     className="flex justify-end text-[20px]"
@@ -26,20 +26,20 @@ const Modal: FC<ModalProps> = ({ onInteract }) => {
 
                 <h1 className="text-[55px]">Confirmation</h1>
 
-                <p className="text-[20px] mt-[10px]">
+                <p className="mt-[10px] text-[20px]">
                     Are you sure you want to logout?
                 </p>
 
-                <div className="flex justify-around mt-[55px] text-[20px]">
+                <div className="mt-[55px] flex justify-around text-[20px]">
                     <button
-                        className="bg-[#828282] rounded-[10px] px-[11px] py-[4px] text-white"
+                        className="rounded-[10px] bg-[#828282] px-[11px] py-[4px] text-white"
                         onClick={onInteract}
                     >
                         Cancel
                     </button>
 
                     <Link
-                        className="bg-rdx-purple rounded-[10px] px-[11px] py-[4px] text-white"
+                        className="rounded-[10px] bg-rdx-purple px-[11px] py-[4px] text-white"
                         to="/login"
                         onClick={() => logout(customToken)}
                     >

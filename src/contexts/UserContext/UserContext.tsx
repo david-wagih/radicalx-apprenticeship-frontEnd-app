@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react';
 
-//NOTE:we can make each team type have different options
+import { apprenticeship } from '../../features/CreatingApprenticeship/Controller';
 
 interface UserContextProps {
     userCredentials: {
@@ -12,6 +12,10 @@ interface UserContextProps {
             userId: string;
             customToken: string;
         }>
+    >;
+    userApprenticeships: apprenticeship[];
+    setUserApprenticeships: React.Dispatch<
+        React.SetStateAction<apprenticeship[]>
     >;
 }
 
@@ -30,8 +34,22 @@ export const UserContextProvider = ({ children }: { children: ReactNode }) => {
                   customToken: ''
               }
     );
+    const [userApprenticeships, setUserApprenticeships] = useState<
+        apprenticeship[]
+    >(
+        localStorage.getItem('apprenticeships')
+            ? JSON.parse(localStorage.getItem('apprenticeships') || '')
+            : []
+    );
     return (
-        <UserContext.Provider value={{ userCredentials, setUserCredentials }}>
+        <UserContext.Provider
+            value={{
+                userCredentials,
+                setUserCredentials,
+                userApprenticeships,
+                setUserApprenticeships
+            }}
+        >
             {children}
         </UserContext.Provider>
     );

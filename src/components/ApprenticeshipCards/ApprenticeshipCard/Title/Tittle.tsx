@@ -4,7 +4,7 @@ interface TitleProps {
 }
 const Title: FC<TitleProps> = ({ text }) => {
     return (
-        <div className="w-fit h-4 not-italic font-medium text-lg leading-4 text-gray-900 flex-none order-none flex-grow-0 font-sans mb-4">
+        <div className="order-none mb-4 h-4 w-fit flex-none flex-grow-0 font-sans text-lg font-medium not-italic leading-4 text-gray-900">
             {text}
         </div>
     );

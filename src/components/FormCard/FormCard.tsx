@@ -11,7 +11,7 @@ const FormCard: FC<formCardProps> = (
 ) => {
     return (
         <div
-            className="form-card box-border flex flex-col items-start p-6 h-fit bg-white flex-none order-none flex-grow-0 gap-[16px] w-full border-[1px]  border-[#793EF5] border-solid rounded-[24px] z-[7]"
+            className="form-card z-[7] order-none box-border flex h-fit w-full flex-none flex-grow-0 flex-col items-start gap-[16px] rounded-[24px] border-[1px]  border-solid border-[#793EF5] bg-white p-6"
             key={props.myKey}
         >
             <CardHeader header={props.header} />

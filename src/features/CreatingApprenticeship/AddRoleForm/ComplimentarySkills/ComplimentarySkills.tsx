@@ -29,13 +29,13 @@ const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({
     }, [chosenSkills]);
 
     return (
-        <div className="req-skills-div flex flex-col items-start p-0 h-fit flex-none flex-grow-0 gap-[8px] w-[555px]">
-            <p className="title mb-[10px] w-fit h-6 not-italic font-medium text-base leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0">
+        <div className="req-skills-div flex h-fit w-[555px] flex-none flex-grow-0 flex-col items-start gap-[8px] p-0">
+            <p className="title order-none mb-[10px] flex h-6 w-fit flex-none flex-grow-0 items-center text-base font-medium not-italic leading-6 text-gray-900">
                 Complimentary Skills (Select any 3)
             </p>
-            <div className="comp-skills box-border flex flex-row items-start h-12 bg-white flex-none  self-stretch flex-grow-0 py-[12px] pr-[12px] pl-[16px] gap-[10px] w-[555px] border-[1px]  border-[#CECECE] border-solid rounded-[12px]">
+            <div className="comp-skills box-border flex h-12 w-[555px] flex-none flex-grow-0 flex-row  items-start gap-[10px] self-stretch rounded-[12px] border-[1px] border-solid border-[#CECECE] bg-white  py-[12px] pr-[12px] pl-[16px]">
                 <ComplimentarySkillsIcon />
-                <div className="skill flex flex-col justify-between items-start p-0 h-6 flex-none order-1 self-stretch flex-grow gap-[11px] w-[456px]">
+                <div className="skill order-1 flex h-6 w-[456px] flex-none flex-grow flex-col items-start justify-between gap-[11px] self-stretch p-0">
                     Select Skills
                 </div>
                 {showDropDown && (
@@ -50,11 +50,11 @@ const ComplimentarySkills: FC<ComplimentarySkillsProps> = ({
                 <ArrowDownIcon setShowDropDown={setShowDropDown} />
             </div>
             {chosenSkills.length > 0 && (
-                <div className="selected-skills flex flex-row items-start p-0 w-48 h-10 flex-none order-1 flex-grow-0 gap-[8px]">
+                <div className="selected-skills order-1 flex h-10 w-48 flex-none flex-grow-0 flex-row items-start gap-[8px] p-0">
                     {chosenSkills.map(skill => {
                         return (
                             <div
-                                className="flex flex-row items-center w-fit h-10 flex-none order-none flex-grow-0 py-[8px] px-[12px] gap-[10px] rounded-[12px] bg-[#665fef33] text-center"
+                                className="order-none flex h-10 w-fit flex-none flex-grow-0 flex-row items-center gap-[10px] rounded-[12px] bg-[#665fef33] py-[8px] px-[12px] text-center"
                                 key={skill + Math.random()}
                             >
                                 {skill}

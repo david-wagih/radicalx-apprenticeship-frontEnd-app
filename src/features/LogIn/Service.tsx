@@ -2,12 +2,14 @@ import { NavigateFunction } from 'react-router-dom';
 
 import { auth } from '../../PrivateRoutes';
 
+import { setRememberCookies } from './RememberMe/Controller';
 import { validateEmail, validatePassword } from './Controller';
 
 export const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     email: string,
     password: string,
+    rememberMe: boolean,
     setEmailErrorMessage: React.Dispatch<React.SetStateAction<string>>,
     setPasswordErrorMessage: React.Dispatch<React.SetStateAction<string>>,
     navigate: NavigateFunction
@@ -25,7 +27,8 @@ export const handleSubmit = async (
             },
             body: JSON.stringify({
                 email: email,
-                password: password
+                password: password,
+                rememberMe: rememberMe
             })
         });
         if (response.ok) {
@@ -33,6 +36,9 @@ export const handleSubmit = async (
             auth.isAuthorized = true;
             localStorage.setItem('customToken', json.customToken);
             localStorage.setItem('userId', json.userID);
+            if (rememberMe) {
+                setRememberCookies(json.customToken);
+            }
             navigate('/homepage');
         }
     }

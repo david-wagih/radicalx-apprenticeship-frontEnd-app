@@ -45,7 +45,7 @@ const TeamType: FC<teamTypeProps> = ({ dispatch, teamType }) => {
         <CustomIcon />
     ];
     return (
-        <div className="team-types flex flex-row items-start p-0 gap-[16px] w-[722px] h-fit flex-wrap ml-[10px]">
+        <div className="team-types ml-[10px] flex h-fit w-[722px] flex-row flex-wrap items-start gap-[16px] p-0">
             {titles.map((title, index) => (
                 <TeamCard
                     key={index + title}

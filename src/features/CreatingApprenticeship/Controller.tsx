@@ -44,7 +44,15 @@ export type timeLine = {
 };
 export type action = {
     type: string;
-    payload: string | File | teamRoles | teamAdmins | timeLine | State | null;
+    payload:
+        | string
+        | File
+        | teamRoles
+        | teamAdmins
+        | timeLine
+        | State
+        | apprenticeship
+        | null;
 };
 export type checked = [boolean[], boolean, boolean, boolean, boolean];
 

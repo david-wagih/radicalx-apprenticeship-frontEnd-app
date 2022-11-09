@@ -20,6 +20,7 @@ const PublishButton: FC<PublishButtonProps> = ({
     const { userCredentials } = useContext(UserContext);
     const navigate = useNavigate();
     const handleClick = async () => {
+        console.log('clicked');
         if (readyToPublish && id === undefined) {
             CreatingApprenticeship(formData, userCredentials, navigate);
         }
@@ -30,7 +31,7 @@ const PublishButton: FC<PublishButtonProps> = ({
     };
     return (
         <button
-            className="publish-apprenticeship-button flex flex-row justify-end items-center p-6 h-20 bg-white flex-none order-2 self-stretch flex-grow-0 w-[300px] rounded-r-[30px]"
+            className="publish-apprenticeship-button order-2 flex h-20 w-[300px] flex-none flex-grow-0 flex-row items-center justify-end self-stretch rounded-r-[30px] bg-white p-6"
             //FIXME: navigate to home page with id of user
             onClick={handleClick}
         >

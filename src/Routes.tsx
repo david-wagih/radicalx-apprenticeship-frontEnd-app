@@ -41,6 +41,7 @@ const RoutesComponent: FC = () => {
                         path="/homepage"
                         element={ContextProviders(<HomePage />)}
                     />
+                    <Route path="/" element={ContextProviders(<SignUp />)} />
                 </Route>
             </Routes>
         </BrowserRouter>

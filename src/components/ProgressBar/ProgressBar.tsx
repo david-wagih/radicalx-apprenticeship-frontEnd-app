@@ -20,12 +20,12 @@ const ProgressBar: FC<ProgressBarProps> = ({ checked }) => {
     return (
         <div
             className="progress-bar
-        absolute left-6 top-28 box-border 
-<<<<<<< HEAD
-       flex h-16 w-11/12 flex-row sm:
-=======
-       flex h-16 w-[1466px] flex-row sm:
->>>>>>> 1a2dd55600af270dae5403cd5ca2fb17d5d13baf
+        <<<<<<< HEAD sm: ======= 
+sm: >>>>>>>
+       1a2dd55600af270dae5403cd5ca2fb17d5d13baf absolute left-6 top-28 box-border
+flex
+       flex h-16 h-16 w-11/12 w-[1466px]
+flex-row flex-row
        items-center justify-between gap-5 rounded-3xl border border-solid border-gray-400  p-6
        "
         >

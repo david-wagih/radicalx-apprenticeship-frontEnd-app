@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ readyToPublish, formData, id }) => {
     return (
         <div
             className="header 
-        flex flex-row items-start p-0 absolute h-20 left-6 top-5  max-w-[1466px]
+        absolute left-6 top-5 flex h-20 max-w-[1466px] flex-row items-start  p-0
         "
         >
             <BackIcon />

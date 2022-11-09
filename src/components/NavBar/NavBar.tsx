@@ -31,17 +31,17 @@ const NavBar = () => {
         '/homepage'
     ];
     return (
-        <div className="overflow-y-auto py-10 px-7 ml-2 mt-2 mb-2 bg-white w-[237px] h-[950px] shadow-xl rounded-3xl font-sans">
+        <div className="ml-2 mt-2 mb-2 h-[950px] w-[237px] overflow-y-auto rounded-3xl bg-white py-10 px-7 font-sans shadow-xl">
             <RadicalLogo />
-            <ul className="list-none no-underline mt-[40px] flex flex-col gap-4">
+            <ul className="mt-[40px] flex list-none flex-col gap-4 no-underline">
                 {Logos.map((logo, index) => (
                     <li
                         key={index}
-                        className="hover:bg-[#665fef29] rounded-3xl p-3"
+                        className="rounded-3xl p-3 hover:bg-[#665fef29]"
                     >
                         <Link
                             to={Href[index]}
-                            className="min-w-[180px] flex flex-row flex-start gap-2"
+                            className="flex-start flex min-w-[180px] flex-row gap-2"
                         >
                             {logo}
                             <p>{Text[index]}</p>

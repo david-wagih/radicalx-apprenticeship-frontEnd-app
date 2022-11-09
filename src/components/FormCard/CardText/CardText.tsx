@@ -18,10 +18,10 @@ const CardText: FC<cardTextProps> = ({
     name
 }) => {
     return (
-        <div className="text-wrapper flex flex-row items-center p-0 h-6 flex-none order-1 self-stretch flex-grow-0 gap-[24px] w-[722px]">
+        <div className="text-wrapper order-1 flex h-6 w-[722px] flex-none flex-grow-0 flex-row items-center gap-[24px] self-stretch p-0">
             <InputField
                 type="text"
-                className="card-text w-full h-6 not-italic font-medium text-lg leading-6 flex items-center text-gray-900 flex-none order-none flex-grow-0 opacity-70 border-none focus:outline-none"
+                className="card-text order-none flex h-6 w-full flex-none flex-grow-0 items-center border-none text-lg font-medium not-italic leading-6 text-gray-900 opacity-70 focus:outline-none"
                 onChange={e =>
                     dispatch({
                         type: type,

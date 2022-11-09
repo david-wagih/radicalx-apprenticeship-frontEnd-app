@@ -17,14 +17,14 @@ const AddRoleForm: FC = () => {
     const [currentRole, setCurrentRole] = useState<teamRole>(initialValues);
 
     return (
-        <div className="form gap-[20px] z-50 w-[600px] bg-white h-fit left-[456px] top-[40px] box-border flex flex-col items-start p-6 absolute border-[1px] border-[#793EF5] border-solid rounded-[24px]">
-            <div className="title-save flex flex-row  items-center p-0 h-8 flex-none order-none self-stretch flex-grow-0 gap-[350px] w-[522px] ">
-                <p className="title flex flex-row items-center p-0 w-30 h-6 flex-none order-none flex-grow-0 gap-[16px] text-xl font-semibold">
+        <div className="form absolute left-[456px] top-[40px] z-50 box-border flex h-fit w-[600px] flex-col items-start gap-[20px] rounded-[24px] border-[1px] border-solid border-[#793EF5] bg-white p-6">
+            <div className="title-save order-none flex  h-8 w-[522px] flex-none flex-grow-0 flex-row items-center gap-[350px] self-stretch p-0 ">
+                <p className="title w-30 order-none flex h-6 flex-none flex-grow-0 flex-row items-center gap-[16px] p-0 text-xl font-semibold">
                     Add Role
                 </p>
-                <div className="save-cancel flex flex-row items-center p-0 w-32 h-8 flex-none order-1 flex-grow-0 gap-[12px] ">
+                <div className="save-cancel order-1 flex h-8 w-32 flex-none flex-grow-0 flex-row items-center gap-[12px] p-0 ">
                     <button
-                        className="flex flex-row justify-end items-center w-20 h-8 bg-purple-600 rounded-lg flex-none order-none flex-grow-0 py-[8px] px-[24px] gap-[29px] text-white"
+                        className="order-none flex h-8 w-20 flex-none flex-grow-0 flex-row items-center justify-end gap-[29px] rounded-lg bg-purple-600 py-[8px] px-[24px] text-white"
                         onClick={() => {
                             if (initialValues.roleName === '') {
                                 setNeededRoles([...neededRoles, currentRole]);
@@ -42,7 +42,7 @@ const AddRoleForm: FC = () => {
                     >
                         Save
                     </button>
-                    <ExitIcon  />
+                    <ExitIcon />
                 </div>
             </div>
             <SelectRole

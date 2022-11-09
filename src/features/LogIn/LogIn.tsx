@@ -16,6 +16,7 @@ const LogIn: FC = () => {
     const [emailErrormessage, setEmailErrorMessage] = useState('');
     const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
     const [passwordShown, setPasswordShown] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
 
     // Password toggle handler
     const togglePassword = () => {
@@ -39,33 +40,34 @@ const LogIn: FC = () => {
     return (
         <div className="login-page relative h-screen w-screen ">
             <div className="purple-half absolute inset-y-0 left-0 h-[982px] w-[756px]  bg-rdx-purple "></div>
-            <div className="white-half absolute h-[982px] w-[756px] bg-white left-[756px]"></div>
+            <div className="white-half absolute left-[756px] h-[982px] w-[756px] bg-white"></div>
             <img
-                className="logo absolute w-[200px] h-[40px] left-[1034px] top-[77px] "
+                className="logo absolute left-[1034px] top-[77px] h-[40px] w-[200px] "
                 alt="RadicalX Logo"
                 src="src/assets/Images/RadicalX logo.png"
             />
             <form
-                className="form flex gap-[20px] flex-col items-start p-0 absolute width-[360px] max-h-[500px] h-[256px] left-[954px] top-[250px]"
+                className="form width-[360px] absolute left-[954px] top-[250px] flex h-[256px] max-h-[500px] flex-col items-start gap-[20px] p-0"
                 onSubmit={e =>
                     handleSubmit(
                         e,
                         form.email,
                         form.password,
+                        rememberMe,
                         setEmailErrorMessage,
                         setPasswordErrorMessage,
                         navigate
                     )
                 }
             >
-                <p className="Login-span w-[66px] h-[24px] font-Space Grotesk not-italic font-medium text-2xl leading-6 text-center tracking-widest flex-none order-none grow-0 text-black p-0">
+                <p className="Login-span font-Space Grotesk order-none h-[24px] w-[66px] flex-none grow-0 p-0 text-center text-2xl font-medium not-italic leading-6 tracking-widest text-black">
                     Login
                 </p>
                 <div className="email flex h-[48px] w-[360px] rounded-2xl border-2 border-[#CECECE] bg-[#F5F5F7] pl-3">
                     <img
                         alt="MailIcon"
                         src="src/assets/Images/sms.svg"
-                        className="h-[22px] w-[18px] flex-none translate-y-2.5 m-[0] mr-[5px]"
+                        className="m-[0] mr-[5px] h-[22px] w-[18px] flex-none translate-y-2.5"
                     ></img>
                     <InputField
                         value={form.email}
@@ -118,10 +120,13 @@ const LogIn: FC = () => {
                         <span className="pl-1">{passwordErrorMessage}</span>
                     </div>
                 )}
-                <div className="flex flex-row justify-between items-start p-0 gap-[20px] w-[360px] h-[24px] flex-none order-1 grow-0">
-                    <RememberMe />
+                <div className="order-1 flex h-[24px] w-[360px] flex-none grow-0 flex-row items-start justify-between gap-[20px] p-0">
+                    <RememberMe
+                        rememberMe={rememberMe}
+                        setRememberMe={setRememberMe}
+                    />
                     <Link to="/ForgotPassword">
-                        <p className="w-146px h-24px font-Space Grotesk not-italic font-medium text-base leading-6 text-center tracking-wider  text-rdx-purple">
+                        <p className="w-146px h-24px font-Space Grotesk text-center text-base font-medium not-italic leading-6 tracking-wider  text-rdx-purple">
                             {' '}
                             Forget Password?
                         </p>
@@ -129,7 +134,7 @@ const LogIn: FC = () => {
                 </div>
                 <button
                     name="Login"
-                    className="flex flex-row justify-center items-center px-[10px] py-[16px] gap-[29px] w-[360px] h-[48px] bg-rdx-purple rounded-2xl flex-none order-2 self-stretch grow-0 text-base text-center font-Space Grotesk font-medium text-white"
+                    className="font-Space Grotesk order-2 flex h-[48px] w-[360px] flex-none grow-0 flex-row items-center justify-center gap-[29px] self-stretch rounded-2xl bg-rdx-purple px-[10px] py-[16px] text-center text-base font-medium text-white"
                     type="submit"
                 >
                     Login

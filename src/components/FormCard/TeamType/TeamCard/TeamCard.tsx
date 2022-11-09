@@ -38,12 +38,12 @@ const TeamCard: FC<TeamCardProps> = ({
 
     return (
         <div
-            className={`team-card ${bgColor} box-border flex flex-row items-start py-[16px] pr-[12px] pl-[16px] gap-[10px] w-[230px] h-[91px]  border-[1px] border-solid  rounded-[20px] flex-none`}
+            className={`team-card ${bgColor} box-border flex h-[91px] w-[230px] flex-none flex-row items-start gap-[10px] rounded-[20px] border-[1px]  border-solid py-[16px]  pr-[12px] pl-[16px]`}
             key={myKey}
         >
-            <div className="icon-and-text flex flex-col items-start p-[0px] gap-[11px] w-[168px] h-[59px] flex-none order-0 self-stretch flex-grow justify-between ">
+            <div className="icon-and-text order-0 flex h-[59px] w-[168px] flex-none flex-grow flex-col items-start justify-between gap-[11px] self-stretch p-[0px] ">
                 {icon}
-                <p className="text w-fit h-[24px] font-medium flex items-center color-[#1E1E1E] flex-none order-1">
+                <p className="text color-[#1E1E1E] order-1 flex h-[24px] w-fit flex-none items-center font-medium">
                     {title}
                 </p>
             </div>
@@ -51,7 +51,7 @@ const TeamCard: FC<TeamCardProps> = ({
                 type="checkbox"
                 name="choose-team"
                 id="choose-team"
-                className=" w-[24px] h-[24px] opacity-20 flex-none order-1 grow-0 "
+                className=" order-1 h-[24px] w-[24px] flex-none grow-0 opacity-20 "
                 checked={checked}
                 onChange={e => {
                     setCurrentType(title);

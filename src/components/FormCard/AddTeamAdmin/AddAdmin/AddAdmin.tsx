@@ -18,7 +18,7 @@ const AddAdmin: FC<AddAdminProps> = ({ dispatch, alreadyExcitingAdmins }) => {
     useEffect(() => {
         dispatch({ type: 'teamAdmins', payload: admins });
     }, [admins.length]);
-    
+
     useEffect(() => {
         setAdmins(alreadyExcitingAdmins);
     }, [alreadyExcitingAdmins]);

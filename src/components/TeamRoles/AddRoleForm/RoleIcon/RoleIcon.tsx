@@ -8,7 +8,7 @@ const RoleIcon: FC = () => {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 flex-none order-none flex-grow-0"
+            className="order-none h-6 w-6 flex-none flex-grow-0"
         >
             <path
                 d="M15.6802 3.96C16.1602 4.67 16.4402 5.52 16.4402 6.44C16.4302 8.84 14.5402 10.79 12.1602 10.87C12.0602 10.86 11.9402 10.86 11.8302 10.87C9.6202 10.8 7.8302 9.11 7.5902 6.95C7.3002 4.38 9.4102 2 11.9902 2"
