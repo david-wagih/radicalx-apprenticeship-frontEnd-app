@@ -49,7 +49,11 @@ Below are brief descriptions of highlighted features with GIFs and screenshoots 
 
 # Quick Tour
 
-https://user-images.githubusercontent.com/59124058/200797748-a0b03c9c-8e17-40c7-bad5-c56e23cfe082.mp4
+
+https://user-images.githubusercontent.com/59124058/200815945-003d7496-282a-47d3-a6ad-da9270a3d06d.mp4
+
+
+
 
  
 
