@@ -1,16 +1,22 @@
 import { FC, useContext } from 'react';
 
 import { UserContext } from '../../../../Contexts/UserContext/UserContext';
-import { duplicateApprenticeship } from '../../Service';
+import { duplicateApprenticeship } from '../../../../features/HomePage/Service';
 interface DuplicateIconProps {
     apprenticeshipId: string;
 }
 const DuplicateIcon: FC<DuplicateIconProps> = ({ apprenticeshipId }) => {
     const customToken = useContext(UserContext).userCredentials.customToken;
+    const setUserApprenticeships =
+        useContext(UserContext).setUserApprenticeships;
     return (
         <button
             onClick={() =>
-                duplicateApprenticeship(apprenticeshipId, customToken)
+                duplicateApprenticeship(
+                    apprenticeshipId,
+                    customToken,
+                    setUserApprenticeships
+                )
             }
         >
             <div className="duplicate-icon  hover:cursor-pointer">

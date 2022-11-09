@@ -1,19 +1,26 @@
 import { FC, useContext } from 'react';
 
 import { UserContext } from '../../../../Contexts/UserContext/UserContext';
-import { deleteApprenticeship } from '../../Service';
+import { deleteApprenticeship } from '../../../../features/HomePage/Service';
 
-// DeleteIconProps
 interface DeleteIconProps {
     apprenticeshipId: string;
 }
 
 const DeleteIcon: FC<DeleteIconProps> = ({ apprenticeshipId }) => {
     const customToken = useContext(UserContext).userCredentials.customToken;
+    const setUserApprenticeships =
+        useContext(UserContext).setUserApprenticeships;
     return (
         <button
             className="delete- hover:cursor-pointer"
-            onClick={() => deleteApprenticeship(apprenticeshipId, customToken)}
+            onClick={() =>
+                deleteApprenticeship(
+                    apprenticeshipId,
+                    customToken,
+                    setUserApprenticeships
+                )
+            }
         >
             <svg
                 width="20"

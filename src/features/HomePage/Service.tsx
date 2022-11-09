@@ -39,3 +39,61 @@ export const getUserApprenticeships = async (
         setUserApprenticeships(apprenticeships);
     }
 };
+
+export const deleteApprenticeship = async (
+    apprenticeshipId: string,
+    customToken: string,
+    setUserApprenticeships: React.Dispatch<
+        React.SetStateAction<apprenticeship[]>
+    >
+) => {
+    const res = await fetch(
+        `http://localhost:4000/delete_apprenticeship/${apprenticeshipId}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                accept: 'application/json',
+                Authorization: `Bearer ${customToken}`
+            }
+        }
+    );
+    if (res.ok) {
+        getUserApprenticeships(
+            {
+                userId: localStorage.getItem('userId') || '',
+                customToken
+            },
+            setUserApprenticeships
+        );
+    }
+};
+
+export const duplicateApprenticeship = async (
+    apprenticeshipId: string,
+    customToken: string,
+    setUserApprenticeships: React.Dispatch<
+        React.SetStateAction<apprenticeship[]>
+    >
+) => {
+    const res = await fetch(
+        `http://localhost:4000/duplicate_apprenticeship/${apprenticeshipId}`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                accept: 'application/json',
+                Authorization: `Bearer ${customToken}`
+            }
+        }
+    );
+    if (res.ok) {
+        getUserApprenticeships(
+            {
+                userId: localStorage.getItem('userId') || '',
+                customToken
+            },
+            setUserApprenticeships
+        );
+    }
+};

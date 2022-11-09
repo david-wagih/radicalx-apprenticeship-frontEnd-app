@@ -11,7 +11,7 @@ const HomePage: FC = () => {
 
     useEffect(() => {
         getUserApprenticeships(userCredentials, setUserApprenticeships);
-    }, []);
+    }, [userApprenticeships.length]);
 
     return (
         <>
