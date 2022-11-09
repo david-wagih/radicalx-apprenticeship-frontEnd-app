@@ -26,7 +26,7 @@ const ForgotPassword: FC = () => {
             <img
                 className="logo absolute left-[1034px] top-[77px] h-[40px] w-[200px] "
                 alt="RadicalX Logo"
-                src="src/assets/Images/RadicalX logo.png"
+                src="public/assets/Images/RadicalX logo.png"
             />
             <form className="form width-[360px] absolute left-[954px] top-[250px] flex h-[256px] max-h-[500px] flex-col items-start gap-[20px] p-0">
                 <p className="EnterEmail-span font-Space Grotesk order-none h-[24px] w-[250px] flex-none grow-0 p-0 text-center text-2xl font-medium not-italic leading-6 tracking-widest text-black">
@@ -35,7 +35,7 @@ const ForgotPassword: FC = () => {
                 <div className="email flex h-[48px] w-[360px] rounded-2xl border-2 border-[#CECECE] bg-[#F5F5F7] pl-3">
                     <img
                         alt="MailIcon"
-                        src="src/assets/Images/sms.svg"
+                        src="public/assets/Images/sms.svg"
                         className="m-[0] mr-[5px] h-[22px] w-[18px] flex-none translate-y-2.5"
                     ></img>
                     <InputField
@@ -52,7 +52,7 @@ const ForgotPassword: FC = () => {
                     <div className="flex h-[40px] w-[360px] items-center self-center rounded-2xl bg-[#FDEDED] py-2 pl-5 text-[#5F2120]	">
                         <img
                             alt="AlertIcon"
-                            src="src/assets/Images/alertIconRed.svg"
+                            src="public/assets/Images/alertIconRed.svg"
                             className="h-[22px] w-[18px] flex-none  "
                         ></img>
                         <span className="pl-1">{emailErrormessage}</span>

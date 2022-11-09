@@ -59,7 +59,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                     >
                         <img
                             alt="close"
-                            src="src\assets\Images\Cancel.svg"
+                            src="public/assets/Images/Cancel.svg"
                         ></img>
                     </button>
                     <form
@@ -79,7 +79,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                             <div className="flex h-[48px] w-[552px] rounded-2xl border-2 border-[#CECECE] bg-[#FFF] ">
                                 <img
                                     alt="ProfileIcon"
-                                    src="src/assets/Images/profileIconPurple.svg"
+                                    src="public/assets/Images/profileIconPurple.svg"
                                     className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField
@@ -96,7 +96,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                             <div className="flex h-[48px] w-[552px] rounded-2xl border-2 border-[#CECECE] bg-[#FFF] ">
                                 <img
                                     alt="MailIcon"
-                                    src="src/assets/Images/SmsPurple.svg"
+                                    src="public/assets/Images/SmsPurple.svg"
                                     className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField
@@ -113,7 +113,7 @@ const AddAdminModal: FC<AddAdminModalProps> = ({
                             <div className="flex h-[48px] w-[552px] rounded-2xl border-2 border-[#CECECE] bg-[#FFF] ">
                                 <img
                                     alt="LinkIcon"
-                                    src="src/assets/Images/LinkPurple.svg"
+                                    src="public/assets/Images/LinkPurple.svg"
                                     className="h-[24px] w-[24px] flex-none translate-y-2.5 translate-x-4 "
                                 ></img>
                                 <InputField

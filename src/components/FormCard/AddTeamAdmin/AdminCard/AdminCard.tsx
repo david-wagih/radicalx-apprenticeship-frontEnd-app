@@ -35,7 +35,7 @@ const AdminCard: FC<AdminCardProps> = ({ name, linkedIn, logo }) => {
                         <a href={linkedIn} target="_blank">
                             <img
                                 alt="LinkedInLogo"
-                                src="src\assets\Images\LinkedInLogo.svg"
+                                src="public/assets/Images/LinkedInLogo.svg"
                             />
                         </a>
                     </div>
